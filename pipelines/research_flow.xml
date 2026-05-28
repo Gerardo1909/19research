@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Grafo de ejecución del sistema multiagente.
+  Define el orden, los inputs/outputs por nodo y las reglas de ruteo.
+-->
+<research_flow version="1.0">
+
+  <nodos>
+    <nodo id="N0_init" agente="usuario">
+      <descripcion>Completar project_config.xml con tema, hipótesis preliminar, dominio, alcance.</descripcion>
+      <output>project_config.xml</output>
+    </nodo>
+
+    <nodo id="N1_plan" agente="lead_researcher">
+      <descripcion>Recibir project_config; planificar pipeline; persistir plan; emitir asignaciones de subagentes.</descripcion>
+      <input>project_config.xml + guidelines/*</input>
+      <output>tasks/YYYY-MM-DD-plan.xml + memory/research-state.json (plan persistido)</output>
+    </nodo>
+
+    <nodo id="N2_search" agente="search_subagent" paralelismo="3-5">
+      <descripcion>Una instancia por subtarea del plan. Recupera literatura, bifurca teoría/empiria, construye fichas.</descripcion>
+      <input>tasks/YYYY-MM-DD-plan.xml (briefing específico) + guidelines/fichero_bibliografico_schema.xml</input>
+      <output>tasks/YYYY-MM-DD-search-{topic}.xml (1 por subtarea)</output>
+      <herramientas>WebSearch, WebFetch</herramientas>
+    </nodo>
+
+    <nodo id="N3_consolidacion" agente="lead_researcher">
+      <descripcion>Sintetiza outputs de N2. Evalúa si hay vacíos (continue_loop) o si la evidencia alcanza (exit_loop). Si exit, produce borrador.</descripcion>
+      <input>tasks/YYYY-MM-DD-search-*.xml</input>
+      <output>tasks/YYYY-MM-DD-manuscript-v{n}.xml + memory/research-state.json actualizado</output>
+      <decision>continue_loop → vuelve a N2 con nuevos briefings | exit_loop → avanza a N4</decision>
+    </nodo>
+
+    <nodo id="N4_metodologia" agente="methodologist_agent">
+      <descripcion>Valida acoplamiento pregunta ↔ datos ↔ técnica. Propone enfoque metodológico.</descripcion>
+      <input>manuscript actual + pregunta de investigación + fichero bibliográfico</input>
+      <output>tasks/YYYY-MM-DD-methodology-v{n}.xml</output>
+    </nodo>
+
+    <nodo id="N5_citas" agente="citation_agent">
+      <descripcion>Cruza cada afirmación factual del manuscrito con el fichero; inyecta citas APA; marca huérfanas.</descripcion>
+      <input>manuscript + fichero bibliográfico</input>
+      <output>tasks/YYYY-MM-DD-manuscript-cited-v{n}.xml</output>
+    </nodo>
+
+    <nodo id="N6_review" agente="peer_reviewer">
+      <descripcion>Audita coherencia del pipeline, integridad de citas, calidad metodológica. Emite veredicto editorial.</descripcion>
+      <input>manuscript citado + guidelines/criterios_journal_q1.md</input>
+      <output>tasks/YYYY-MM-DD-review-v{n}.xml + (si veredicto != accept) entrada en guidelines/aprendizajes.xml</output>
+      <decision>accept → fin | minor/major_revision → vuelve al agente responsable | reject → vuelve a N1</decision>
+    </nodo>
+  </nodos>
+
+  <reglas_de_ruteo>
+    <regla>Si N6 veredicto = "accept": fin del flujo. Entregable listo.</regla>
+    <regla>Si N6 veredicto = "minor_revision": vuelve al agente responsable de cada issue (target_agent del review).</regla>
+    <regla>Si N6 veredicto = "major_revision": vuelve a N3 con instrucciones específicas; potencialmente nuevos N2.</regla>
+    <regla>Si N6 veredicto = "reject": vuelve a N1 con instrucciones de re-planificación.</regla>
+    <regla>Tope de iteraciones: 5. Más allá, escalá al usuario.</regla>
+  </reglas_de_ruteo>
+
+  <grafo_mermaid>
+    <![CDATA[
+    flowchart TD
+      N0[N0 Init - project_config] --> N1[N1 Lead - Plan]
+      N1 --> N2[N2 Search subagents - parallel]
+      N2 --> N3[N3 Lead - Consolidate]
+      N3 -->|continue_loop| N2
+      N3 -->|exit_loop| N4[N4 Methodologist]
+      N4 --> N5[N5 Citation Agent]
+      N5 --> N6[N6 Peer Reviewer]
+      N6 -->|accept| END[Done]
+      N6 -->|minor| N5
+      N6 -->|major| N3
+      N6 -->|reject| N1
+    ]]>
+  </grafo_mermaid>
+
+</research_flow>

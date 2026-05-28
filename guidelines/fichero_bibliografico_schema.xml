@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Schema del fichero bibliográfico.
+  Todos los agentes que produzcan o consuman fichas usan esta estructura.
+  Una <ficha> = una fuente atomizada con su clasificación teórica/empírica.
+-->
+<fichero_bibliografico_schema>
+
+  <ficha id="STRING_UNICO__autor_anio_palabraclave">
+    <metadata>
+      <autores>Lista de autores en formato APA: Apellido, N., Apellido, N.</autores>
+      <anio>YYYY</anio>
+      <titulo>Título exacto de la obra</titulo>
+      <tipo>journal_article | book_chapter | working_paper | thesis | report | review</tipo>
+      <fuente>
+        <revista_o_editorial>Nombre completo</revista_o_editorial>
+        <volumen>X</volumen>
+        <numero>X</numero>
+        <paginas>XX-XX</paginas>
+        <doi>10.xxxx/xxxxx</doi>
+        <url>https://...</url>
+        <cuartil>Q1 | Q2 | Q3 | Q4 | N/A</cuartil>
+        <indexada_en>Scopus | JCR | SciELO | Latindex | N/A</indexada_en>
+      </fuente>
+      <idioma>es | en | pt | ...</idioma>
+      <peer_reviewed>true | false</peer_reviewed>
+    </metadata>
+
+    <clasificacion>
+      <dimension_teorica relevante="true|false">
+        <escuela_pensamiento>Ej: institucionalismo, evolucionismo, neoclásica…</escuela_pensamiento>
+        <conceptos_clave>
+          <concepto>concepto 1</concepto>
+          <concepto>concepto 2</concepto>
+        </conceptos_clave>
+        <tesis_central>Una oración que resume la tesis teórica del autor.</tesis_central>
+        <supuestos>Supuestos abstractos del modelo.</supuestos>
+      </dimension_teorica>
+
+      <dimension_empirica relevante="true|false">
+        <dataset>Origen, período, unidad de análisis</dataset>
+        <muestra>Tamaño, marco muestral, criterios de inclusión</muestra>
+        <metodologia_aplicada>Técnica estadística/econométrica/cualitativa usada</metodologia_aplicada>
+        <variables>Variables dependientes / independientes / control</variables>
+        <hallazgos_clave>Resultados concretos con magnitudes.</hallazgos_clave>
+        <limitaciones>Limitaciones declaradas por los autores.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+
+    <citas_textuales>
+      <quote pagina="XX">"Cita textual exacta, transcripción literal."</quote>
+      <!-- repetir por cada cita relevante -->
+    </citas_textuales>
+
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Qué vacío del estado del arte llena esta fuente.</gap_que_aborda>
+      <conexion_con_pregunta>Cómo se vincula con la pregunta de investigación del proyecto.</conexion_con_pregunta>
+      <controversia_con>
+        <ficha_id>OTRO_AUTOR_ANIO</ficha_id>
+        <descripcion>Naturaleza del desacuerdo.</descripcion>
+      </controversia_con>
+    </relevancia_para_proyecto>
+
+    <evaluacion_calidad>
+      <score_q1>0|1|2|3 según rúbrica de criterios_journal_q1.md</score_q1>
+      <justificacion>Por qué este score.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+</fichero_bibliografico_schema>

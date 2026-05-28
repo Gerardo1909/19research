@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Aprendizajes acumulados del sistema.
+  El Peer Reviewer agrega una <leccion> cada vez que emite un veredicto != accept.
+  Todos los agentes leen este archivo al inicio de cada sesión.
+-->
+<aprendizajes>
+  <!--
+  Plantilla:
+
+  <leccion fecha="YYYY-MM-DD" id="L-001">
+    <patron_de_error>Descripción concreta del fallo observado.</patron_de_error>
+    <agente_responsable>lead_researcher | search_subagent | methodologist | citation_agent | peer_reviewer</agente_responsable>
+    <contexto>Proyecto o tipo de query donde apareció.</contexto>
+    <mitigacion>Regla operativa concreta que el agente debe aplicar para evitarlo.</mitigacion>
+    <referencia_caso>tasks/YYYY-MM-DD-review-vN.xml</referencia_caso>
+  </leccion>
+  -->
+</aprendizajes>
