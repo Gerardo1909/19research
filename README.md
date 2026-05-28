@@ -2,8 +2,8 @@
 
 Sistema de agentes especializados (5 roles) para asistir investigación académica con rigor metodológico. Inspirado en el **Multi-Agent Research System (MARS)** de Anthropic, adaptado al pipeline científico clásico y operado por **copy-paste de prompts XML** (sin orquestación automática).
 
-**Hecho por:** Gerardo Toboso 
-**mail:** gerardotoboso1909@gmail.com
+#### **Hecho por:** Gerardo Toboso 
+#### **mail:** gerardotoboso1909@gmail.com
 
 ## Arquitectura
 
@@ -110,17 +110,6 @@ Para validar que el sistema funciona:
 - `memory/research-state.json`: snapshot local del estado del proyecto (commiteá a git por iteración).
 - Notion (opcional): página espejo del JSON; el MCP de Notion ya está disponible si lo querés usar.
 - `guidelines/aprendizajes.xml`: lecciones acumuladas — el Peer Reviewer las agrega; todos los agentes las leen.
-
-## Refinamientos vs el diseño previo (`contexto.md`)
-
-- **Agente nuevo**: `methodologist_agent` (no estaba desarrollado).
-- **F0 obligatoria de persistir plan** antes de delegar (lección MARS #1).
-- **Effort scaling** explícito en el Lead.
-- **Briefings detallados** estructurados (anti-duplicación).
-- **Breadth-first** + **paralelismo de tool calls** en el Search Subagent.
-- **Heurística anti-SEO** y filtrado por jerarquía de fuentes.
-- **Loop de auto-mejora** vía `aprendizajes.xml`.
-- **Harness de evaluación** con 20 queries + LLM-as-judge.
 
 ## Referencias
 
