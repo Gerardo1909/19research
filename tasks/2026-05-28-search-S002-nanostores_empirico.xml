@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Artefacto N2: Resultados de búsqueda — search_subagent S-002
+  Tema: nanostores_empirico
+  Proyecto: adelift-nanostores-oct2025
+  Fecha: 2026-05-28
+  Iteración: 1
+-->
+<search_result task_id="S-002" tema="nanostores_empirico" fecha="2026-05-28">
+
+  <!-- ============================================================ -->
+  <!-- FICHA 1: McKenzie & Woodruff (2017) — Management Science    -->
+  <!-- ============================================================ -->
+  <ficha id="mckenzie_woodruff_2017_businesspractices">
+    <metadata>
+      <autores>McKenzie, D. J., &amp; Woodruff, C.</autores>
+      <anio>2017</anio>
+      <titulo>Business Practices in Small Firms in Developing Countries</titulo>
+      <tipo>journal_article</tipo>
+      <fuente>
+        <revista_o_editorial>Management Science (INFORMS)</revista_o_editorial>
+        <volumen>63</volumen>
+        <numero>9</numero>
+        <paginas>2967–2981</paginas>
+        <doi>10.1287/mnsc.2016.2492</doi>
+        <url>https://pubsonline.informs.org/doi/10.1287/mnsc.2016.2492</url>
+        <cuartil>Q1</cuartil>
+        <indexada_en>Scopus|JCR</indexada_en>
+      </fuente>
+      <idioma>en</idioma>
+      <peer_reviewed>true</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="false">
+        <escuela_pensamiento>Economía del desarrollo / Gestión de microempresas</escuela_pensamiento>
+        <conceptos_clave>
+          <concepto>Prácticas de gestión empresarial</concepto>
+          <concepto>Capital humano del dueño</concepto>
+          <concepto>Supervivencia de microempresas</concepto>
+        </conceptos_clave>
+        <tesis_central>La variación en prácticas de gestión (marketing, stock, registros, planificación financiera) explica una fracción sustancial de la heterogeneidad en ventas, ganancias y productividad de microempresas, comparable a la observada en empresas más grandes.</tesis_central>
+        <supuestos>Las prácticas de gestión son medibles de forma estandarizada con un índice de 26 ítems y son comparables entre países.</supuestos>
+      </dimension_teorica>
+      <dimension_empirica relevante="true">
+        <dataset>Encuestas primarias administradas en siete países (Bangladesh, Chile, Ghana, Kenia, México, Nigeria, Sri Lanka). Datos de panel en Chile, Ghana y Sri Lanka.</dataset>
+        <muestra>Múltiples muestras nacionales de microempresas con 1–16 trabajadores; estimados en cientos por país. Datos de panel con rondas de seguimiento en tres países.</muestra>
+        <metodologia_aplicada>Encuesta estructurada. Índice aditivo de 26 prácticas. Regresiones OLS y datos de panel con errores estándar robustos.</metodologia_aplicada>
+        <variables>Variable dependiente: log(ventas mensuales), log(ganancias), productividad total de factores. Variable independiente principal: índice de prácticas de gestión (0–26). Controles: educación del dueño, experiencia, género, sector.</variables>
+        <hallazgos_clave>La variación en prácticas de gestión explica aproximadamente la misma proporción de variación en ventas y ganancias en microempresas que en empresas grandes. Datos de panel en tres países muestran que mejores prácticas predicen mayor tasa de supervivencia y crecimiento de ventas más rápido.</hallazgos_clave>
+        <limitaciones>La causalidad prácticas→desempeño no está identificada experimentalmente. La muestra excluye microempresas muy informales que no participan en encuestas. Ausencia de contexto de alta inflación (como Argentina). No mide expectativas de ventas futuras de los dueños.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="2967">"variation in business practices explains as much of the variation in outcomes – sales, profits and labor productivity and TFP – in microenterprises as in larger enterprises"</quote>
+      <quote pagina="N/A">"Panel data from three countries indicate that better business practices predict higher survival rates and faster sales growth."</quote>
+    </citas_textuales>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Proporciona la línea de base metodológica más citada para encuestas de microempresas en desarrollo, incluyendo Chile (único contexto LatAm comparable con inflación moderada-alta). Establece qué variables de gestión predicen desempeño en ventas.</gap_que_aborda>
+      <conexion_con_pregunta>La encuesta MIT LIFT Lab (N=923, Argentina) es metodológicamente comparable a este diseño. El artículo no mide atribución causal de variaciones de ventas (estacional vs. macro), pero el índice de prácticas es un control relevante para H1.</conexion_con_pregunta>
+      <controversia_con>
+        <ficha_id>guerrero_2022_pandemic</ficha_id>
+        <descripcion>McKenzie y Woodruff encuentran que las prácticas predicen sobrevivencia; Guerrero et al. 2022 muestran que durante el shock pandémico las expectativas de dueños se deterioraron independientemente de sus prácticas previas, sugiriendo límites de este predictor bajo shocks macroeconómicos agudos.</descripcion>
+      </controversia_con>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>3</score_q1>
+      <justificacion>Publicado en Management Science (Q1, INFORMS). Autores son referencias canónicas en el campo. Revisión de pares rigurosa. Ampliamente citado (500+ citas). Metodología transparente y datos parcialmente disponibles.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ============================================================ -->
+  <!-- FICHA 2: Higgins (2024) — American Economic Review         -->
+  <!-- ============================================================ -->
+  <ficha id="higgins_2024_fintech_cornerstores">
+    <metadata>
+      <autores>Higgins, S.</autores>
+      <anio>2024</anio>
+      <titulo>Financial Technology Adoption: Network Externalities of Cashless Payments in Mexico</titulo>
+      <tipo>journal_article</tipo>
+      <fuente>
+        <revista_o_editorial>American Economic Review (AEA)</revista_o_editorial>
+        <volumen>114</volumen>
+        <numero>11</numero>
+        <paginas>3469–3512</paginas>
+        <doi>10.1257/aer.20201952</doi>
+        <url>https://www.aeaweb.org/articles?id=10.1257/aer.20201952</url>
+        <cuartil>Q1</cuartil>
+        <indexada_en>Scopus|JCR</indexada_en>
+      </fuente>
+      <idioma>en</idioma>
+      <peer_reviewed>true</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="false">
+        <escuela_pensamiento>Economía de la información / Adopción tecnológica / Externalidades de red</escuela_pensamiento>
+        <conceptos_clave>
+          <concepto>Fallas de coordinación</concepto>
+          <concepto>Expectativas de rentabilidad de comerciantes</concepto>
+          <concepto>Subestimación de beneficios</concepto>
+        </conceptos_clave>
+        <tesis_central>Las fallas de coordinación restringen la adopción de FinTech entre pequeños comerciantes (tiendas de esquina, nanostores México); los dueños subestiman sistemáticamente los beneficios porque no anticipan el efecto red sobre nuevos clientes.</tesis_central>
+        <supuestos>Comerciantes forman expectativas sobre rentabilidad futura de adopción tecnológica antes de adoptarla; estas expectativas son medibles mediante encuesta prospectiva.</supuestos>
+      </dimension_teorica>
+      <dimension_empirica relevante="true">
+        <dataset>Tres fuentes: (1) datos administrativos del Banco de México sobre adopción de terminales POS (2000–2012); (2) diarios de consumo de beneficiarios Prospera; (3) encuesta primaria a dueños de tiendas de barrio, junio–agosto 2022, en 29 localidades urbanas mexicanas.</dataset>
+        <muestra>Encuesta a dueños de tiendas de esquina en 29 localidades urbanas (México). Estudio principal: datos de panel de localidades de México (1993–2012).</muestra>
+        <metodologia_aplicada>Diferencias en diferencias (event study) explotando el rollout escalonado del programa Prospera. Encuesta de expectativas a comerciantes en localidades control para identificar brechas entre expectativas ex-ante y resultados observados.</metodologia_aplicada>
+        <variables>Variables dependientes: adopción de terminal POS (%), ventas de tiendas (%), ganancias de tiendas (%). Variable de expectativas: cambio esperado en ganancias si adoptan POS (declarado por dueño en encuesta).</variables>
+        <hallazgos_clave>Tras dos años del rollout: adopción de POS en tiendas aumentó 18 pp; ventas de tiendas aumentaron 6%; ganancias aumentaron 19%. En la encuesta de expectativas: la mayoría de dueños de tiendas esperaban un cambio en ganancias MENOR al observado — subestimaban los beneficios. Los dueños subestimaron el número de potenciales nuevos clientes que comprarían si adoptaran POS.</hallazgos_clave>
+        <limitaciones>La encuesta de expectativas se realizó en localidades no tratadas y en 2022, posterior al rollout (2009–2012). El contexto (México, programa de transferencias gubernamental) no es directamente extrapolable a Argentina o a atribución estacional.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="N/A">"the lack of consumers with debit cards made most corner store owners expect a lower change in profits from adopting a POS terminal than was observed"</quote>
+      <quote pagina="N/A">"results suggest that owners underestimated the number of potential new customers who would shop at their store if they adopted POS terminals"</quote>
+    </citas_textuales>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Primer estudio en AER que mide DIRECTAMENTE las expectativas declaradas de dueños de tiendas de barrio (nanostores mexicanas) sobre cambios en ganancias y las compara con resultados reales, revelando un sesgo sistemático de subestimación. Es el precedente metodológico más cercano a H1 del proyecto.</gap_que_aborda>
+      <conexion_con_pregunta>La encuesta MIT LIFT Lab puede replicar la lógica de Higgins: medir qué expectativas tienen los comerciantes argentinos sobre ventas futuras y qué factores atribuyen a sus variaciones actuales. H1 puede interpretarse como: los que atribuyen a factores estacionales (predecibles) tienen expectativas más calibradas y optimistas.</conexion_con_pregunta>
+      <controversia_con>
+        <ficha_id>guerrero_2022_pandemic</ficha_id>
+        <descripcion>Higgins muestra subestimación de beneficios futuros por parte de comerciantes; Guerrero et al. 2022 muestran deterioro rápido de expectativas bajo shock macro, sugiriendo que la dirección del sesgo de expectativas depende del tipo de shock (positivo/anticipable vs. negativo/exógeno).</descripcion>
+      </controversia_con>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>3</score_q1>
+      <justificacion>American Economic Review es la revista de economía más prestigiosa del mundo (Q1, top-5 journals). DOI verificado. Datos y código replicables disponibles públicamente (Open ICPSR). Único artículo AER sobre expectativas de dueños de tiendas de barrio latinoamericanas.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ============================================================ -->
+  <!-- FICHA 3: Guerrero-Amezaga et al. (2022) — JDE             -->
+  <!-- ============================================================ -->
+  <ficha id="guerrero_2022_pandemic">
+    <metadata>
+      <autores>Guerrero-Amezaga, M. E., Humphries, J. E., Neilson, C. A., Shimberg, N., &amp; Ulyssea, G.</autores>
+      <anio>2022</anio>
+      <titulo>Small firms and the pandemic: Evidence from Latin America</titulo>
+      <tipo>journal_article</tipo>
+      <fuente>
+        <revista_o_editorial>Journal of Development Economics (Elsevier)</revista_o_editorial>
+        <volumen>155</volumen>
+        <numero>N/A (Article 102775)</numero>
+        <paginas>N/A (artículo electrónico)</paginas>
+        <doi>10.1016/j.jdeveco.2021.102775</doi>
+        <url>https://www.sciencedirect.com/science/article/abs/pii/S0304387821001358</url>
+        <cuartil>Q1</cuartil>
+        <indexada_en>Scopus|JCR</indexada_en>
+      </fuente>
+      <idioma>en</idioma>
+      <peer_reviewed>true</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="false">
+        <escuela_pensamiento>Economía del desarrollo / Política pública / Pequeñas empresas</escuela_pensamiento>
+        <conceptos_clave>
+          <concepto>Expectativas empresariales bajo shock exógeno</concepto>
+          <concepto>Informalidad y acceso a ayuda estatal</concepto>
+          <concepto>Predicción de desempeño futuro desde expectativas</concepto>
+        </conceptos_clave>
+        <tesis_central>Las expectativas de dueños de pequeñas firmas latinoamericanas se deterioraron rápidamente con la pandemia, predicen resultados económicos reales en el mediano plazo, y las políticas de apoyo mejoraron tanto las expectativas como los resultados, pero fueron menos efectivas para las firmas más pequeñas e informales.</tesis_central>
+        <supuestos>Las expectativas declaradas de dueños de pequeñas firmas son indicadores válidos de desempeño futuro (tienen contenido predictivo).</supuestos>
+      </dimension_teorica>
+      <dimension_empirica relevante="true">
+        <dataset>Encuesta primaria propia (Small Business Survey — SBS LATAM). Datos recolectados mediante encuesta telefónica diaria, con dos rondas de seguimiento.</dataset>
+        <muestra>35.000 pequeñas firmas en 8 países de América Latina. Recolección: 29 de marzo al 31 de mayo de 2020 (encuesta diaria). Seguimiento 1: 25 de junio al 16 de agosto de 2020. Seguimiento 2: 5 de noviembre al 20 de diciembre de 2020.</muestra>
+        <metodologia_aplicada>Encuesta por teléfono con diseño de panel de corto plazo. Análisis de evento (anuncio de medidas de ayuda económica). Regresión con efectos fijos. Variables de expectativas incluidas como predictores de resultados de mediano plazo.</metodologia_aplicada>
+        <variables>Variables dependientes: empleo, ingresos/ventas, probabilidad de cierre. Variable de expectativas: creencias sobre recuperación futura. Variable de tratamiento: recepción de ayuda pública.</variables>
+        <hallazgos_clave>Al inicio de la pandemia, los dueños eran optimistas sobre la recuperación futura; las expectativas se deterioraron durante las primeras semanas de cierre estricto, luego mejoraron en mayo tras el anuncio de medidas de ayuda. Las expectativas negativas declaradas predicen resultados económicos peores en el mediano plazo. Las firmas más pequeñas e informales tenían menor conocimiento de los programas de ayuda (35–40% menos de probabilidad de estar informadas).</hallazgos_clave>
+        <limitaciones>El estudio cubre exclusivamente el período de shock pandémico (no contexto de alta inflación). Las expectativas son prospectivas sobre recuperación, no sobre atribución causal de cambios de ventas.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="N/A">"the pandemic had large negative impacts on employment and beliefs regarding the future, which predict meaningful economic outcomes in the medium-term"</quote>
+      <quote pagina="N/A">"Despite the unprecedented amount of aid, policies had limited impact for small and informal firms, as these firms were less aware of programs, applied less, and received less assistance"</quote>
+      <quote pagina="N/A">"Firm owners were optimistic about future recovery at the beginning of the pandemic, but expectations deteriorated during the first weeks"</quote>
+    </citas_textuales>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Única encuesta masiva (N=35.000) de expectativas de dueños de pequeñas firmas latinoamericanas con datos de panel. Demuestra que las expectativas tienen contenido predictivo sobre resultados reales y que su dirección cambia ante shocks macroeconómicos identificables.</gap_que_aborda>
+      <conexion_con_pregunta>Aporta evidencia de que en entornos volátiles de América Latina, los comerciantes pueden ser inicialmente optimistas y luego revisar expectativas ante señales positivas. H1 del proyecto pregunta sobre un mecanismo diferente: si la atribución estacional (factor percibido como controlable y predecible) vs. macroeconómica (factor percibido como externo e incontrolable) afecta la dirección del optimismo a 3 meses.</conexion_con_pregunta>
+      <controversia_con>
+        <ficha_id>mckenzie_woodruff_2017_businesspractices</ficha_id>
+        <descripcion>McKenzie y Woodruff sostienen que las prácticas de gestión predicen desempeño en el largo plazo; Guerrero et al. 2022 muestran que bajo shocks agudos las expectativas se deterioran independientemente de las prácticas previas.</descripcion>
+      </controversia_con>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>3</score_q1>
+      <justificacion>Journal of Development Economics es Q1 en economía del desarrollo (JCR). Muestra de 35.000 firmas en 8 países LatAm es la más grande disponible para este tipo de encuesta. Autores de Yale, Princeton y LSE. Datos disponibles en repositorio público.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ============================================================ -->
+  <!-- FICHA 4: CAME IVM — Argentina (2024–2025)                  -->
+  <!-- ============================================================ -->
+  <ficha id="came_ivm_2024_argentina">
+    <metadata>
+      <autores>Confederación Argentina de la Mediana Empresa (CAME).</autores>
+      <anio>2024</anio>
+      <titulo>Índice de Ventas Minoristas PyME (IVM) — Informes mensuales 2024–2025</titulo>
+      <tipo>report</tipo>
+      <fuente>
+        <revista_o_editorial>CAME — Confederación Argentina de la Mediana Empresa (publicación institucional)</revista_o_editorial>
+        <volumen>N/A</volumen>
+        <numero>Publicación mensual</numero>
+        <paginas>N/A</paginas>
+        <doi></doi>
+        <url>https://www.redcame.org.ar/estadisticas-pyme/78/ndice-de-ventas-minoristas</url>
+        <cuartil>N/A</cuartil>
+        <indexada_en>N/A</indexada_en>
+      </fuente>
+      <idioma>es</idioma>
+      <peer_reviewed>false</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="false">
+        <escuela_pensamiento>Estadística empresarial / Monitoreo sectorial</escuela_pensamiento>
+        <conceptos_clave>
+          <concepto>Expectativas de comerciantes PyME argentinos</concepto>
+          <concepto>Estacionalidad de ventas minoristas</concepto>
+          <concepto>Optimismo bajo inflación</concepto>
+        </conceptos_clave>
+        <tesis_central>N/A (informe estadístico, no argumentativo)</tesis_central>
+        <supuestos>La encuesta mensual a ~1.100–1.300 comercios es representativa del comercio minorista PyME argentino.</supuestos>
+      </dimension_teorica>
+      <dimension_empirica relevante="true">
+        <dataset>Encuesta mensual estructurada a comercios minoristas PyME de Argentina. Base: ~900 casos nacionales (22 provincias + CABA). Período disponible: desde 2022 (base 2022=100). Sectores: alimentos y bebidas, bazar-decoración, calzado, farmacia, ferretería, textiles.</dataset>
+        <muestra>Muestra total nacional: aproximadamente 900+ casos, de 22 provincias y CABA. Informes mensuales: entre 1.100 y 1.300 establecimientos minoristas. Trabajo de campo: primeros días de cada mes. Metodología: cuestionario estructurado.</muestra>
+        <metodologia_aplicada>Encuesta directa a propietarios/gerentes de comercios minoristas. Índice de variación real de facturación (deflactado por IPC INDEC). Estructura jerárquica por sector y región.</metodologia_aplicada>
+        <variables>Variable principal: variación interanual de ventas a precios constantes (%). Módulo de expectativas: ¿Cómo espera que sea la situación de su negocio en los próximos 12 meses? (mejora / igual / empeora). Referencias explícitas a estacionalidad (Navidad, Día de la Madre, inicio de clases, etc.).</variables>
+        <hallazgos_clave>2024: 57% de comerciantes esperaba que su situación económica mejorara en el próximo año. Enero 2024: escenario desafiante "marcado por la estacionalidad". Navidad 2024: ventas subieron 1% interanual. Día de la Madre 2024: ventas bajaron 0,9% interanual. El 47,9% de comerciantes reportó ventas mejor o mucho mejor de lo esperado; 37% según lo esperado; 15,1% peor de lo esperado. La cercanía de fechas estacionales aparece mencionada explícitamente como factor de optimismo en múltiples informes.</hallazgos_clave>
+        <limitaciones>No es publicación académica peer-reviewed. La muestra cubre PyMEs formales (no nanostores en sentido estricto ni comercios completamente informales). El módulo de expectativas no distingue entre atribución estacional y macroeconómica (variable clave para H1 ausente en el instrumento). La muestra de ~1.100 comercios no es aleatoria (voluntaria entre afiliados a CAME).</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="N/A">"En enero, el comercio pyme atravesó un escenario desafiante marcado por la estacionalidad, el éxodo de consumidores a países limítrofes y la baja liquidez tras las fiestas"</quote>
+      <quote pagina="N/A">"La cercanía del inicio de clases y la renovación de stock para la nueva temporada generan optimismo en el sector, sumado a la percepción de mayor estabilidad de precios y reactivación progresiva del consumo"</quote>
+      <quote pagina="N/A">"Para el 47,9% de los comerciantes, las ventas resultaron mejor o mucho mejor de lo esperado"</quote>
+    </citas_textuales>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Única serie de tiempo disponible de expectativas y percepciones de ventas de comerciantes minoristas ARGENTINOS, con referencias explícitas a eventos estacionales y macroeconómicos como factores de variación de ventas. Proporciona magnitudes de optimismo en contexto de alta inflación.</gap_que_aborda>
+      <conexion_con_pregunta>Conexión directa con H1: el IVM documenta que los propios informes de CAME mencionan la estacionalidad como driver de expectativas de comerciantes. Esto es evidencia descriptiva de que la distinción estacional/macro ya está presente en el lenguaje de los comerciantes argentinos. Las magnitudes (57% optimistas en 2024, Navidad +1%, Día de la Madre -0,9%) son datos de contexto para calibrar la encuesta MIT LIFT Lab.</conexion_con_pregunta>
+      <controversia_con>
+        <ficha_id>guerrero_2022_pandemic</ficha_id>
+        <descripcion>Guerrero et al. muestran que el optimismo inicial de comerciantes latinoamericanos se deteriora rápidamente ante shocks; el IVM CAME para Argentina 2024–2025 muestra optimismo relativamente persistente incluso en contexto de inflación muy alta y caídas de ventas, lo que puede indicar un sesgo de optimismo específico del contexto argentino, consistente con H1.</descripcion>
+      </controversia_con>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>1</score_q1>
+      <justificacion>No es publicación académica peer-reviewed: score Q1 = 1 (reporte institucional con metodología parcialmente documentada). Sin embargo, es la única fuente primaria disponible de expectativas de comerciantes minoristas argentinos con cobertura nacional, datos mensuales y referencias explícitas a estacionalidad.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ============================================================ -->
+  <!-- FICHA 5: Grant Thornton IBR Argentina (2024–2025)          -->
+  <!-- ============================================================ -->
+  <ficha id="grantthornton_ibr_2024_argentina">
+    <metadata>
+      <autores>Grant Thornton International.</autores>
+      <anio>2024</anio>
+      <titulo>International Business Report — Argentina: optimismo del mercado medio</titulo>
+      <tipo>report</tipo>
+      <fuente>
+        <revista_o_editorial>Grant Thornton International (publicación institucional trimestral)</revista_o_editorial>
+        <volumen>N/A</volumen>
+        <numero>Trimestral Q1-Q4 2024, Q1-Q3 2025</numero>
+        <paginas>N/A</paginas>
+        <doi></doi>
+        <url>https://www.grantthornton.com.ar/en/insights/articles/2025/international-business-report/while-optimism-falls-regionally-and-globally-it-grows-in-argentina/</url>
+        <cuartil>N/A</cuartil>
+        <indexada_en>N/A</indexada_en>
+      </fuente>
+      <idioma>en|es</idioma>
+      <peer_reviewed>false</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="false">
+        <escuela_pensamiento>Economía empresarial / Business confidence surveys</escuela_pensamiento>
+        <conceptos_clave>
+          <concepto>Optimismo empresarial</concepto>
+          <concepto>Expectativas de rentabilidad a 12 meses</concepto>
+          <concepto>Mercado medio (mid-market)</concepto>
+        </conceptos_clave>
+        <tesis_central>N/A (reporte descriptivo)</tesis_central>
+        <supuestos>La encuesta a ejecutivos senior del mercado medio es representativa de las expectativas del empresariado argentino.</supuestos>
+      </dimension_teorica>
+      <dimension_empirica relevante="true">
+        <dataset>International Business Report (IBR): encuesta global trimestral de Grant Thornton. Argentina incluida como una de 35 economías.</dataset>
+        <muestra>Global: ~10.000 ejecutivos senior por trimestre. Argentina: submuestra de ejecutivos de empresas del mercado medio (empresas medianas, no microempresas). Cuestionario estandarizado traducido al español.</muestra>
+        <metodologia_aplicada>Encuesta estructurada trimestral. Nueve índices de expectativas para los próximos 12 meses: ingresos, rentabilidad, empleo, exportaciones, I+D, inversión, capacitación. Escala: mayor / igual / menor.</metodologia_aplicada>
+        <variables>Variable principal: % de ejecutivos que esperan aumento de ingresos en los próximos 12 meses. % que espera aumento de rentabilidad. Factores de crecimiento y limitación declarados.</variables>
+        <hallazgos_clave>Q4 2024 Argentina: 65% de líderes espera aumento de ingresos; 45% espera aumento de rentabilidad (ambos aumentaron ~9 pp respecto a Q3 2024). Optimismo general: pasó de 72% a 75% entre Q3 y Q4 2024. Q1 2025: 43% cita inflación como factor decisivo (bajó 29,5 pp respecto a Q4 2024). Q3 2025: el optimismo se mantuvo estable (~75%). Mientras el optimismo cayó en América del Sur y globalmente, creció en Argentina.</hallazgos_clave>
+        <limitaciones>El IBR mide el mercado MEDIO (empresas medianas): la población del proyecto (nanostores, microempresas informales) es completamente diferente. No mide atribución de variaciones de ventas. Sesgo de muestra: solo empresas formales con ejecutivos accesibles.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="N/A">"In Argentina, mid-market optimism increased from 72% to 75% in the last quarter [of 2024], representing a notable trend"</quote>
+      <quote pagina="N/A">"43% of business respondents in Argentina cited inflation as a decisive factor [Q1 2025], down 29.5% from the last quarter of 2024"</quote>
+    </citas_textuales>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Proporciona el único benchmark de optimismo empresarial argentino con cobertura trimestral y metodología estandarizada internacionalmente.</gap_que_aborda>
+      <conexion_con_pregunta>Utilidad indirecta para H1: el contraste entre el 43% que ve inflación como limitante y el 65% que espera aumento de ingresos es relevante para discutir la disonancia expectativas-contexto macro. Si incluso el mercado medio argentino muestra "optimismo resiliente" ante alta inflación, este patrón podría ser aún más pronunciado en nanostores.</conexion_con_pregunta>
+      <controversia_con>
+        <ficha_id>guerrero_2022_pandemic</ficha_id>
+        <descripcion>Grant Thornton (empresas medianas, 2024–2025) muestra optimismo creciente en Argentina; Guerrero et al. (micro y pequeñas firmas, pandemia 2020) muestran deterioro de expectativas. La diferencia puede explicarse por el tamaño de las firmas, el tipo de shock y el período temporal.</descripcion>
+      </controversia_con>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>1</score_q1>
+      <justificacion>Reporte institucional no peer-reviewed. Metodología parcialmente documentada y auditable. Valor para el proyecto: alto como benchmark de contexto macro-expectativas en Argentina; bajo como evidencia directa sobre nanostores.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ============================================================ -->
+  <!-- FICHA 6: Mora-Quiñones et al. (2021) — Sustainability      -->
+  <!-- ============================================================ -->
+  <ficha id="mora_quinones_2021_nanostores_mexico">
+    <metadata>
+      <autores>Mora-Quiñones, C., Cárdenas-Barrón, L. E., Velázquez-Martínez, J. C., &amp; Gámez-Pérez, K. M.</autores>
+      <anio>2021</anio>
+      <titulo>The Coexistence of Nanostores within the Retail Landscape: A Spatial Statistical Study for Mexico City</titulo>
+      <tipo>journal_article</tipo>
+      <fuente>
+        <revista_o_editorial>Sustainability (MDPI)</revista_o_editorial>
+        <volumen>13</volumen>
+        <numero>19</numero>
+        <paginas>10615 (artículo electrónico)</paginas>
+        <doi>10.3390/su131910615</doi>
+        <url>https://www.mdpi.com/2071-1050/13/19/10615</url>
+        <cuartil>Q2</cuartil>
+        <indexada_en>Scopus|JCR</indexada_en>
+      </fuente>
+      <idioma>en</idioma>
+      <peer_reviewed>true</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="false">
+        <escuela_pensamiento>Logística urbana / Retail en mercados emergentes / Análisis espacial</escuela_pensamiento>
+        <conceptos_clave>
+          <concepto>Coexistencia de nanostores con canal moderno</concepto>
+          <concepto>Distribución espacial de retail informal</concepto>
+          <concepto>Resiliencia de pequeñas tiendas</concepto>
+        </conceptos_clave>
+        <tesis_central>Las nanostores de Ciudad de México coexisten con cadenas de conveniencia y supermercados independientemente del nivel socioeconómico de la zona, contrariamente a hipótesis previas que predecían su desaparición ante la expansión del canal moderno.</tesis_central>
+        <supuestos>Los datos del censo económico de INEGI 2014 y ENIGH 2016 son representativos del patrón de consumo y distribución de nanostores en CDMX.</supuestos>
+      </dimension_teorica>
+      <dimension_empirica relevante="true">
+        <dataset>Tres fuentes secundarias de INEGI: (1) Índice de Desarrollo Social por código postal de CDMX (2010); (2) ENIGH 2016; (3) Censo Económico 2014. Período de análisis del sector minorista: 2010–2020.</dataset>
+        <muestra>Universo: todos los establecimientos minoristas de CDMX registrados en el Censo Económico 2014. Análisis georeferenciado por código postal.</muestra>
+        <metodologia_aplicada>Análisis estadístico espacial. Técnicas: autocorrelación espacial (I de Moran), análisis de densidad de kernel, clustering geoespacial. Controles por nivel socioeconómico del código postal.</metodologia_aplicada>
+        <variables>Variable dependiente: densidad de nanostores por km² (coexistencia con canal moderno). Variables independientes: NSE del código postal, tipo de canal, año (2010–2020). Variable de consumo: gasto del hogar en nanostores vs. supermercados por decil de ingreso.</variables>
+        <hallazgos_clave>Las nanostores coexisten con el canal moderno en todos los NSE. Aproximadamente 35% de los hogares mexicanos usan nanostores para compras diarias. Las nanostores representan aprox. el 45% de las ventas del canal tradicional de bienes de consumo masivo en América Latina. ~30% de nanostores cierran en los primeros 5 años de operación.</hallazgos_clave>
+        <limitaciones>Datos de censo (2014) y ENIGH (2016): no captura el período más reciente. No mide expectativas de propietarios ni toma de decisiones. Contexto México: no directamente extrapolable a Argentina.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="N/A">"high- and medium-high-income consumers purchase at nanostores too, contrary to some studies suggesting they would only attach to growing middle- and low-income consumers"</quote>
+    </citas_textuales>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Proporciona la caracterización empírica más robusta disponible del sector nanostore en un contexto latinoamericano (CDMX), estableciendo que: (a) el sector es resiliente y no desaparece ante el canal moderno, (b) tiene base de clientes heterogénea, (c) ~30% cierra en 5 años.</gap_que_aborda>
+      <conexion_con_pregunta>El dato de 30% de nanostores que cierran en 5 años es relevante para H1: el optimismo de los comerciantes que permanecen puede estar sesgado por supervivencia (selection bias). Los comerciantes que perviven y tienen expectativas optimistas pueden ser justamente aquellos que mejor distinguen factores estacionales de estructurales.</conexion_con_pregunta>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>2</score_q1>
+      <justificacion>Sustainability (MDPI) es Q2 en Scopus. Peer-reviewed. Autores incluyen investigadores de MIT CTL y Tecnológico de Monterrey. DOI verificado, PDF accesible en dspace.mit.edu.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ============================================================ -->
+  <!-- RESUMEN EJECUTIVO                                            -->
+  <!-- ============================================================ -->
+  <resumen_ejecutivo>
+
+    <hallazgos_empiricos_principales>
+      <hallazgo n="1">
+        <descripcion>Expectativas de dueños de tiendas de barrio son sistemáticamente SESGADAS (subestiman beneficios futuros): Higgins (AER, 2024) demuestra con diseño cuasi-experimental en México que dueños de tiendas de esquina subestimaron los cambios en ganancias derivados de adopción de POS (+19% en realidad vs. expectativas menores). Este es el precedente metodológico más directo para medir expectativas de dueños de nanostores en América Latina.</descripcion>
+        <magnitudes>Adopción POS +18 pp; ventas +6%; ganancias +19%. Expectativas declaradas: mayoritariamente menores al resultado real.</magnitudes>
+      </hallazgo>
+      <hallazgo n="2">
+        <descripcion>Las expectativas de pequeñas firmas latinoamericanas tienen contenido predictivo real: Guerrero-Amezaga et al. (JDE, 2022) demuestran con N=35.000 en 8 países que las expectativas declaradas de dueños predicen el desempeño económico posterior y responden sensiblemente a shocks macro y a intervenciones de política.</descripcion>
+        <magnitudes>Firmas informales y más pequeñas: 35-40% menos de probabilidad de estar informadas sobre ayudas disponibles.</magnitudes>
+      </hallazgo>
+      <hallazgo n="3">
+        <descripcion>El sector nanostore argentino (PyMEs minoristas formalizadas como proxy) muestra un optimismo resiliente a alta inflación: CAME IVM documenta para 2024 que 57% de comerciantes espera mejora en su situación, y reporta explícitamente que eventos estacionales son mencionados como factores de expectativas positivas. Este es el único dato argentino con referencias directas a estacionalidad como driver de expectativas.</descripcion>
+        <magnitudes>57% optimistas (2024); 47,9% vendió mejor de lo esperado; Navidad 2024 +1% interanual; Día de la Madre 2024 -0,9% interanual.</magnitudes>
+      </hallazgo>
+      <hallazgo n="4">
+        <descripcion>Las nanostores de Ciudad de México (proxy LatAm) son resilientes y coexisten con el canal moderno en todos los niveles socioeconómicos (Mora-Quiñones et al., Sustainability, 2021). ~30% cierra en 5 años. Representan ~45% de ventas del canal tradicional de CPG en América Latina.</descripcion>
+        <magnitudes>35% de hogares mexicanos usan nanostores para compras diarias; 45% de ventas canal tradicional CPG en LatAm; ~30% cierra en 5 años.</magnitudes>
+      </hallazgo>
+    </hallazgos_empiricos_principales>
+
+    <gap_confirmado>
+      NO EXISTE en la literatura académica accesible ningún estudio que mida directamente la ATRIBUCIÓN CAUSAL declarada por dueños de nanostores de sus variaciones de ventas (¿estacional vs. macro?) ni su efecto sobre expectativas de corto plazo en contexto argentino o de alta inflación. Este es el gap central que llena la encuesta MIT LIFT Lab (N=923, Argentina, octubre 2025).
+    </gap_confirmado>
+
+    <controversias_detectadas>
+      <controversia id="C1">
+        <descripcion>Sesgo optimismo vs. deterioro rápido de expectativas bajo shocks macro.</descripcion>
+        <lado_A>Higgins (AER 2024) y CAME IVM Argentina (2024–2025): los dueños de tiendas muestran optimismo persistente, incluso en inflación alta.</lado_A>
+        <lado_B>Guerrero-Amezaga et al. (JDE 2022): las expectativas de pequeñas firmas latinoamericanas se deterioran RÁPIDAMENTE ante shocks macroeconómicos.</lado_B>
+        <implicacion_para_H1>La controversia sugiere que el tipo de shock importa: shocks predecibles/estacionales pueden sostener optimismo; shocks macroeconómicos externos lo erosionan. H1 intenta precisamente capturar esta distinción mediante la pregunta de atribución.</implicacion_para_H1>
+      </controversia>
+    </controversias_detectadas>
+
+  </resumen_ejecutivo>
+
+  <notas_lead_researcher>
+    <nota id="N1" prioridad="alta">SÁNCHEZ TREJO ET AL. (2025) NO LOCALIZADO: No fue posible encontrar el paper referenciado (Sánchez Trejo et al., 2025, Proceedings MIT LIFT Lab Research Fest). El evento (MIT LIFT Research Fest — South America, Buenos Aires, 24–26 de abril de 2025, sede ITBA) fue confirmado como realizado, pero no hay proceedings publicados en línea. Recomendación: contactar directamente a Josué Velázquez-Martínez (director MIT LIFT Lab) o al ITBA para solicitar abstracts o ponencias del evento.</nota>
+    <nota id="N2" prioridad="alta">HIGGINS (AER, 2024) ES LA REFERENCIA METODOLÓGICA CLAVE: Es el único estudio AER que mide expectativas declaradas de dueños de tiendas de barrio en México y las compara con resultados reales. Recomendación: citar extensamente este paper como precedente de que los dueños de nanostores tienen sesgos de expectativas medibles y comparables con la realidad.</nota>
+    <nota id="N3" prioridad="media">CEPAL Y BANCO MUNDIAL NO APORTAN ENCUESTAS DIRECTAS DE EXPECTATIVAS DE MICROEMPRESAS INFORMALES: Las Enterprise Surveys del Banco Mundial cubren firmas formales (mínimo 5 empleados), excluyendo el universo de nanostores.</nota>
+    <nota id="N4" prioridad="media">CAME IVM INCLUYE MÓDULO DE EXPECTATIVAS Y REFERENCIAS ESTACIONALES: Los informes CAME documentan explícitamente que los comerciantes argentinos mencionan eventos estacionales como drivers de sus expectativas. Esto da soporte descriptivo a la premisa de H1. Usar como evidencia contextual/descriptiva, no como referencia académica.</nota>
+  </notas_lead_researcher>
+
+</search_result>

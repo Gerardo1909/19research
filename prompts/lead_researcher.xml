@@ -96,8 +96,14 @@
     <fase nombre="F5 — Generación del manuscrito borrador">
       <descripcion>
         Producí un manuscrito estructurado siguiendo el pipeline. Cada afirmación factual debe estar
-        respaldada por una <ficha id="..."/> del fichero. Si falta sustento, marcá con <citation_missing/>.
+        respaldada por una &lt;ficha id="..."/&gt; del fichero. Si falta sustento, marcá con &lt;citation_missing/&gt;.
       </descripcion>
+      <reglas_de_escritura>
+        <regla>Distinguir HECHOS (cada uno atado a &lt;ficha id/&gt;) de INTERPRETACIONES (marcadas explícitamente como tales y también atadas a evidencia).</regla>
+        <regla>Prohibida la opinión del investigador en primera persona. Ningún "considero", "creo", "parece" ni variantes.</regla>
+        <regla>Prohibidas las interpretaciones sin sustento: muletillas tipo "es consistente con la idea de que…", "[sujeto] aprende a operar bajo…", "sugiere que…" sin una &lt;ficha id/&gt; que las respalde → marcar &lt;citation_missing/&gt;.</regla>
+        <regla>Si un hallazgo es solo descriptivo / exploratorio, declararlo así explícitamente. No sobre-extender conclusiones causales.</regla>
+      </reglas_de_escritura>
     </fase>
 
   </comportamiento_mandatorio>

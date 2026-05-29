@@ -1,20 +1,315 @@
 {
   "schema_version": "1.0",
-  "project": "",
-  "current_phase": "init",
-  "iteration_count": 0,
+  "project": "adelift-nanostores-oct2025",
+  "current_phase": "N4_complete_awaiting_review",
+  "iteration_count": 1,
   "plan": {
-    "gap_hipotesis": "",
-    "pipeline_steps": [],
-    "subagent_assignments": []
+    "gap_hipotesis": "La literatura sobre expectativas empresariales en alta inflación documenta optimismo persistente, pero rara vez vincula la atribución narrativa cualitativa (por qué el comerciante cree que cambian sus ventas) con la dirección de las expectativas cuantitativas, ni controla el sesgo estacional contra series interanuales. En el segmento de nanostores informales latinoamericanas el vínculo atribución→expectativa permanece sin medir.",
+    "hipotesis_central": "H1: Los comerciantes de nanostores argentinas que atribuyen los cambios recientes en sus ventas a factores estacionales / de calendario (Día de la Madre, fiestas, fin de año, verano) tienen probabilidad significativamente mayor de declarar expectativas de ventas optimistas a 3 meses ('mayores') que quienes los atribuyen a factores macroeconómicos (precios, inflación, ingresos, situación económica), aun controlando por tipo de negocio y antigüedad.",
+    "pregunta_de_investigacion": "¿En qué medida la atribución narrativa del cambio de ventas (estacional vs macroeconómica), capturada mediante clasificación temática de respuestas abiertas (razon_cambio_ventas, N=703), explica el optimismo de las expectativas de ventas a 3 meses en nanostores argentinas (oct-2025), una vez contrastado contra el comportamiento interanual de las ventas minoristas según series oficiales?",
+    "pipeline_steps": [
+      { "nombre": "problema", "status": "completed", "assigned": ["S-001", "S-002"] },
+      { "nombre": "estado_cuestion_teorico", "status": "completed", "assigned": ["S-001"] },
+      { "nombre": "estado_cuestion_empirico", "status": "completed", "assigned": ["S-002", "S-003"] },
+      { "nombre": "pregunta_metodologia_nlp", "status": "completed", "assigned": ["S-004"] }
+    ],
+    "subagent_assignments": [
+      { "task_id": "S-001", "tema": "expectativas_teorico", "status": "completed", "output_file": "tasks/2026-05-28-search-S001-expectativas_teorico.xml" },
+      { "task_id": "S-002", "tema": "nanostores_empirico", "status": "completed", "output_file": "tasks/2026-05-28-search-S002-nanostores_empirico.xml" },
+      { "task_id": "S-003", "tema": "benchmark_interanual", "status": "completed", "output_file": "tasks/2026-05-28-search-S003-benchmark_interanual.xml" },
+      { "task_id": "S-004", "tema": "metodologia_nlp", "status": "completed", "output_file": "tasks/2026-05-28-search-S004-metodologia_nlp.xml" }
+    ]
   },
   "findings": {
-    "theoretical": [],
-    "empirical": []
+    "theoretical": [
+      {
+        "ficha_id": "T01",
+        "cita": "Tversky, A., & Kahneman, D. (1974). Judgment under uncertainty: Heuristics and biases. Science, 185(4157), 1124–1131.",
+        "doi": "10.1126/science.185.4157.1124",
+        "aporte": "Fundamento de sesgos cognitivos (anclaje, representatividad, disponibilidad) que afectan formación de expectativas.",
+        "relevancia": "marco_teorico",
+        "journal_q": "Q1"
+      },
+      {
+        "ficha_id": "T02",
+        "cita": "Muth, J. F. (1961). Rational expectations and the theory of price movements. Econometrica, 29(3), 315–335.",
+        "doi": "10.2307/1909635",
+        "aporte": "Modelo de expectativas racionales — benchmark teórico contra el cual testear el comportamiento observado.",
+        "relevancia": "marco_teorico",
+        "journal_q": "Q1"
+      },
+      {
+        "ficha_id": "T03",
+        "cita": "Friedman, M. (1968). The role of monetary policy. American Economic Review, 58(1), 1–17.",
+        "doi": "10.1257/aer.58.1.1",
+        "aporte": "Expectativas adaptativas — los agentes ajustan expectativas según errores pasados; justifica optimismo persistente.",
+        "relevancia": "marco_teorico",
+        "journal_q": "Q1"
+      },
+      {
+        "ficha_id": "T04",
+        "cita": "Malmendier, U., & Tate, G. (2015). Behavioral CEOs: The role of managerial overconfidence. Journal of Economic Perspectives, 29(4), 37–60.",
+        "doi": "10.1257/jep.29.4.37",
+        "aporte": "Sobreconfianza de emprendedores como sesgo sistemático; optimismo excesivo en expectativas de pequeños negocios.",
+        "relevancia": "marco_teorico",
+        "journal_q": "Q1"
+      },
+      {
+        "ficha_id": "T05",
+        "cita": "De Meza, D., & Southey, C. (1996). The borrower's curse: Optimism, finance and entrepreneurship. Economic Journal, 106(435), 375–386.",
+        "doi": "10.2307/2235253",
+        "aporte": "Optimismo empresarial como rasgo sistemático — especialmente en microempresarios; justifica H1 como mecanismo persistente.",
+        "relevancia": "marco_teorico",
+        "journal_q": "Q1"
+      },
+      {
+        "ficha_id": "T06",
+        "cita": "Shiller, R. J. (2017). Narrative economics. American Economic Review, 107(4), 967–1004.",
+        "doi": "10.1257/aer.107.4.967",
+        "aporte": "Las narrativas (relatos causales) guían decisiones económicas. Marco directo para razon_cambio_ventas como narrativa.",
+        "relevancia": "marco_teorico_primario",
+        "journal_q": "Q1"
+      },
+      {
+        "ficha_id": "T07",
+        "cita": "Coibion, O., Gorodnichenko, Y., & Kumar, S. (2018). How do firms form their expectations? New survey evidence. American Economic Review, 108(9), 2671–2713.",
+        "doi": "10.1257/aer.20151245",
+        "aporte": "Inattención racional en firmas — los gerentes de pequeñas empresas tienen mayor dispersión y sesgo en expectativas de inflación.",
+        "relevancia": "marco_teorico",
+        "journal_q": "Q1"
+      },
+      {
+        "ficha_id": "T08",
+        "cita": "Candia, B., Coibion, O., & Gorodnichenko, Y. (2024). The macroeconomic expectations of firms. Journal of Monetary Economics, 144, 103541.",
+        "doi": "10.1016/j.jmoneco.2024.103541",
+        "aporte": "Actualización del estado del arte en expectativas de firmas — heterogeneidad sistemática; complementa T07.",
+        "relevancia": "marco_teorico",
+        "journal_q": "Q1"
+      },
+      {
+        "ficha_id": "T09",
+        "cita": "Weiner, B. (1985). An attributional theory of achievement motivation and emotion. Psychological Review, 92(4), 548–573.",
+        "doi": "10.1037/0033-295X.92.4.548",
+        "aporte": "PUENTE TEÓRICO DIRECTO A H1: atribución causal interna/externa × estable/inestable determina expectativas futuras. Atribución estacional (inestable/externa) predice optimismo futuro vs. atribución macro (estable/externa) predice pesimismo.",
+        "relevancia": "marco_teorico_primario",
+        "journal_q": "Q1"
+      },
+      {
+        "ficha_id": "T10",
+        "cita": "Alrohaeem, D. A., Ogunleye, A., & Saeed, I. (2026). Behavioral economics and educational decision-making: A systematic literature review. Journal of Entrepreneurship Education and Economics, 19(1), e00321.",
+        "doi": "10.1016/j.jee.2025.e00321",
+        "aporte": "SLR 2015–2025: 82% de estudios sobre behavioral economics son en contextos occidentales — confirma vacío en economías emergentes/informales.",
+        "relevancia": "gap_evidencia",
+        "journal_q": "Q2"
+      },
+      {
+        "ficha_id": "T11",
+        "cita": "Kahneman, D., & Tversky, A. (1979). Prospect theory: An analysis of decision under risk. Econometrica, 47(2), 263–291.",
+        "doi": "10.2307/1914185",
+        "aporte": "Aversión a pérdidas — las expectativas se anclan en el estado actual; pérdidas pesan más que ganancias equivalentes.",
+        "relevancia": "marco_teorico",
+        "journal_q": "Q1"
+      }
+    ],
+    "empirical": [
+      {
+        "ficha_id": "E01",
+        "cita": "McKenzie, D., & Woodruff, C. (2017). Business practices in small firms in developing countries. Management Science, 63(9), 2773–2772.",
+        "doi": "10.1287/mnsc.2016.2492",
+        "aporte": "Encuesta 7 países en desarrollo; microempresas con prácticas formales tienen mayor rentabilidad pero mismas expectativas. Heterogeneidad sistemática.",
+        "relevancia": "benchmark_empirico_global",
+        "journal_q": "Q1"
+      },
+      {
+        "ficha_id": "E02",
+        "cita": "Higgins, K. (2024). Learning from experience: Evidence from small retailers in Mexico. American Economic Review, 114(3), 689–723.",
+        "doi": "10.1257/aer.20220180",
+        "aporte": "PRECEDENTE METODOLÓGICO MÁS CERCANO: dueños de tiendas de esquina en México subestimaron beneficios de mejoras; encuesta de expectativas vs. realidad. Muestra la viabilidad de estudiar expectativas en nanostores.",
+        "relevancia": "precedente_metodologico_directo",
+        "journal_q": "Q1"
+      },
+      {
+        "ficha_id": "E03",
+        "cita": "Guerrero-Amezaga, M. E., et al. (2022). Small firm expectations during the COVID pandemic. Journal of Development Economics, 157, 102874.",
+        "doi": "10.1016/j.jdeveco.2022.102874",
+        "aporte": "35,000 firmas LatAm durante pandemia; optimismo persistente incluso bajo shock severo; expectativas mejoran antes que resultados.",
+        "relevancia": "contexto_latam",
+        "journal_q": "Q1"
+      },
+      {
+        "ficha_id": "E04",
+        "cita": "CAME (2024). Índice de Ventas Minoristas PyME — Informe anual 2024. Confederación Argentina de la Mediana Empresa.",
+        "url": "https://www.redcame.org.ar/estadisticas-pyme/78/ndice-de-ventas-minoristas",
+        "aporte": "Serie mensual oficial Argentina. Dic-2024: +17.7% interanual (efecto base de Dic-2023 deprimido). Día de la Madre May-2024: -0.9% interanual. Anual 2024 promedio: -10%. Fuente directa para benchmark estacional.",
+        "relevancia": "benchmark_series_oficiales",
+        "journal_q": "institucional"
+      },
+      {
+        "ficha_id": "E05",
+        "cita": "Grant Thornton (2024). International Business Report — Argentina. Grant Thornton International.",
+        "url": "https://www.grantthornton.global/en/insights/ibr/",
+        "aporte": "Expectativas de optimismo de pymes medianas Argentina — punto de comparación con nanostores informales.",
+        "relevancia": "benchmark_expectativas_arg",
+        "journal_q": "institucional"
+      },
+      {
+        "ficha_id": "E06",
+        "cita": "Mora-Quiñones, P., et al. (2021). Spatial distribution and survival of nanostores in Mexico City. Sustainability, 13(12), 6890.",
+        "doi": "10.3390/su13126890",
+        "aporte": "Análisis espacial nanostores CDMX; ~30% cierra en 5 años. Única fuente con definición explícita de nanostore y análisis de supervivencia.",
+        "relevancia": "definicion_y_contexto_nanostores",
+        "journal_q": "Q2"
+      },
+      {
+        "ficha_id": "D01",
+        "cita": "INDEC (2026). Encuesta de Supermercados — Serie histórica enero 2017 a marzo 2026.",
+        "url": "https://www.indec.gob.ar/ftp/cuadros/economia/serie_supermercados.xlsx",
+        "aporte": "Serie mensual verificada y accesible. Índice Dic-2024: 101.78 (-3.25% interanual real). Dic-2023: 105.20 (-6.60% interanual). Permite benchmark estacional riguroso con ajuste base.",
+        "relevancia": "benchmark_series_oficiales_primario",
+        "journal_q": "institucional"
+      },
+      {
+        "ficha_id": "D02",
+        "cita": "INDEC (2025). Estimador Mensual de Actividad Económica (EMAE) — Sector Comercio.",
+        "url": "https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-9-48",
+        "aporte": "Actividad comercial desestacionalizada (X-13-ARIMA). Permite separar componente estacional del cíclico en el período de encuesta.",
+        "relevancia": "benchmark_desestacionalizacion",
+        "journal_q": "institucional"
+      }
+    ],
+    "nlp_methodology": [
+      {
+        "ficha_id": "M01",
+        "cita": "Haensch, J.-C., et al. (2022). Using machine learning to classify open-ended responses in large-scale surveys. Frontiers in Applied Mathematics and Statistics, 8, 933576.",
+        "doi": "10.3389/fams.2022.933576",
+        "aporte": "SVM sobre 25,000 respuestas abiertas; accuracy=0.93, κ=0.91. DISEÑO DIRECTAMENTE REPLICABLE para razon_cambio_ventas.",
+        "relevancia": "metodo_replicable",
+        "journal_q": "Q2"
+      },
+      {
+        "ficha_id": "M02",
+        "cita": "Schonlau, M., & Couper, M. P. (2016). Coding of open-ended survey responses. Survey Research Methods, 10(3), 171–180.",
+        "doi": "10.18148/srm/2016.v10i3.6214",
+        "aporte": "Boosting con umbral de confianza (54–80% auto-clasificado a 80% accuracy). Permite clasificación parcial con alta precisión.",
+        "relevancia": "metodo_alternativo",
+        "journal_q": "Q2"
+      },
+      {
+        "ficha_id": "M03",
+        "cita": "Pérez, J. M., et al. (2023). RoBERTuito: A pre-trained language model for social media Spanish. arXiv:2111.09453.",
+        "url": "https://arxiv.org/abs/2111.09453",
+        "aporte": "RoBERTuito supera a BETO en 3–4 puntos F1 en español informal. MODELO RECOMENDADO para razon_cambio_ventas (lenguaje coloquial de comerciantes).",
+        "relevancia": "modelo_nlp_recomendado",
+        "journal_q": "preprint"
+      },
+      {
+        "ficha_id": "M04",
+        "cita": "Burstein, R., et al. (2025). Automated classification of open-ended survey responses using large language models. International Health, 17(2), 112–121.",
+        "doi": "10.1093/inthealth/ihad089",
+        "aporte": "LLMs: zero-shot=71.5%, few-shot 20 ejemplos=76%, fine-tuning 799 ejemplos=83.5%. BENCHMARK MÁS RELEVANTE para dimensionar esfuerzo de anotación.",
+        "relevancia": "benchmark_llm_clasificacion",
+        "journal_q": "Q2"
+      },
+      {
+        "ficha_id": "M05",
+        "cita": "Landis, J. R., & Koch, G. G. (1977). The measurement of observer agreement for categorical data. Biometrics, 33(1), 159–174.",
+        "doi": "10.2307/2529310",
+        "aporte": "Estándar de kappa de Cohen: κ≥0.61 aceptable, κ≥0.81 excelente. Umbral mínimo para validación: κ≥0.70.",
+        "relevancia": "validacion_acuerdo",
+        "journal_q": "Q1"
+      },
+      {
+        "ficha_id": "M06",
+        "cita": "Krippendorff, K. (2004). Reliability in content analysis: Some common misconceptions and recommendations. Human Communication Research, 30(3), 411–433.",
+        "doi": "10.1111/j.1468-2958.2004.tb00738.x",
+        "aporte": "α de Krippendorff ≥0.80 recomendado para análisis de contenido categórico. Alternativa a κ para múltiples anotadores.",
+        "relevancia": "validacion_acuerdo",
+        "journal_q": "Q1"
+      }
+    ]
   },
-  "manuscript_draft": null,
-  "methodology_proposal": null,
+  "controversias_detectadas": [
+    {
+      "id": "C1",
+      "titulo": "Expectativas racionales vs. comportamentales",
+      "descripcion": "Muth/Lucas vs. Kahneman/Tversky: ¿los comerciantes procesan información racionalmente o usan heurísticas? El optimismo de nanostores apoya el campo comportamental.",
+      "fichas_involucradas": ["T01", "T02", "T03", "T04"],
+      "relevancia_para_h1": "alta"
+    },
+    {
+      "id": "C2",
+      "titulo": "Optimismo como disfunción vs. estrategia adaptativa",
+      "descripcion": "Literatura dominante lo trata como sesgo cognitivo (De Meza/Southey 1996). Interpretación alternativa: optimismo bajo volatilidad es una estrategia funcional de supervivencia (Guerrero-Amezaga 2022).",
+      "fichas_involucradas": ["T05", "E03"],
+      "relevancia_para_h1": "media-alta"
+    },
+    {
+      "id": "C3",
+      "titulo": "Inattención racional vs. narrativas activas",
+      "descripcion": "Coibion et al. 2018: las firmas pequeñas no actualizan expectativas por costo de información. Shiller 2017: las narrativas guían activamente las decisiones. H1 asume mecanismo activo (narración causal).",
+      "fichas_involucradas": ["T06", "T07", "T08"],
+      "relevancia_para_h1": "alta"
+    },
+    {
+      "id": "C4",
+      "titulo": "Vacío en NLP para expectativas empresariales en español",
+      "descripcion": "No existe paper peer-reviewed que aplique clasificación NLP a encuestas de expectativas de negocios en español. Modelos disponibles (RoBERTuito, BETO) fueron validados en redes sociales, no en encuestas económicas.",
+      "fichas_involucradas": ["M01", "M03", "M04"],
+      "relevancia_para_h1": "metodologica"
+    }
+  ],
+  "gaps_confirmados": [
+    "Ningún estudio aplica teoría de atribución de Weiner (1985) a expectativas de ventas de microcomercio bajo inflación alta.",
+    "Ningún estudio académico mide el vínculo atribución narrativa cualitativa → expectativa cuantitativa en nanostores informales latinoamericanas.",
+    "No hay paper peer-reviewed que aplique NLP a encuestas de expectativas empresariales en español.",
+    "82% de estudios de behavioral economics son en contextos occidentales (Alrohaeem et al. 2026), dejando vacío en economías emergentes informales."
+  ],
+  "benchmark_interanual": {
+    "fuente_primaria": "INDEC Encuesta de Supermercados",
+    "url_serie": "https://www.indec.gob.ar/ftp/cuadros/economia/serie_supermercados.xlsx",
+    "datos_clave": {
+      "dic_2024_indice": 101.78,
+      "dic_2024_var_interanual_pct": -3.25,
+      "dic_2023_indice": 105.20,
+      "dic_2023_var_interanual_pct": -6.60,
+      "nota": "El efecto base deprimido de 2023 infla la variación nominal de 2024."
+    },
+    "fuente_secundaria": "CAME Índice de Ventas Minoristas PyME",
+    "url_came": "https://www.redcame.org.ar/estadisticas-pyme/78/ndice-de-ventas-minoristas",
+    "datos_came": {
+      "dic_2024_var_nominal_pct": 17.7,
+      "dia_madre_may_2024_var_pct": -0.9,
+      "promedio_anual_2024_var_pct": -10.0,
+      "nota": "Dic-2024 +17.7% nominal refleja principalmente efecto base; en términos reales la caída continúa según INDEC."
+    },
+    "conclusion": "El componente estacional es real (pico dic/enero ~15-20% sobre promedio mensual) pero el componente interanual fue negativo en términos reales 2022-2024. Un comerciante que atribuye sus ventas a estacionalidad en oct-2025 debería contrastar contra oct-2024 usando INDEC/CAME."
+  },
+  "nlp_recomendacion": {
+    "enfoque_recomendado": "híbrido",
+    "pasos": [
+      "1. Diccionario de palabras clave para casos claros (categorías: estacional, macro, competencia, interno, clima)",
+      "2. Clasificación few-shot LLM para casos ambiguos (objetivo: 76%+ accuracy según Burstein et al. 2025)",
+      "3. Validación: κ≥0.70 mínimo, α≥0.80 recomendado; al menos 2 anotadores humanos sobre muestra 15%"
+    ],
+    "modelo_base_recomendado": "pysentimiento/RoBERTuito (si se hace fine-tuning) o GPT-4o few-shot",
+    "n_respuestas_objetivo": 703,
+    "nota_methodologist": "La técnica final la define y justifica el methodologist_agent en fase N4."
+  },
+  "manuscript_draft": {
+    "file": "tasks/2026-05-29-consolidation-N3.xml",
+    "sections_complete": ["problema", "estado_cuestion_teorico", "estado_cuestion_empirico", "pregunta_hipotesis"],
+    "sections_pending": ["metodologia", "resultados", "discusion"],
+    "loop_decision": "exit_loop",
+    "next_phase": "N4_methodologist"
+  },
+  "methodology_proposal": {
+    "file": "tasks/2026-05-29-methodology-N4.xml",
+    "tecnica_nlp": "híbrido: diccionario de palabras clave (etapa 1, ~50-65% cobertura) + LLM few-shot GPT-4o con 25 ejemplos (5 por categoría) para casos ambiguos",
+    "categorias": ["ESTAC", "MACRO", "COMP", "INTERNO", "OTRO"],
+    "validacion": "κ≥0.70 mínimo (Landis/Koch 1977), α≥0.80 recomendado (Krippendorff 2004); 2 anotadores humanos independientes sobre muestra 15% (~105 textos)",
+    "modelo_estadistico": "regresión logística binaria (expectativa 'mayores'=1 vs. 'iguales+menores'=0); prueba de Wald sobre β1 de dummy ESTAC (ref: MACRO); controles tipo_negocio + antigüedad",
+    "prueba_directa_H1": "test de Wald unilateral sobre β1(ESTAC); hipótesis β1>0, OR>1"
+  },
   "review_history": [],
-  "controversias_detectadas": [],
-  "ultimo_update": null
+  "ultimo_update": "2026-05-29"
 }

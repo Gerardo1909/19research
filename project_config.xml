@@ -1,57 +1,67 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
   Configuración del proyecto de investigación actual.
-  Completar todos los campos ANTES de iniciar la primera sesión con el lead_researcher.
+  Proyecto: Percepciones y expectativas de ventas en nanostores argentinas.
+  Datos: MIT LIFT Lab, octubre 2025. N=923.
+  Inicializado: 2026-05-28.
 -->
 <project_config>
 
   <metadata>
-    <proyecto_slug>nombre-corto-sin-espacios</proyecto_slug>
-    <titulo>Título completo del proyecto de investigación</titulo>
-    <autor_humano>Nombre del investigador a cargo</autor_humano>
-    <fecha_inicio>YYYY-MM-DD</fecha_inicio>
+    <proyecto_slug>adelift-nanostores-oct2025</proyecto_slug>
+    <titulo>Percepciones y expectativas de ventas en nanostores argentinas: análisis de la encuesta MIT LIFT Lab, octubre 2025</titulo>
+    <autor_humano>Gerardo Toboso</autor_humano>
+    <fecha_inicio>2026-05-28</fecha_inicio>
   </metadata>
 
   <tema>
-    <campo_disciplinar>Ej: economía / sociología / ciencias de la computación / educación</campo_disciplinar>
-    <tema_amplio>Ej: especialización productiva y crecimiento económico</tema_amplio>
-    <recorte>Ej: empresas industriales argentinas, 2003-2019</recorte>
+    <campo_disciplinar>economía / economía del comportamiento / economía informal</campo_disciplinar>
+    <tema_amplio>Percepciones y expectativas de ventas en comercios minoristas de proximidad</tema_amplio>
+    <recorte>Nanostores argentinas (almacenes, kioscos, verdulerías) encuestadas en octubre 2025 por MIT LIFT Lab; análisis NLP sobre respuestas abiertas (columna razon_cambio_ventas, N=703)</recorte>
   </tema>
 
   <hipotesis_preliminar>
     <descripcion>
-      Hipótesis tentativa que orienta la búsqueda inicial. Puede refinarse durante el proceso.
-      NO debe sesgar al search_subagent: él debe buscar evidencia A FAVOR y EN CONTRA.
+      Hipótesis tentativa basada en análisis exploratorio previo.
+      El search_subagent debe buscar evidencia A FAVOR y EN CONTRA de esta tensión expectativa-resultado.
     </descripcion>
-    <enunciado>Texto de la hipótesis preliminar.</enunciado>
+    <enunciado>
+      Los comerciantes de nanostores argentinas que atribuyen los cambios recientes en sus ventas a
+      factores estacionales / de calendario (Día de la Madre, fiestas, fin de año, verano) tienen
+      probabilidad significativamente mayor de declarar expectativas de ventas optimistas a 3 meses
+      ("mayores") que quienes los atribuyen a factores macroeconómicos (precios, inflación, ingresos,
+      situación económica), aun controlando por tipo de negocio y antigüedad del establecimiento.
+      Esta atribución se captura mediante clasificación temática de respuestas abiertas (razon_cambio_ventas)
+      y se contrasta contra series interanuales oficiales de ventas minoristas para descontar el efecto
+      estacional recurrente.
+    </enunciado>
   </hipotesis_preliminar>
 
   <alcance>
-    <espacial>País / región / nivel de análisis</espacial>
-    <temporal>Período YYYY-YYYY</temporal>
-    <unidad_de_analisis>Firmas / individuos / países / textos / etc.</unidad_de_analisis>
+    <espacial>Argentina (urbano / periurbano)</espacial>
+    <temporal>Octubre 2025 (datos de encuesta); referencias teóricas sin restricción temporal</temporal>
+    <unidad_de_analisis>Comercios minoristas de proximidad (nanostores): almacenes, kioscos, verdulerías — N=923</unidad_de_analisis>
   </alcance>
 
   <preferencias>
-    <idioma_fuentes>es | en | mixto</idioma_fuentes>
+    <idioma_fuentes>mixto</idioma_fuentes>
     <formato_citas>APA-7</formato_citas>
-    <profundidad_objetivo>piloto | revision_literatura | investigacion_completa</profundidad_objetivo>
-    <persistir_en_notion>true | false</persistir_en_notion>
-    <notion_database_id>...</notion_database_id>
+    <profundidad_objetivo>investigacion_completa</profundidad_objetivo>
+    <persistir_en_notion>true</persistir_en_notion>
+    <notion_database_id>36ef26336866805ba5f3ff9c64c13bcf</notion_database_id>
   </preferencias>
 
   <restricciones>
-    <restriccion>Ej: no usar fuentes anteriores a 1990 para evidencia empírica.</restriccion>
-    <restriccion>Ej: priorizar revistas latinoamericanas indexadas.</restriccion>
+    <restriccion>Priorizar literatura sobre expectativas empresariales y percepción de ventas en contextos de alta inflación o incertidumbre macroeconómica.</restriccion>
+    <restriccion>Incluir literatura sobre comercio minorista informal y nanostores en América Latina.</restriccion>
+    <restriccion>Los datos son de corte transversal (una ola, octubre 2025): no extrapolar a tendencias longitudinales sin evidencia complementaria.</restriccion>
+    <restriccion>No hay ola previa en la encuesta; el de-sesgo estacional interanual se realiza contra series externas oficiales (INDEC ventas minoristas / encuesta de supermercados, CAME índice de ventas minoristas pyme, IPC) — nunca inventar comparaciones históricas internas.</restriccion>
+    <restriccion>La técnica NLP de clasificación temática de razon_cambio_ventas (N=703) la define y justifica el methodologist_agent con base en el estado de la cuestión metodológico; no anticipar el método antes de ese paso.</restriccion>
   </restricciones>
 
   <conocimiento_previo_del_autor>
-    <autores_clave_ya_identificados>
-      <autor>Ej: Yoguel, G.</autor>
-    </autores_clave_ya_identificados>
-    <fuentes_ya_leidas>
-      <fuente>Ej: Yoguel (2018), "Capacidades productivas..."</fuente>
-    </fuentes_ya_leidas>
+    <autores_clave_ya_identificados/>
+    <fuentes_ya_leidas/>
   </conocimiento_previo_del_autor>
 
 </project_config>

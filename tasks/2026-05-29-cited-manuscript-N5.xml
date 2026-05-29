@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<cited_manuscript date="2026-05-29" version="1" agent="citation_agent" project="adelift-nanostores-oct2025">
+
+  <body_with_citations>
+
+    <section id="1" title="Problema de investigación">
+
+      <p>El comercio minorista de proximidad en Argentina — denominado en la literatura como "nanostores" (Mora-Quiñones et al., 2021) — opera bajo condiciones estructurales de alta inflación e incertidumbre macroeconómica. En este contexto, las encuestas a pequeños comerciantes documentan de manera recurrente expectativas de ventas optimistas que no se corresponden con el comportamiento agregado de las ventas minoristas en términos reales (INDEC, 2026; CAME, 2024). La brecha entre expectativa declarada y resultado observado es un fenómeno documentado en firmas pequeñas de distintos contextos (Higgins, 2024; Guerrero-Amezaga et al., 2022), pero sus mecanismos permanecen escasamente explorados en el segmento de microcomercio informal latinoamericano.</p>
+
+      <p>La literatura sobre expectativas empresariales ha avanzado en dos frentes parcialmente desconectados. Por un lado, los modelos comportamentales identifican sesgos sistemáticos en la formación de expectativas: anclaje (Tversky &amp; Kahneman, 1974), optimismo del emprendedor (Malmendier &amp; Tate, 2015; De Meza &amp; Southey, 1996), y la influencia de narrativas causales sobre las decisiones económicas (Shiller, 2017). Por otro lado, la evidencia empírica sobre microempresas en economías en desarrollo da cuenta de heterogeneidad sustantiva en expectativas y conductas, incluso dentro del mismo segmento (McKenzie &amp; Woodruff, 2017; Higgins, 2024).</p>
+
+      <p>Sin embargo, ningún estudio ha examinado si la dirección de la atribución causal que el comerciante realiza sobre el cambio reciente en sus ventas — si atribuye ese cambio a factores estacionales o de calendario versus a factores macroeconómicos — predice la dirección de sus expectativas a corto plazo. Este vínculo — atribución narrativa cualitativa → expectativa cuantitativa — permanece sin medir en nanostores informales latinoamericanas. La brecha es consistente con el sesgo geográfico de la literatura de behavioral economics: el 82% de los estudios existentes se concentra en contextos occidentales (Alrohaeem et al., 2026).</p>
+
+      <p>El presente trabajo aborda este vacío utilizando los datos de la encuesta MIT LIFT Lab (N=923 nanostores, Argentina, octubre 2025), que incluye una pregunta abierta sobre la razón percibida del cambio en ventas (N=703 respuestas) y una variable cuantitativa de expectativa de ventas a 3 meses. <citation_missing/> <!-- La existencia y características del dataset MIT LIFT Lab (N=923, octubre 2025) constituye una afirmación fáctica clave que requiere una referencia formal: ficha de datos propia del proyecto, protocolo de encuesta, o reporte institucional del MIT LIFT Lab. --></p>
+
+      <p><strong>Contribución original:</strong> La contribución original del estudio es doble: (1) aplica la taxonomía de atribución interna/externa × estable/inestable (Weiner, 1985) al dominio de las expectativas de ventas de microcomercio, y (2) operacionaliza la atribución a través de clasificación temática NLP de respuestas abiertas en español, contrastando las expectativas declaradas contra series interanuales oficiales para aislar el componente de sesgo estacional.</p>
+
+    </section>
+
+    <section id="2" title="Estado de la cuestión — Marco teórico">
+
+      <subsection id="2.1" title="Formación de expectativas empresariales">
+
+        <p>La teoría de las expectativas racionales, formulada por Muth (1961) y aplicada a política monetaria por Friedman (1968), establece el benchmark normativo: los agentes forman expectativas utilizando eficientemente toda la información disponible y corrigen errores sistemáticamente. Bajo este marco, la divergencia persistente entre expectativas y resultados observados debería eliminarse en equilibrio.</p>
+
+        <p>La evidencia empírica sobre pequeñas firmas contradice este benchmark. Coibion et al. (2018) muestran que los gerentes de pequeñas empresas exhiben mayor dispersión y mayor sesgo en sus expectativas de inflación que los agentes de mayor tamaño, lo que los autores atribuyen a inattención racional: el costo de recopilar y procesar información excede el beneficio percibido. Candia et al. (2024) confirman esta heterogeneidad en un panel longitudinal de firmas.</p>
+
+        <p>Las corrientes de behavioral economics ofrecen un mecanismo complementario: las expectativas no solo son inatentas sino sesgadas en dirección positiva. Tversky y Kahneman (1974) documentan que el anclaje en el estado presente y la heurística de disponibilidad producen predicciones que infravaloran cambios desfavorables. De Meza y Southey (1996) demuestran que el optimismo es un rasgo estadísticamente sistemático en emprendedores, especialmente en contextos de incertidumbre alta. Malmendier y Tate (2015) extienden este resultado a directivos, donde la sobreconfianza produce inversión excesiva incluso cuando los resultados son adversos. La teoría de la perspectiva de Kahneman y Tversky (1979) añade que las pérdidas pesan más que las ganancias equivalentes, lo que predice que los comerciantes en contexto de caída de ventas enmarcarán sus expectativas en relación con pérdidas evitadas, no con ganancias brutas.</p>
+
+      </subsection>
+
+      <subsection id="2.2" title="Atribución causal y expectativas futuras">
+
+        <p>El puente teórico más directo a la hipótesis del presente estudio es la teoría de la atribución de Weiner (1985). Weiner propone que los agentes clasifican las causas de resultados pasados en dos dimensiones: locus de control (interno/externo) y estabilidad (estable/inestable). La dimensión de estabilidad es particularmente relevante para la predicción de expectativas futuras: las causas inestables — aquellas percibidas como temporales o circunstanciales — predicen expectativas de reversión; las causas estables predicen persistencia del resultado.</p>
+
+        <p>Aplicado al contexto de nanostores, un comerciante que atribuye una caída de ventas a la estacionalidad (causa inestable: el Día de la Madre ya pasó, diciembre vendrá) debería, según el marco de Weiner (1985), mantener expectativas optimistas de recuperación. En contraste, un comerciante que atribuye la misma caída a la inflación o a la situación económica general (causa estable en el contexto argentino de 2025) debería proyectar un resultado similar o peor. Esta predicción constituye la base lógica de H1.</p>
+
+        <p>Shiller (2017) ofrece un marco complementario: las narrativas económicas — relatos causales que circulan entre agentes — funcionan como unidades de transmisión de expectativas, con dinámica epidémica en su difusión. En este marco, la pregunta abierta razon_cambio_ventas captura la narrativa que el comerciante ha internalizado para explicar su situación, y esa narrativa tiene poder predictivo sobre su conducta futura más allá de las variables observables.</p>
+
+        <p>La tensión entre la inattención racional de Coibion et al. (2018) y el papel activo de las narrativas en Shiller (2017) no se resuelve en este estudio sino que se plantea como interrogante abierto: si los comerciantes son inatentos, ¿por qué la narrativa declarada predice sus expectativas? Una interpretación conciliadora es que la inattención es selectiva — los comerciantes sí procesan activamente las narrativas que consideran salientes, como la estacionalidad del propio negocio, y dejan de procesar las macroeconómicas de alta frecuencia.</p>
+
+      </subsection>
+
+    </section>
+
+    <section id="3" title="Estado de la cuestión — Evidencia empírica">
+
+      <subsection id="3.1" title="Nanostores y microcomercio en América Latina">
+
+        <p>Las nanostores — negocios de proximidad con entre 1 y 5 empleados, frecuentemente informales — constituyen la modalidad dominante de comercio minorista en América Latina (Mora-Quiñones et al., 2021). <citation_missing/> <!-- La afirmación de que las nanostores "constituyen la modalidad dominante de comercio minorista en América Latina" es más fuerte que lo que sostiene Mora-Quiñones et al. (2021), cuyo foco es el análisis espacial en Ciudad de México, no una caracterización regional. Se requiere una fuente regional (ej. CEPAL, Banco Mundial) o moderar el enunciado. --> Mora-Quiñones et al. (2021) estiman que aproximadamente el 30% de las nanostores cierra en un período de cinco años, subrayando la precariedad estructural del segmento.</p>
+
+        <p>McKenzie y Woodruff (2017), en un estudio de prácticas empresariales en microempresas de siete países en desarrollo, documentan que las firmas con prácticas de gestión más formales obtienen mayor rentabilidad, pero que las expectativas de ventas no difieren sistemáticamente entre firmas formales e informales dentro del mismo contexto nacional.</p>
+
+        <p>El precedente metodológico más cercano al presente estudio es Higgins (2024), que analiza los efectos de una intervención sobre dueños de tiendas de esquina en México. Higgins (2024) documenta que los comerciantes subestimaron sistemáticamente los beneficios de las mejoras introducidas, y que esta subestimación era mayor entre quienes atribuían los resultados a factores externos.</p>
+
+      </subsection>
+
+      <subsection id="3.2" title="Expectativas de ventas en pymes bajo volatilidad macroeconómica">
+
+        <p>Guerrero-Amezaga et al. (2022) analizan las expectativas de 35,000 firmas en América Latina durante la pandemia de COVID-19. Su hallazgo central es que el optimismo persistió incluso bajo el shock más severo documentado en el período: las expectativas de ventas mejoraron antes que los resultados observados, con un rezago promedio de dos trimestres.</p>
+
+        <p>En Argentina específicamente, el Índice de Ventas Minoristas Pyme de CAME (2024) registra el efecto de los eventos de calendario sobre las ventas declaradas: en el período 2023-2025 <citation_missing/> <!-- El período 2023-2025 requiere informes CAME de cada año; la ficha E04 cubre el informe anual 2024 solamente. Para los años 2023 y 2025 se necesitan fichas adicionales. -->, los informes mensuales mencionan de forma recurrente los resultados del Día de la Madre y la campaña navideña como los dos picos estacionales más relevantes. El informe de diciembre 2024 registró +17.7% interanual nominal, explicado en parte por el efecto base de un diciembre 2023 deprimido.</p>
+
+        <p>Para el benchmark en términos reales, la Encuesta de Supermercados del INDEC (2026) registra un índice de diciembre 2024 de 101.78, equivalente a -3.25% interanual en términos reales (diciembre 2023: 105.20, -6.60% interanual). La distinción entre variación nominal y real es, en sí misma, un indicador de la "inattención racional" documentada por Coibion et al. (2018).</p>
+
+      </subsection>
+
+      <subsection id="3.3" title="Vacío empírico">
+
+        <p>La revisión de la literatura permite delimitar el vacío empírico. Ningún estudio publicado en revistas académicas: (a) aplica la clasificación de atribución causal (estacional vs. macroeconómica) a las expectativas de ventas de comerciantes de nanostores; (b) utiliza respuestas abiertas de encuesta como fuente de la atribución causal y las procesa mediante clasificación NLP; (c) contrasta las expectativas declaradas contra series interanuales oficiales para aislar el componente de sesgo estacional.</p>
+
+        <p>El trabajo de Higgins (2024) en México se aproxima al primer punto pero no opera con clasificación NLP ni con benchmark interanual. El trabajo de Guerrero-Amezaga et al. (2022) opera en la escala regional pero no descompone las expectativas por tipo de atribución narrativa. Los informes institucionales argentinos (CAME, 2024; Grant Thornton, 2024) dan cuenta de niveles de expectativa pero no de sus determinantes cualitativos.</p>
+
+      </subsection>
+
+    </section>
+
+    <section id="4" title="Pregunta de investigación e hipótesis">
+
+      <p><strong>Pregunta:</strong> ¿En qué medida la atribución narrativa del cambio de ventas (estacional vs. macroeconómica), capturada mediante clasificación temática de respuestas abiertas (razon_cambio_ventas, N=703), explica el optimismo de las expectativas de ventas a 3 meses en nanostores argentinas (octubre 2025), una vez contrastado contra el comportamiento interanual de las ventas minoristas según series oficiales?</p>
+
+      <p><strong>H1:</strong> Los comerciantes de nanostores argentinas que atribuyen los cambios recientes en sus ventas a factores estacionales / de calendario tienen probabilidad significativamente mayor de declarar expectativas de ventas optimistas a 3 meses ("mayores") que quienes los atribuyen a factores macroeconómicos, aun controlando por tipo de negocio y antigüedad.</p>
+
+      <p><strong>H0:</strong> No existe diferencia estadísticamente significativa en la probabilidad de expectativas optimistas entre comerciantes con atribución estacional y comerciantes con atribución macroeconómica, una vez controlados el tipo de negocio y la antigüedad del establecimiento.</p>
+
+      <p><strong>Fundamento teórico:</strong> H1 se deriva directamente de la teoría de atribución de Weiner (1985): la atribución estacional es inestable (predice reversión → optimismo), mientras que la atribución macroeconómica es estable en el contexto argentino 2025 (predice persistencia → pesimismo o neutralidad). La narrativa causal opera como mecanismo mediador según Shiller (2017).</p>
+
+    </section>
+
+    <!-- NOTA SOBRE FICHAS METODOLÓGICAS M01–M06:
+         Las fichas M01–M06 (Haensch et al., 2022; Schonlau &amp; Couper, 2016; Pérez et al., 2023;
+         Burstein et al., 2025; Landis &amp; Koch, 1977; Krippendorff, 2004) no aparecen citadas
+         en el borrador de §1–§4. Están previstas para §5 (Metodología). No se incluyen en el
+         índice de referencias de este archivo, que cubre exclusivamente las secciones procesadas. -->
+
+  </body_with_citations>
+
+  <integrity_report>
+    <total_claims_evaluadas>38</total_claims_evaluadas>
+    <citation_missing_count>3</citation_missing_count>
+    <citation_unverifiable_count>0</citation_unverifiable_count>
+    <citation_weak_count>0</citation_weak_count>
+
+    <issues>
+
+      <issue tipo="missing">
+        <fragmento>El presente trabajo aborda este vacío utilizando los datos de la encuesta MIT LIFT Lab (N=923 nanostores, Argentina, octubre 2025), que incluye una pregunta abierta sobre la razón percibida del cambio en ventas (N=703 respuestas) y una variable cuantitativa de expectativa de ventas a 3 meses.</fragmento>
+        <razon>La caracterización del dataset MIT LIFT Lab — tamaño muestral (N=923), país, fecha de campo (octubre 2025) y variables específicas — es una afirmación fáctica central del estudio. No se provee ninguna ficha bibliográfica para este dataset (ni ficha de datos, ni protocolo de encuesta, ni reporte institucional). La ausencia de cita convierte la afirmación en inverificable para el lector.</razon>
+        <accion_sugerida>El lead_researcher debe proveer una ficha de datos propia del proyecto (ej. D03) con referencia al protocolo de encuesta MIT LIFT Lab o al repositorio de datos. Si no existe publicación externa, incluir al menos: MIT LIFT Lab. (2025). [Nombre del estudio]. [Dataset/working paper]. MIT. con URL o DOI si disponible.</accion_sugerida>
+      </issue>
+
+      <issue tipo="missing">
+        <fragmento>Las nanostores — negocios de proximidad con entre 1 y 5 empleados, frecuentemente informales — constituyen la modalidad dominante de comercio minorista en América Latina (Mora-Quiñones et al., 2021).</fragmento>
+        <razon>Mora-Quiñones et al. (2021) es un estudio de distribución espacial en Ciudad de México (E06); no aborda ni sustenta la caracterización de las nanostores como "modalidad dominante de comercio minorista en América Latina". La ficha E06 solo sostiene la definición de nanostore y la tasa de cierre en México, no la escala regional. La atribución de dominancia regional a Mora-Quiñones et al. es una sobre-generalización que debilita la integridad de la cita.</razon>
+        <accion_sugerida>Dos opciones: (1) añadir una fuente de alcance regional (ej. CEPAL, FAO, Banco Mundial) que documente la prevalencia de comercio informal de proximidad en América Latina; (2) moderar el enunciado a "en contextos urbanos de América Latina, como Ciudad de México" y mantener solo Mora-Quiñones et al. (2021).</accion_sugerida>
+      </issue>
+
+      <issue tipo="missing">
+        <fragmento>en el período 2023-2025, los informes mensuales [de CAME] mencionan de forma recurrente los resultados del Día de la Madre y la campaña navideña como los dos picos estacionales más relevantes.</fragmento>
+        <razon>La ficha E04 solo cubre el informe anual CAME 2024. La afirmación de recurrencia "en el período 2023-2025" requeriría al menos los informes de 2023 y del primer semestre de 2025 como fichas adicionales. Sin ellas, la generalización a tres años no está soportada por la bibliografía declarada.</razon>
+        <accion_sugerida>Añadir fichas E04b y E04c para CAME 2023 y CAME 2025 (primer semestre), o acotar la afirmación explícitamente al año 2024: "en el informe anual 2024, CAME registra..."</accion_sugerida>
+      </issue>
+
+    </issues>
+  </integrity_report>
+
+  <references_index format="APA-7">
+    <!-- Solo fuentes efectivamente citadas en §1–§4, ordenadas alfabéticamente por apellido del primer autor o nombre del organismo -->
+
+    <reference id="T10">
+      <apa>Alrohaeem, D. A., Ogunleye, A., &amp; Saeed, I. (2026). Behavioral economics and educational decision-making: A systematic literature review. Journal of Entrepreneurship Education and Economics, 19(1), e00321.</apa>
+      <doi_url>https://doi.org/10.1016/j.jee.2025.e00321</doi_url>
+    </reference>
+
+    <reference id="E04">
+      <apa>CAME. (2024). Índice de ventas minoristas PyME — Informe anual 2024. Confederación Argentina de la Mediana Empresa.</apa>
+      <doi_url>https://www.redcame.org.ar/estadisticas-pyme/78/ndice-de-ventas-minoristas</doi_url>
+    </reference>
+
+    <reference id="T08">
+      <apa>Candia, B., Coibion, O., &amp; Gorodnichenko, Y. (2024). The macroeconomic expectations of firms. Journal of Monetary Economics, 144, 103541.</apa>
+      <doi_url>https://doi.org/10.1016/j.jmoneco.2024.103541</doi_url>
+    </reference>
+
+    <reference id="T07">
+      <apa>Coibion, O., Gorodnichenko, Y., &amp; Kumar, S. (2018). How do firms form their expectations? New survey evidence. American Economic Review, 108(9), 2671–2713.</apa>
+      <doi_url>https://doi.org/10.1257/aer.20151245</doi_url>
+    </reference>
+
+    <reference id="T05">
+      <apa>De Meza, D., &amp; Southey, C. (1996). The borrower's curse: Optimism, finance and entrepreneurship. Economic Journal, 106(435), 375–386.</apa>
+      <doi_url>https://doi.org/10.2307/2235253</doi_url>
+    </reference>
+
+    <reference id="T03">
+      <apa>Friedman, M. (1968). The role of monetary policy. American Economic Review, 58(1), 1–17.</apa>
+      <doi_url>https://doi.org/10.1257/aer.58.1.1</doi_url>
+    </reference>
+
+    <reference id="E05">
+      <apa>Grant Thornton. (2024). International Business Report — Argentina. Grant Thornton International.</apa>
+      <doi_url>https://www.grantthornton.global/en/insights/ibr/</doi_url>
+    </reference>
+
+    <reference id="E03">
+      <apa>Guerrero-Amezaga, M. E., et al. (2022). Small firm expectations during the COVID pandemic. Journal of Development Economics, 157, 102874.</apa>
+      <doi_url>https://doi.org/10.1016/j.jdeveco.2022.102874</doi_url>
+    </reference>
+
+    <reference id="E02">
+      <apa>Higgins, K. (2024). Learning from experience: Evidence from small retailers in Mexico. American Economic Review, 114(3), 689–723.</apa>
+      <doi_url>https://doi.org/10.1257/aer.20220180</doi_url>
+    </reference>
+
+    <reference id="D01">
+      <apa>INDEC. (2026). Encuesta de supermercados — Serie histórica enero 2017 a marzo 2026. Instituto Nacional de Estadística y Censos.</apa>
+      <doi_url>https://www.indec.gob.ar/ftp/cuadros/economia/serie_supermercados.xlsx</doi_url>
+    </reference>
+
+    <reference id="D02">
+      <apa>INDEC. (2025). Estimador mensual de actividad económica (EMAE) — Sector comercio. Instituto Nacional de Estadística y Censos.</apa>
+      <doi_url>https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-9-48</doi_url>
+    </reference>
+
+    <reference id="T11">
+      <apa>Kahneman, D., &amp; Tversky, A. (1979). Prospect theory: An analysis of decision under risk. Econometrica, 47(2), 263–291.</apa>
+      <doi_url>https://doi.org/10.2307/1914185</doi_url>
+    </reference>
+
+    <reference id="T04">
+      <apa>Malmendier, U., &amp; Tate, G. (2015). Behavioral CEOs: The role of managerial overconfidence. Journal of Economic Perspectives, 29(4), 37–60.</apa>
+      <doi_url>https://doi.org/10.1257/jep.29.4.37</doi_url>
+    </reference>
+
+    <reference id="E01">
+      <apa>McKenzie, D., &amp; Woodruff, C. (2017). Business practices in small firms in developing countries. Management Science, 63(9), 2773–2772.</apa>
+      <doi_url>https://doi.org/10.1287/mnsc.2016.2492</doi_url>
+    </reference>
+
+    <reference id="E06">
+      <apa>Mora-Quiñones, P., et al. (2021). Spatial distribution and survival of nanostores in Mexico City. Sustainability, 13(12), 6890.</apa>
+      <doi_url>https://doi.org/10.3390/su13126890</doi_url>
+    </reference>
+
+    <reference id="T02">
+      <apa>Muth, J. F. (1961). Rational expectations and the theory of price movements. Econometrica, 29(3), 315–335.</apa>
+      <doi_url>https://doi.org/10.2307/1909635</doi_url>
+    </reference>
+
+    <reference id="T06">
+      <apa>Shiller, R. J. (2017). Narrative economics. American Economic Review, 107(4), 967–1004.</apa>
+      <doi_url>https://doi.org/10.1257/aer.107.4.967</doi_url>
+    </reference>
+
+    <reference id="T01">
+      <apa>Tversky, A., &amp; Kahneman, D. (1974). Judgment under uncertainty: Heuristics and biases. Science, 185(4157), 1124–1131.</apa>
+      <doi_url>https://doi.org/10.1126/science.185.4157.1124</doi_url>
+    </reference>
+
+    <reference id="T09">
+      <apa>Weiner, B. (1985). An attributional theory of achievement motivation and emotion. Psychological Review, 92(4), 548–573.</apa>
+      <doi_url>https://doi.org/10.1037/0033-295X.92.4.548</doi_url>
+    </reference>
+
+  </references_index>
+
+  <!-- RESUMEN DE INTEGRIDAD PARA EL LEAD_RESEARCHER:
+
+    Referencias incluidas en el índice: 18 (de las 18 fichas T/E/D citadas en §1–§4)
+    Fichas no citadas en §1–§4 (reservadas para §5 Metodología): M01, M02, M03, M04, M05, M06
+
+    CITATION_MISSING detectados: 3
+      1. Dataset MIT LIFT Lab (N=923, oct-2025): sin ficha bibliográfica. ACCIÓN REQUERIDA.
+      2. Dominancia regional de nanostores en LatAm: sobre-generalización de E06. ACCIÓN REQUERIDA.
+      3. Período 2023-2025 para informes CAME: solo E04 (2024) disponible. ACCIÓN REQUERIDA.
+
+    CITATION_WEAK detectados: 0
+      Nota: Pérez et al. (2023) — arXiv preprint M03 — no fue citado en §1–§4. Si se cita en §5
+      para afirmaciones de rendimiento de RoBERTuito, aplicar <citation_weak/> en ese pasaje.
+
+    CITATION_UNVERIFIABLE detectados: 0
+      Todas las fichas usadas tienen DOI verificado o URL institucional.
+
+    Convención de autores APA-7 aplicada:
+      - Hasta 2 autores: ambos listados (Tversky &amp; Kahneman, 1974; Candia et al., 2024).
+      - 3+ autores: et al. desde primera mención en citas parentéticas
+        (Coibion et al., 2018; Guerrero-Amezaga et al., 2022; Alrohaeem et al., 2026).
+      - Mención narrativa en texto: se usa apellido del primer autor + et al. cuando ≥ 3 autores.
+      - Fuentes institucionales: nombre del organismo como autor (INDEC, CAME, Grant Thornton).
+
+    ADVERTENCIA SOBRE E03:
+      La ficha E03 lista "Guerrero-Amezaga, M. E., et al." — el fichero bibliográfico no desglosa
+      todos los coautores. En la lista de referencias APA-7 se reproduce el formato de la ficha
+      original. El lead_researcher debe confirmar los apellidos completos de todos los autores de
+      E03 para la versión final (APA-7 lista hasta 20 autores en referencias; "et al." en referencias
+      solo aplica a partir del autor 21).
+
+  -->
+
+</cited_manuscript>

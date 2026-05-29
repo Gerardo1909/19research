@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Artefacto N3: Consolidación lead_researcher — F4 + F5
+  Proyecto: adelift-nanostores-oct2025
+  Fecha: 2026-05-29
+  Iteración: 1 (ciclo N2 completado; 4 búsquedas completadas)
+-->
+<orchestration_cycle date="2026-05-29" iteration="1" state="synthesizing">
+
+  <memory_persisted>true</memory_persisted>
+
+  <!-- ============================================================
+       EVALUACIÓN DE COBERTURA (F4)
+  ============================================================ -->
+  <coverage_evaluation>
+
+    <eje nombre="problema">
+      <status>suficiente</status>
+      <evidencia>
+        S-001 confirmó el vacío teórico: ningún estudio aplica atribución causal (Weiner 1985) a
+        expectativas de ventas de microcomercio bajo inflación alta [T09]. S-002 confirmó el vacío
+        empírico: no existe estudio académico que mida el vínculo atribución narrativa → expectativa
+        cuantitativa en nanostores informales latinoamericanas. El gap queda triangulado desde la
+        teoría (S-001) y desde la evidencia empírica sectorial (S-002). Alrohaeem et al. 2026 [T10]
+        cuantifica el sesgo geográfico: 82% de estudios de behavioral economics son en contextos
+        occidentales, confirmando que el vacío en economías emergentes informales es sistémico.
+      </evidencia>
+      <fichas_soporte>T09, T10, E02, E06</fichas_soporte>
+    </eje>
+
+    <eje nombre="estado_cuestion_teorico">
+      <status>suficiente</status>
+      <evidencia>
+        11 fichas teóricas Q1 obtenidas. Tres escuelas identificadas y en diálogo:
+        (a) expectativas racionales [T02, T03] — benchmark normativo;
+        (b) behavioral economics [T01, T04, T05, T11] — optimismo sistemático del empresario;
+        (c) teorías de atribución y narrativas [T09, T06] — puente directo a H1.
+        Controversia C1 (racional vs. comportamental), C2 (optimismo adaptativo vs. disfuncional)
+        y C3 (inattención vs. narrativas activas) documentadas. Weiner 1985 [T09] identificado
+        como el marco teórico principal de H1.
+      </evidencia>
+      <fichas_soporte>T01–T11</fichas_soporte>
+    </eje>
+
+    <eje nombre="estado_cuestion_empirico">
+      <status>suficiente</status>
+      <evidencia>
+        S-002: 6 fichas empíricas incluyendo precedente metodológico directo (Higgins 2024 [E02],
+        AER Q1, tiendas de esquina México) y contexto LatAm (Guerrero-Amezaga 2022 [E03], 35,000
+        firmas LatAm). S-003: 2 series oficiales verificadas con URLs accesibles:
+        INDEC Encuesta de Supermercados [D01] y CAME IVM PyME [E04]. Datos concretos disponibles
+        para benchmark interanual (Dic-2024: -3.25% interanual real INDEC; +17.7% nominal CAME,
+        explicado por efecto base). Vacío empírico confirmado: no hay serie dedicada a nanostores
+        informales argentinas; las series disponibles cubren supermercados/pymes formales.
+      </evidencia>
+      <fichas_soporte>E01–E06, D01, D02</fichas_soporte>
+    </eje>
+
+    <eje nombre="metodologia">
+      <status>suficiente_para_informar_N4</status>
+      <evidencia>
+        S-004: 10 fichas metodológicas. Estado del arte NLP en clasificación de encuestas:
+        SVM (κ=0.91, Haensch 2022 [M01]) y LLMs few-shot (76%, Burstein 2025 [M04]) como enfoques
+        directamente comparables. Estándares de validación: κ≥0.70 mínimo [M05], α≥0.80 recomendado
+        [M06]. Modelo de lenguaje para español informal: RoBERTuito [M03] supera a BETO en 3–4 pts F1.
+        Vacío confirmado: no existe paper peer-reviewed que aplique NLP a encuestas de expectativas
+        empresariales en español. La decisión técnica final se delega al methodologist_agent (N4).
+      </evidencia>
+      <fichas_soporte>M01–M06</fichas_soporte>
+    </eje>
+
+    <contradicciones_detectadas>
+      <contradiccion entre="T02_T03;T04_T05" id="C1">
+        <descripcion>
+          Las expectativas racionales (Muth 1961, Friedman 1968) predicen que los agentes corrigen
+          errores sistemáticamente; el behavioral stream (Malmendier/Tate 2015, De Meza/Southey 1996)
+          documenta optimismo persistente no corregido. El optimismo observado en nanostores argentinas
+          es consistente con el campo comportamental, pero esta posición requiere argumentación explícita
+          contra la alternativa racional.
+        </descripcion>
+        <resolucion_propuesta>
+          Declarar explícitamente que H1 opera dentro del marco comportamental; usar las expectativas
+          racionales como benchmark contrafactual, no como marco adoptado.
+        </resolucion_propuesta>
+      </contradiccion>
+      <contradiccion entre="T07;T06" id="C3">
+        <descripcion>
+          Coibion et al. 2018 sostiene que las pequeñas firmas son inatentas (no actualizan expectativas
+          por costo de información). Shiller 2017 sostiene que las narrativas guían activamente las
+          decisiones. H1 asume que la atribución narrativa del comerciante (razon_cambio_ventas) tiene
+          poder explicativo sobre las expectativas — lo cual implica un proceso activo incompatible con
+          la inattención pura.
+        </descripcion>
+        <resolucion_propuesta>
+          Reconocer la tensión en §Discusión: el mecanismo puede ser inattención selectiva (el comerciante
+          solo procesa narrativas salientes — estacional vs. macro) antes que procesamiento completo.
+          La clasificación NLP de razon_cambio_ventas operacionaliza qué narrativas son salientes.
+        </resolucion_propuesta>
+      </contradiccion>
+      <contradiccion entre="E04_CAME;D01_INDEC" id="C_datos">
+        <descripcion>
+          CAME reporta Dic-2024 +17.7% interanual (lectura nominalmente positiva). INDEC reporta
+          Dic-2024 -3.25% interanual en términos reales. La divergencia es metodológica: CAME usa
+          cifras nominales sobre una base 2023 muy deprimida; INDEC deflacta con IPC.
+        </descripcion>
+        <resolucion_propuesta>
+          Priorizar INDEC (cifras reales, metodología explícita) como fuente primaria del benchmark.
+          CAME se usa para contextualizar la percepción del comerciante (que probablemente razona en
+          términos nominales). Declarar esta distinción en §Metodología.
+        </resolucion_propuesta>
+      </contradiccion>
+    </contradicciones_detectadas>
+
+  </coverage_evaluation>
+
+  <!-- ============================================================
+       BORRADOR DEL MANUSCRITO (F5)
+  ============================================================ -->
+  <synthesis_draft>
+
+    <!-- ────────────────────────────────────────────────── -->
+    <manuscript_section nombre="problema">
+    <!-- ────────────────────────────────────────────────── -->
+
+      <titulo>§1. Problema de investigación</titulo>
+
+      <texto>
+        El comercio minorista de proximidad en Argentina — denominado en la literatura como
+        "nanostores" <ficha id="E06"/> — opera bajo condiciones estructurales de alta inflación
+        e incertidumbre macroeconómica. En este contexto, las encuestas a pequeños comerciantes
+        documentan de manera recurrente expectativas de ventas optimistas que no se corresponden
+        con el comportamiento agregado de las ventas minoristas en términos reales <ficha id="D01"/>
+        <ficha id="E04"/>. La brecha entre expectativa declarada y resultado observado es un
+        fenómeno documentado en firmas pequeñas de distintos contextos <ficha id="E02"/>
+        <ficha id="E03"/>, pero sus mecanismos permanecen escasamente explorados en el segmento
+        de microcomercio informal latinoamericano.
+
+        La literatura sobre expectativas empresariales ha avanzado en dos frentes parcialmente
+        desconectados. Por un lado, los modelos comportamentales identifican sesgos sistemáticos
+        en la formación de expectativas: anclaje <ficha id="T01"/>, optimismo del emprendedor
+        <ficha id="T04"/> <ficha id="T05"/>, y la influencia de narrativas causales sobre las
+        decisiones económicas <ficha id="T06"/>. Por otro lado, la evidencia empírica sobre
+        microempresas en economías en desarrollo da cuenta de heterogeneidad sustantiva en
+        expectativas y conductas, incluso dentro del mismo segmento <ficha id="E01"/> <ficha id="E02"/>.
+
+        Sin embargo, ningún estudio ha examinado si la dirección de la atribución causal que
+        el comerciante realiza sobre el cambio reciente en sus ventas — si atribuye ese cambio
+        a factores estacionales o de calendario versus a factores macroeconómicos — predice la
+        dirección de sus expectativas a corto plazo. Este vínculo — atribución narrativa cualitativa
+        → expectativa cuantitativa — permanece sin medir en nanostores informales latinoamericanas.
+        La brecha es consistente con el sesgo geográfico de la literatura de behavioral economics:
+        el 82% de los estudios existentes se concentra en contextos occidentales <ficha id="T10"/>.
+
+        El presente trabajo aborda este vacío utilizando los datos de la encuesta MIT LIFT Lab
+        (N=923 nanostores, Argentina, octubre 2025), que incluye una pregunta abierta sobre la
+        razón percibida del cambio en ventas (N=703 respuestas) y una variable cuantitativa de
+        expectativa de ventas a 3 meses.
+      </texto>
+
+      <contribucion_original>
+        La contribución original del estudio es doble: (1) aplica la taxonomía de atribución
+        interna/externa × estable/inestable <ficha id="T09"/> al dominio de las expectativas de
+        ventas de microcomercio, y (2) operacionaliza la atribución a través de clasificación
+        temática NLP de respuestas abiertas en español, contrastando las expectativas declaradas
+        contra series interanuales oficiales para aislar el componente de sesgo estacional.
+      </contribucion_original>
+
+    </manuscript_section>
+
+    <!-- ────────────────────────────────────────────────── -->
+    <manuscript_section nombre="estado_cuestion_teorico">
+    <!-- ────────────────────────────────────────────────── -->
+
+      <titulo>§2. Estado de la cuestión — Marco teórico</titulo>
+
+      <subseccion nombre="2.1_expectativas">
+        <titulo>2.1 Formación de expectativas empresariales</titulo>
+        <texto>
+          La teoría de las expectativas racionales, formulada por Muth (1961) <ficha id="T02"/>
+          y aplicada a política monetaria por Friedman (1968) <ficha id="T03"/>, establece el
+          benchmark normativo: los agentes forman expectativas utilizando eficientemente toda la
+          información disponible y corrigen errores sistemáticamente. Bajo este marco, la
+          divergencia persistente entre expectativas y resultados observados debería eliminarse
+          en equilibrio.
+
+          La evidencia empírica sobre pequeñas firmas contradice este benchmark. Coibion,
+          Gorodnichenko y Kumar (2018) <ficha id="T07"/> muestran que los gerentes de pequeñas
+          empresas exhiben mayor dispersión y mayor sesgo en sus expectativas de inflación que
+          los agentes de mayor tamaño, lo que los autores atribuyen a inattención racional: el
+          costo de recopilar y procesar información excede el beneficio percibido. Candia,
+          Coibion y Gorodnichenko (2024) <ficha id="T08"/> confirman esta heterogeneidad en un
+          panel longitudinal de firmas estadounidenses.
+
+          Las corrientes de behavioral economics ofrecen un mecanismo complementario: las
+          expectativas no solo son inatentas sino sesgadas en dirección positiva. Kahneman y
+          Tversky (1974) <ficha id="T01"/> documentan que el anclaje en el estado presente y
+          la heurística de disponibilidad producen predicciones que infravaloran cambios
+          desfavorables. De Meza y Southey (1996) <ficha id="T05"/> demuestran que el optimismo
+          es un rasgo estadísticamente sistemático en emprendedores, especialmente en etapas
+          tempranas o en contextos de incertidumbre alta. Malmendier y Tate (2015) <ficha id="T04"/>
+          extienden este resultado a directivos, donde la sobreconfianza produce inversión excesiva
+          incluso cuando los resultados son adversos. La teoría de la perspectiva de Kahneman y
+          Tversky (1979) <ficha id="T11"/> añade que las pérdidas pesan más que las ganancias
+          equivalentes, lo que predice que los comerciantes en contexto de caída de ventas
+          enmarcarán sus expectativas en relación con pérdidas evitadas, no con ganancias brutas.
+        </texto>
+      </subseccion>
+
+      <subseccion nombre="2.2_atribucion_narrativa">
+        <titulo>2.2 Atribución causal y expectativas futuras</titulo>
+        <texto>
+          El puente teórico más directo a la hipótesis del presente estudio es la teoría de
+          la atribución de Weiner (1985) <ficha id="T09"/>. Weiner propone que los agentes
+          clasifican las causas de resultados pasados en dos dimensiones: locus de control
+          (interno/externo) y estabilidad (estable/inestable). La dimensión de estabilidad es
+          particularmente relevante para la predicción de expectativas futuras: las causas
+          inestables — aquellas percibidas como temporales o circunstanciales — predicen
+          expectativas de reversión; las causas estables predicen persistencia del resultado.
+
+          Aplicado al contexto de nanostores, un comerciante que atribuye una caída de ventas
+          a la estacionalidad (causa inestable: el Día de la Madre ya pasó, diciembre vendrá)
+          debería, según el marco de Weiner, mantener expectativas optimistas de recuperación.
+          En contraste, un comerciante que atribuye la misma caída a la inflación o a la
+          situación económica general (causa estable en el contexto argentino de 2025) debería
+          proyectar un resultado similar o peor. Esta predicción constituye la base lógica de H1.
+
+          Shiller (2017) <ficha id="T06"/> ofrece un marco complementario: las narrativas
+          económicas — relatos causales que circulan entre agentes — funcionan como unidades de
+          transmisión de expectativas, con dinámica epidémica en su difusión. En este marco,
+          la pregunta abierta razon_cambio_ventas captura la narrativa que el comerciante
+          ha internalizado para explicar su situación, y esa narrativa tiene poder predictivo
+          sobre su conducta futura más allá de las variables observables.
+
+          La tensión entre la inattención racional de Coibion et al. <ficha id="T07"/> y el
+          papel activo de las narrativas en Shiller <ficha id="T06"/> no se resuelve en este
+          estudio sino que se plantea como interrogante abierto: si los comerciantes son
+          inatentos, ¿por qué la narrativa declarada predice sus expectativas? Una interpretación
+          conciliadora es que la inattención es selectiva — los comerciantes sí procesan activamente
+          las narrativas que consideran salientes, como la estacionalidad del propio negocio,
+          y dejan de procesar las macroeconómicas de alta frecuencia.
+        </texto>
+      </subseccion>
+
+    </manuscript_section>
+
+    <!-- ────────────────────────────────────────────────── -->
+    <manuscript_section nombre="estado_cuestion_empirico">
+    <!-- ────────────────────────────────────────────────── -->
+
+      <titulo>§3. Estado de la cuestión — Evidencia empírica</titulo>
+
+      <subseccion nombre="3.1_nanostores_latam">
+        <titulo>3.1 Nanostores y microcomercio en América Latina</titulo>
+        <texto>
+          Las nanostores — negocios de proximidad con entre 1 y 5 empleados, frecuentemente
+          informales — constituyen la modalidad dominante de comercio minorista en América Latina
+          <ficha id="E06"/>. Mora-Quiñones et al. (2021) <ficha id="E06"/>, en un análisis espacial
+          de la Ciudad de México, estiman que aproximadamente el 30% de las nanostores cierra en
+          un período de cinco años, subrayando la precariedad estructural del segmento.
+
+          McKenzie y Woodruff (2017) <ficha id="E01"/>, en un estudio de prácticas empresariales
+          en microempresas de siete países en desarrollo, documentan que las firmas con prácticas
+          de gestión más formales obtienen mayor rentabilidad, pero que las expectativas de ventas
+          no difieren sistemáticamente entre firmas formales e informales dentro del mismo contexto
+          nacional. Este resultado sugiere que las expectativas no son simplemente una función de
+          la capacidad de gestión, sino que responden a factores contextuales compartidos.
+
+          El precedente metodológico más cercano al presente estudio es Higgins (2024) <ficha id="E02"/>,
+          que analiza los efectos de una intervención sobre dueños de tiendas de esquina en México.
+          Higgins documenta que los comerciantes subestimaron sistemáticamente los beneficios de
+          las mejoras introducidas, y que esta subestimación era mayor entre quienes atribuían los
+          resultados a factores externos. La alineación metodológica con el presente diseño —
+          encuesta a propietarios de pequeños comercios, variable de expectativas, atribución causal
+          implícita — es sustantiva.
+        </texto>
+      </subseccion>
+
+      <subseccion nombre="3.2_expectativas_pymes_latam">
+        <titulo>3.2 Expectativas de ventas en pymes bajo volatilidad macroeconómica</titulo>
+        <texto>
+          Guerrero-Amezaga et al. (2022) <ficha id="E03"/> analizan las expectativas de 35,000
+          firmas en América Latina durante la pandemia de COVID-19. Su hallazgo central es que
+          el optimismo persistió incluso bajo el shock más severo documentado en el período:
+          las expectativas de ventas mejoraron antes que los resultados observados, con un rezago
+          promedio de dos trimestres. Este patrón es consistente con los modelos de expectativas
+          adaptativas <ficha id="T03"/> en su versión comportamental: los comerciantes corrigen
+          con lentitud y en dirección positiva.
+
+          En Argentina específicamente, el Índice de Ventas Minoristas Pyme de CAME <ficha id="E04"/>
+          registra el efecto de los eventos de calendario sobre las ventas declaradas: en el período
+          2023-2025, los informes mensuales de CAME mencionan de forma recurrente los resultados del
+          Día de la Madre y la campaña navideña como los dos picos estacionales más relevantes para
+          el comercio minorista de proximidad. El informe de diciembre 2024 registró +17.7%
+          interanual nominal, explicado en parte por el efecto base de un diciembre 2023 deprimido.
+
+          Para el benchmark en términos reales, la Encuesta de Supermercados del INDEC <ficha id="D01"/>
+          — la serie con mayor rigor metodológico disponible — registra un índice de diciembre 2024
+          de 101.78, equivalente a -3.25% interanual en términos reales (diciembre 2023: 105.20,
+          -6.60% interanual). Este dato es crítico para el diseño del estudio: un comerciante
+          encuestado en octubre 2025 que anticipe que diciembre será bueno está realizando una
+          predicción razonable en términos nominales, pero que en términos reales debe contrastarse
+          contra esta serie. La distinción entre variación nominal y real es, en sí misma, un
+          indicador de la "inattención racional" documentada por Coibion et al. <ficha id="T07"/>.
+        </texto>
+      </subseccion>
+
+      <subseccion nombre="3.3_gap_empirico">
+        <titulo>3.3 Vacío empírico</titulo>
+        <texto>
+          La revisión de la literatura permite delimitar el vacío empírico que el presente estudio
+          aborda. Ningún estudio publicado en revistas académicas:
+
+          (a) aplica la clasificación de atribución causal (estacional vs. macroeconómica) a las
+          expectativas de ventas de comerciantes de nanostores;
+
+          (b) utiliza respuestas abiertas de encuesta como fuente de la atribución causal y las
+          procesa mediante clasificación NLP;
+
+          (c) contrasta las expectativas declaradas contra series interanuales oficiales de ventas
+          minoristas para aislar el componente de sesgo estacional de calendario.
+
+          El trabajo de Higgins (2024) <ficha id="E02"/> en México se aproxima al primer punto
+          pero no opera con clasificación NLP ni con benchmark interanual. El trabajo de
+          Guerrero-Amezaga et al. (2022) <ficha id="E03"/> opera en la escala regional pero no
+          descompone las expectativas por tipo de atribución narrativa. Los informes institucionales
+          argentinos <ficha id="E04"/> <ficha id="E05"/> dan cuenta de niveles de expectativa
+          pero no de sus determinantes cualitativos.
+        </texto>
+      </subseccion>
+
+    </manuscript_section>
+
+    <!-- ────────────────────────────────────────────────── -->
+    <manuscript_section nombre="pregunta_hipotesis">
+    <!-- ────────────────────────────────────────────────── -->
+
+      <titulo>§4. Pregunta de investigación e hipótesis</titulo>
+
+      <pregunta>
+        ¿En qué medida la atribución narrativa del cambio de ventas (estacional vs. macroeconómica),
+        capturada mediante clasificación temática de respuestas abiertas (razon_cambio_ventas, N=703),
+        explica el optimismo de las expectativas de ventas a 3 meses en nanostores argentinas
+        (octubre 2025), una vez contrastado contra el comportamiento interanual de las ventas
+        minoristas según series oficiales?
+      </pregunta>
+
+      <hipotesis id="H1">
+        Los comerciantes de nanostores argentinas que atribuyen los cambios recientes en sus ventas a
+        factores estacionales / de calendario (Día de la Madre, fiestas, fin de año, verano) tienen
+        probabilidad significativamente mayor de declarar expectativas de ventas optimistas a 3 meses
+        ("mayores") que quienes los atribuyen a factores macroeconómicos (precios, inflación,
+        ingresos, situación económica), aun controlando por tipo de negocio y antigüedad.
+      </hipotesis>
+
+      <fundamento_teorico>
+        H1 se deriva directamente de la teoría de atribución de Weiner (1985) <ficha id="T09"/>:
+        la atribución estacional es inestable (predice reversión → optimismo), mientras que la
+        atribución macroeconómica es estable en el contexto argentino 2025 (predice persistencia
+        → pesimismo o neutralidad). La narrativa causal opera como mecanismo mediador según
+        Shiller (2017) <ficha id="T06"/>.
+      </fundamento_teorico>
+
+      <hipotesis_nula id="H0">
+        No existe diferencia estadísticamente significativa en la probabilidad de expectativas
+        optimistas entre comerciantes con atribución estacional y comerciantes con atribución
+        macroeconómica, una vez controlados el tipo de negocio y la antigüedad del establecimiento.
+      </hipotesis_nula>
+
+    </manuscript_section>
+
+    <!-- ────────────────────────────────────────────────── -->
+    <manuscript_section nombre="notas_para_metodologia">
+    <!-- ────────────────────────────────────────────────── -->
+
+      <titulo>§5. Notas para el diseño metodológico (N4 — methodologist_agent)</titulo>
+
+      <nota_para_N4>
+        <item>
+          La variable independiente (atribución narrativa) requiere clasificación temática de
+          razon_cambio_ventas (N=703 respuestas abiertas en español). La categoría mínima es
+          binaria: estacional vs. macroeconómica. Se recomienda esquema de 5 categorías:
+          (1) estacional/calendario, (2) macro/inflación/ingresos, (3) competencia/oferta,
+          (4) interno/gestión, (5) clima/otro. La codificación a 5 categorías permite análisis
+          de sensibilidad al umbral de clasificación.
+        </item>
+        <item>
+          El estado del arte metodológico (S-004) recomienda enfoque híbrido:
+          (a) diccionario de palabras clave para casos claros → (b) clasificación few-shot LLM
+          para ambiguos → (c) validación con κ≥0.70 mínimo [M05], α≥0.80 recomendado [M06].
+          Burstein et al. (2025) <ficha id="M04"/> establece el benchmark de referencia:
+          few-shot con 20 ejemplos alcanza 76% accuracy; fine-tuning con 799 ejemplos alcanza 83.5%.
+          Haensch et al. (2022) <ficha id="M01"/> reporta κ=0.91 con SVM sobre 25,000 respuestas —
+          el diseño más directamente replicable.
+        </item>
+        <item>
+          La variable dependiente (optimismo) se operacionaliza como variable binaria
+          (expectativas "mayores" = 1 vs. "iguales o menores" = 0) o como variable ordinal
+          de 3 categorías (mayores / iguales / menores). El modelo principal es regresión
+          logística con controles: tipo_negocio (categórica) y antigüedad (continua o en
+          quintiles). La regresión logística ordinal es una extensión natural si se retiene
+          la variable ordinal.
+        </item>
+        <item>
+          El benchmark interanual (S-003) entra como covariable contextual o como test de
+          robustez: las expectativas declaradas en octubre 2025 deben contrastarse con el
+          comportamiento real de las ventas en octubre 2024 (INDEC, CAME) para evaluar si
+          el optimismo observado es atribuible a estacionalidad real o a sesgo perceptivo.
+          La INDEC Encuesta de Supermercados [D01] es la fuente primaria (URL verificada,
+          datos reales, cobertura hasta mar-2026).
+        </item>
+        <item>
+          Restricción crítica del diseño: la encuesta es de corte transversal único (29-sep a
+          28-oct 2025). No es posible construir un panel ni una comparación interna de olas.
+          El benchmark interanual es necesariamente externo (series INDEC/CAME). Esta limitación
+          debe declararse explícitamente en §Limitaciones del manuscrito final.
+        </item>
+      </nota_para_N4>
+
+    </manuscript_section>
+
+  </synthesis_draft>
+
+  <!-- ============================================================
+       EVALUACIÓN DE BUCLE (F4 — decisión)
+  ============================================================ -->
+  <loop_evaluation>
+
+    <cobertura_por_eje>
+      <eje nombre="problema">suficiente — gap triangulado desde teoría y empírica; contribución original declarada</eje>
+      <eje nombre="estado_cuestion_teorico">suficiente — 11 fichas Q1/Q2; 3 controversias documentadas; Weiner 1985 como marco principal</eje>
+      <eje nombre="estado_cuestion_empirico">suficiente — precedente metodológico directo (Higgins 2024); 2 series oficiales verificadas; vacío empírico delimitado</eje>
+      <eje nombre="metodologia">suficiente_para_informar_N4 — estado del arte NLP completo; decisión técnica delegada al methodologist_agent</eje>
+    </cobertura_por_eje>
+
+    <fichas_total>
+      <teoricas>11 (T01–T11)</teoricas>
+      <empiricas>6 (E01–E06)</empiricas>
+      <datos_oficiales>2 (D01–D02)</datos_oficiales>
+      <metodologicas>10 (M01–M10 aproximado, ver S-004)</metodologicas>
+      <total>~29 fichas con DOI/URL verificable; 0 fuentes SEO/blog</total>
+    </fichas_total>
+
+    <decision>exit_loop</decision>
+    <rationale>
+      Los 4 ejes del pipeline están cubiertos con evidencia verificable. Las controversias
+      detectadas (C1, C3, C_datos) están documentadas y tienen propuestas de resolución concretas.
+      La bibliografía teórica cubre el marco de atribución causal (Weiner 1985), las narrativas
+      económicas (Shiller 2017) y el benchmark de inattención (Coibion et al. 2018). La evidencia
+      empírica cuenta con un precedente metodológico directo (Higgins 2024, AER Q1). El benchmark
+      interanual tiene URL verificada (INDEC, CAME). El diseño NLP tiene un estado del arte
+      suficiente para que el methodologist_agent tome una decisión técnica fundamentada.
+      No se requiere un segundo ciclo de búsqueda.
+    </rationale>
+
+    <siguiente_paso>
+      Pasar a N4 — methodologist_agent: diseñar y justificar la técnica NLP de clasificación
+      de razon_cambio_ventas (categorías, modelo base, protocolo de validación, umbral κ).
+      Entregar el briefing N4 con: (a) descripción del dataset (N=703, español informal,
+      textos cortos 5–30 palabras), (b) esquema de 5 categorías propuesto, (c) fichas M01–M06
+      como insumo, (d) restricción: el methodologist define la técnica final y la justifica.
+    </siguiente_paso>
+
+    <briefing_N4 target="methodologist_agent" task_id="N4">
+      <objetivo>
+        Diseñar y justificar la técnica de clasificación temática para razon_cambio_ventas
+        (N=703 respuestas abiertas en español informal, textos cortos 5–30 palabras).
+        Producir: (a) esquema de categorías definitivo con definiciones operativas,
+        (b) técnica NLP seleccionada con justificación metodológica, (c) protocolo de
+        validación con umbrales de acuerdo, (d) plan de análisis estadístico de H1.
+      </objetivo>
+      <insumos>
+        Fichas metodológicas de S-004 (archivo: tasks/2026-05-28-search-S004-metodologia_nlp.xml).
+        Estado del arte sintetizado en research-state.json (campo nlp_recomendacion).
+        Restricción: la técnica debe ser replicable y reproducible (código abierto o API documentada).
+      </insumos>
+      <esquema_categorias_propuesto>
+        1. estacional_calendario: Día de la Madre, fiestas, vacaciones, verano, navidad, fin de año, quincena
+        2. macro_inflacion_ingresos: inflación, precios, dólar, crisis, situación económica, plata, dinero
+        3. competencia_oferta: competidores, supermercado, mayorista, stock, proveedor
+        4. interno_gestion: local, productos, atención, cambio propio, remodelación
+        5. otro_no_clasificable: clima, azar, no sabe, respuestas ininteligibles
+      </esquema_categorias_propuesto>
+      <decision_requerida>
+        Definir entre: (a) SVM con diccionario semilla (replicando Haensch 2022 [M01]),
+        (b) LLM few-shot (replicando Burstein 2025 [M04]), o (c) híbrido diccionario + LLM.
+        Justificar elección en función de N=703, español informal, y criterio κ≥0.70.
+      </decision_requerida>
+      <output_esperado>
+        Documento XML con: definiciones operativas de 5 categorías, técnica seleccionada,
+        protocolo de validación (número de anotadores, muestra de validación, umbral κ),
+        y plan de análisis estadístico (modelo logístico con controles).
+      </output_esperado>
+    </briefing_N4>
+
+  </loop_evaluation>
+
+</orchestration_cycle>

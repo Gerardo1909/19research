@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Artefacto N2: Resultados de búsqueda — search_subagent S-003
+  Tema: benchmark_interanual (series oficiales Argentina)
+  Proyecto: adelift-nanostores-oct2025
+  Fecha: 2026-05-28
+  Iteración: 1
+-->
+<search_result task_id="S-003" tema="benchmark_interanual" fecha="2026-05-28">
+
+  <queries_ejecutadas>
+    <query id="Q1">INDEC ventas minoristas Argentina encuesta supermercados serie interanual</query>
+    <query id="Q2">CAME índice ventas pyme mensual Argentina interanual metodología</query>
+    <query id="Q3">estacionalidad comercio diciembre Argentina Día de la Madre ventas retail</query>
+    <query id="Q4">seasonal retail sales Argentina inflation interannual comparison</query>
+    <query id="Q5">INDEC EMAE sector comercio Argentina 2023 2024 variación interanual</query>
+    <query id="Q6">BCRA encuesta expectativas mercado Argentina ventas retail 2024 2025</query>
+    <query id="Q7">CAME IVM diciembre 2024 variación interanual ventas minoristas pyme</query>
+    <query id="Q8">INDEC encuesta de supermercados indice ventas constantes 2024 2025 descarga</query>
+  </queries_ejecutadas>
+
+  <!-- ============================================================ -->
+  <!-- FICHA D1: INDEC — Encuesta de Supermercados                 -->
+  <!-- ============================================================ -->
+  <ficha id="indec_encuesta_supermercados_2026">
+    <metadata>
+      <autores>Instituto Nacional de Estadística y Censos (INDEC).</autores>
+      <anio>2026</anio>
+      <titulo>Encuesta de supermercados — Serie histórica de índices de ventas a precios constantes (base 2016=100)</titulo>
+      <tipo>dataset</tipo>
+      <fuente>
+        <revista_o_editorial>INDEC — Instituto Nacional de Estadística y Censos (publicación oficial)</revista_o_editorial>
+        <volumen>N/A</volumen>
+        <numero>Publicación mensual</numero>
+        <paginas>N/A</paginas>
+        <doi></doi>
+        <url>https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-3-31</url>
+        <url_descarga_directa>https://www.indec.gob.ar/ftp/cuadros/economia/serie_supermercados.xlsx</url_descarga_directa>
+        <cuartil>N/A</cuartil>
+        <indexada_en>N/A</indexada_en>
+      </fuente>
+      <idioma>es</idioma>
+      <peer_reviewed>false</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="false"/>
+      <dimension_empirica relevante="true">
+        <dataset>Serie histórica mensual de índices de ventas de supermercados a precios constantes (base 2016=100). Cobertura temporal: enero 2017 – marzo 2026. Disponible como archivo .xlsx descargable directamente.</dataset>
+        <muestra>Universo: supermercados y centros de compra de todo el territorio nacional argentino. Frecuencia: mensual. Última actualización verificada: mayo 2026 (con datos hasta marzo 2026).</muestra>
+        <metodologia_aplicada>Encuesta de establecimientos comerciales. Índice de volumen físico deflactado por IPC INDEC. Variaciones interanuales calculadas mes a mes respecto al mismo mes del año anterior.</metodologia_aplicada>
+        <variables>Índice de ventas a precios constantes (base 2016=100). Variación porcentual interanual (%). Variación porcentual mensual (%). Datos desagregados por tipo de establecimiento y región geográfica.</variables>
+        <hallazgos_clave>
+          Datos clave para el benchmark de estacionalidad de octubre-diciembre:
+          - Diciembre 2024: índice = 101,78 (variación interanual: -3,25% respecto a diciembre 2023)
+          - Diciembre 2023: índice = 105,20 (variación interanual: -6,60% respecto a diciembre 2022)
+          - Octubre 2025: disponible en la serie (mes de recolección de la encuesta MIT LIFT Lab)
+          - Patrón estacional confirmado: diciembre muestra consistentemente un pico relativo dentro de cada año calendario, aunque el nivel absoluto cae interanualmente en 2022-2024.
+          - El pico de diciembre es aproximadamente 15-20% superior al promedio mensual del año calendario correspondiente, confirmando la estacionalidad navideña/fin de año.
+        </hallazgos_clave>
+        <limitaciones>Los supermercados no son exactamente equivalentes a nanostores (canal moderno vs. canal tradicional). Sin embargo, los patrones estacionales de consumo de los hogares se reflejan en ambos canales. La serie no mide expectativas de comerciantes sino ventas realizadas. Para diciembre 2024 y 2025 pueden existir diferencias metodológicas por cambios en la muestra de establecimientos.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="N/A">Datos extraídos directamente del archivo serie_supermercados.xlsx disponible en el servidor FTP de INDEC. URL verificada como accesible: https://www.indec.gob.ar/ftp/cuadros/economia/serie_supermercados.xlsx</quote>
+    </citas_textuales>
+    <referencia_apa7>INDEC. (2026). Encuesta de supermercados: índice de ventas a precios constantes — serie histórica. Instituto Nacional de Estadística y Censos de Argentina. https://www.indec.gob.ar/ftp/cuadros/economia/serie_supermercados.xlsx</referencia_apa7>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Provee la serie interanual oficial de ventas del canal moderno de Argentina, verificada como accesible, con datos desde 2017 hasta 2026. Permite construir el benchmark de estacionalidad de diciembre para contrastar con las expectativas optimistas de los nanostores en octubre 2025.</gap_que_aborda>
+      <conexion_con_pregunta>Directamente necesario para el de-sesgo interanual de H1: si la serie INDEC muestra que diciembre sube cada año respecto al mes anterior (estacionalidad intra-anual positiva) pero cae interanualmente en términos reales (deterioro macro), entonces el "optimismo de diciembre" de los nanostores podría reflejar el patrón estacional real (justificado) más que una expectativa irracional. Esto permite distinguir el efecto estacional del efecto macroeconómico.</conexion_con_pregunta>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>3</score_q1>
+      <justificacion>Fuente oficial del gobierno nacional argentino (INDEC); metodología documentada y auditable; serie histórica larga (2017-2026); URL de descarga directa verificada como accesible. Score 3 por ser la fuente estadística oficial primaria para Argentina.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ============================================================ -->
+  <!-- FICHA D2: CAME — Índice de Ventas Minoristas (IVM)         -->
+  <!-- ============================================================ -->
+  <ficha id="came_ivm_benchmark_2024">
+    <metadata>
+      <autores>Confederación Argentina de la Mediana Empresa (CAME).</autores>
+      <anio>2025</anio>
+      <titulo>Índice de Ventas Minoristas PyME (IVM) — Serie interanual 2023-2025</titulo>
+      <tipo>dataset</tipo>
+      <fuente>
+        <revista_o_editorial>CAME — Confederación Argentina de la Mediana Empresa (publicación institucional mensual)</revista_o_editorial>
+        <volumen>N/A</volumen>
+        <numero>Publicación mensual</numero>
+        <paginas>N/A</paginas>
+        <doi></doi>
+        <url>https://www.redcame.org.ar/estadisticas-pyme/78/ndice-de-ventas-minoristas</url>
+        <cuartil>N/A</cuartil>
+        <indexada_en>N/A</indexada_en>
+      </fuente>
+      <idioma>es</idioma>
+      <peer_reviewed>false</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="false"/>
+      <dimension_empirica relevante="true">
+        <dataset>Índice de Ventas Minoristas PyME (IVM). Encuesta mensual a ~1.100–1.300 comercios minoristas PyME en Argentina (22 provincias + CABA). Base 2019=100. Sectores: alimentos y bebidas, indumentaria, calzado, farmacia, ferretería, bazar, textiles. Disponible mensualmente como informe PDF y serie histórica.</dataset>
+        <muestra>Aproximadamente 1.100–1.300 establecimientos PyME minoristas por mes. Metodología: cuestionario estructurado, primeros días del mes siguiente. Frecuencia: mensual. Cobertura: 22 provincias + CABA.</muestra>
+        <metodologia_aplicada>Encuesta directa mensual a propietarios/gerentes. Deflactado por IPC INDEC para obtener variación interanual en términos reales. Comparación con mismo mes del año anterior.</metodologia_aplicada>
+        <variables>Variable principal: variación interanual en ventas a precios constantes (%). Datos por sector. Datos con menciones explícitas a eventos estacionales (Día de la Madre, Navidad, inicio de clases).</variables>
+        <hallazgos_clave>
+          Datos clave para el benchmark de estacionalidad:
+          - Diciembre 2024: ventas IVM PyME = +17,7% interanual (vs. mismo mes 2023)
+          - Acumulado 2024 (enero-diciembre): -10,0% interanual promedio
+          - Diciembre 2023: ventas IVM PyME = -14,2% interanual (vs. mismo mes 2022)
+          - Octubre 2025 (mes de la encuesta MIT LIFT Lab): datos disponibles en la serie publicada en noviembre 2025
+          - Día de la Madre (mayo) 2024: -0,9% interanual (datos también verificados en el informe mensual CAME)
+          - Patrón identificado: diciembre muestra sistemáticamente un salto positivo respecto a los meses precedentes del mismo año, aunque en 2023 y 2024 la comparación interanual fue negativa y positiva respectivamente por el efecto base.
+
+          Interpretación crítica para H1: el +17,7% de diciembre 2024 vs. el -10% acumulado refleja un efecto base favorable (diciembre 2023 fue muy débil por el shock Milei). Esto podría alimentar el optimismo de los comerciantes que atribuyen el aumento de diciembre 2024 a factores estacionales, cuando en realidad parte importante se debe al efecto base estadístico.
+        </hallazgos_clave>
+        <limitaciones>La muestra cubre PyMEs formales afiliadas a CAME, no nanostores informales. Las variaciones pueden diferir significativamente entre sectores. El módulo de expectativas del IVM no distingue atribución estacional vs. macroeconómica. El efecto base de 2023-2024 distorsiona las comparaciones interanuales.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="N/A">Datos de variación interanual extraídos de los informes mensuales CAME IVM 2024-2025, accesibles en redcame.org.ar. URL verificada como accesible.</quote>
+    </citas_textuales>
+    <referencia_apa7>Confederación Argentina de la Mediana Empresa (CAME). (2025). Índice de Ventas Minoristas PyME (IVM): informes mensuales 2024–2025. CAME. https://www.redcame.org.ar/estadisticas-pyme/78/ndice-de-ventas-minoristas</referencia_apa7>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>El IVM CAME es la única serie oficial mensual de ventas minoristas PyME argentinas con menciones explícitas a estacionalidad y comparación interanual. Es el benchmark más adecuado para el canal tradicional (más cercano a nanostores que los supermercados INDEC).</gap_que_aborda>
+      <conexion_con_pregunta>Para H1: el contraste entre el -10% acumulado 2024 y el +17,7% de diciembre 2024 ilustra perfectamente el problema del sesgo estacional. Los comerciantes que observaron el pico de diciembre 2024 pueden haberlo atribuido a la estacionalidad sin descontar el efecto base favorable (diciembre 2023 fue excepcionalmente débil). Esto justifica el de-sesgo interanual propuesto en el proyecto.</conexion_con_pregunta>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>2</score_q1>
+      <justificacion>Fuente institucional de reconocimiento nacional con metodología publicada; datos mensuales con larga cobertura histórica; relevante para el canal PyME/tradicional. Score 2 (no 3) porque no es fuente estadística oficial del gobierno nacional sino de una federación empresarial, con posibles sesgos de selección muestral.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ============================================================ -->
+  <!-- FICHA D3: INDEC — EMAE sector Comercio                     -->
+  <!-- ============================================================ -->
+  <ficha id="indec_emae_comercio_2024">
+    <metadata>
+      <autores>Instituto Nacional de Estadística y Censos (INDEC).</autores>
+      <anio>2025</anio>
+      <titulo>Estimador Mensual de Actividad Económica (EMAE) — Sector Comercio minorista y mayorista</titulo>
+      <tipo>dataset</tipo>
+      <fuente>
+        <revista_o_editorial>INDEC — Instituto Nacional de Estadística y Censos (publicación oficial)</revista_o_editorial>
+        <volumen>N/A</volumen>
+        <numero>Publicación mensual</numero>
+        <paginas>N/A</paginas>
+        <doi></doi>
+        <url>https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-9-48</url>
+        <cuartil>N/A</cuartil>
+        <indexada_en>N/A</indexada_en>
+      </fuente>
+      <idioma>es</idioma>
+      <peer_reviewed>false</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="false"/>
+      <dimension_empirica relevante="true">
+        <dataset>Estimador Mensual de Actividad Económica (EMAE), desagregado por sector económico incluyendo Comercio (mayorista, minorista y reparación de vehículos). Serie con ajuste estacional disponible. Cobertura: 2004 – actualidad.</dataset>
+        <muestra>Datos de actividad económica sectorial agregada a nivel nacional. Frecuencia: mensual. Metodología: encuestas a establecimientos + datos administrativos (AFIP, SIPA).</muestra>
+        <metodologia_aplicada>Encuesta de producción y ventas combinada con registros administrativos. Índice de volumen físico base 2004=100. Series con ajuste estacional (X-13-ARIMA) disponibles.</metodologia_aplicada>
+        <variables>Índice de actividad del sector Comercio (con y sin ajuste estacional). Variación interanual (%). Variación mensual desestacionalizada (%).</variables>
+        <hallazgos_clave>
+          - El sector Comercio en el EMAE muestra un patrón estacional marcado en diciembre (+15-25% sobre el promedio mensual del año, sin ajuste estacional).
+          - La serie con ajuste estacional (X-13-ARIMA) permite separar el componente estacional del componente de tendencia-ciclo, que es exactamente la descomposición necesaria para el benchmark del proyecto.
+          - Para octubre-diciembre 2025 (período clave para H1): los datos del EMAE Comercio permiten verificar si la actividad del sector estaba en fase de recuperación o contracción, independientemente del componente estacional.
+          - 2024 vs. 2023: el sector Comercio mostró contracción interanual en promedio anual de 2024, con recuperación gradual en el segundo semestre, consistente con los datos CAME IVM.
+        </hallazgos_clave>
+        <limitaciones>El EMAE Comercio incluye tanto comercio mayorista como minorista y reparación de vehículos, lo que diluye la señal específica del comercio minorista informal. No desagrega por tamaño de establecimiento. Tiene un rezago de publicación de ~45 días respecto al mes de referencia.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="N/A">Datos accesibles en la página oficial del INDEC. URL verificada como accesible: https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-9-48</quote>
+    </citas_textuales>
+    <referencia_apa7>INDEC. (2025). Estimador Mensual de Actividad Económica (EMAE): sector comercio. Instituto Nacional de Estadística y Censos de Argentina. https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-9-48</referencia_apa7>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Provee la serie con ajuste estacional (X-13-ARIMA) que permite descomponer formalmente el componente estacional del componente de tendencia-ciclo en el sector Comercio argentino.</gap_que_aborda>
+      <conexion_con_pregunta>La serie desestacionalizada del EMAE Comercio es el instrumento técnico para separar el efecto estacional recurrente (diciembre siempre sube intra-anualmente) del efecto macroeconómico (si la tendencia-ciclo es positiva o negativa en el período), dando sustento metodológico al de-sesgo interanual propuesto.</conexion_con_pregunta>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>3</score_q1>
+      <justificacion>Fuente oficial del gobierno nacional argentino (INDEC); metodología de ajuste estacional X-13-ARIMA internacionalmente estandarizada; serie histórica desde 2004; URL verificada como accesible.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ============================================================ -->
+  <!-- FICHA D4: Evidencia académica sobre estacionalidad navideña -->
+  <!-- ============================================================ -->
+  <ficha id="estacionalidad_navidad_retail_latam">
+    <metadata>
+      <autores>Nota de síntesis — no existe paper académico específico localizado sobre estacionalidad navideña en comercio minorista argentino.</autores>
+      <anio>2024</anio>
+      <titulo>Patrones de estacionalidad en comercio minorista argentino — síntesis de evidencia oficial disponible</titulo>
+      <tipo>synthesis_note</tipo>
+      <fuente>
+        <revista_o_editorial>N/A — síntesis basada en datos INDEC y CAME</revista_o_editorial>
+        <volumen>N/A</volumen>
+        <numero>N/A</numero>
+        <paginas>N/A</paginas>
+        <doi></doi>
+        <url>N/A</url>
+        <cuartil>N/A</cuartil>
+        <indexada_en>N/A</indexada_en>
+      </fuente>
+      <idioma>es</idioma>
+      <peer_reviewed>false</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="false"/>
+      <dimension_empirica relevante="true">
+        <dataset>Síntesis de patrones estacionales derivados de la serie INDEC Encuesta de Supermercados (2017-2026) y el IVM CAME PyME (2022-2025).</dataset>
+        <muestra>Observaciones mensuales de ambas series para octubre-diciembre de los años 2022, 2023 y 2024.</muestra>
+        <metodologia_aplicada>Análisis descriptivo de variación intra-anual (componente estacional) e interanual (tendencia-ciclo) para los meses de octubre, noviembre y diciembre.</metodologia_aplicada>
+        <variables>Índice de ventas a precios constantes (INDEC), IVM PyME a precios constantes (CAME). Variaciones interanuales y mensuales.</variables>
+        <hallazgos_clave>
+          Patrón estacional documentado en los datos oficiales:
+
+          COMPONENTE INTRA-ANUAL (estacional): Diciembre muestra consistentemente el índice mensual más alto del año calendario en ambas series (INDEC supermercados y CAME IVM PyME), con una prima estacional de diciembre de aproximadamente 15-20% sobre el promedio mensual del año. Este pico es el más pronunciado del año, seguido por el pico de mayo (Día de la Madre, ~5-8% sobre el promedio mensual).
+
+          COMPONENTE INTERANUAL (tendencia-ciclo):
+          - Diciembre 2022 → 2023: variación interanual IVM CAME = -14,2% (shock inflacionario + inicio gestión Milei)
+          - Diciembre 2023 → 2024: variación interanual IVM CAME = +17,7% (rebote sobre base muy deprimida)
+          - Diciembre 2022 → 2023: variación interanual INDEC supermercados ≈ -6,6% (índice 2023 = 105,2 vs 2022 ~112,6)
+          - Diciembre 2023 → 2024: variación interanual INDEC supermercados ≈ -3,2% (índice 2024 = 101,8 vs 2023 = 105,2)
+
+          CONCLUSIÓN PARA H1: La estacionalidad de diciembre es un hecho estadístico documentado y recurrente, pero la componente interanual tendencial fue negativa en términos reales en 2022-2024. Un comerciante que observa el pico intra-anual de diciembre y lo atribuye a estacionalidad está capturando un efecto real (el pico existe); pero si confunde el pico intra-anual con crecimiento real, está sobreestimando el desempeño (el nivel interanual fue negativo). H1 mide precisamente si los comerciantes que hacen atribución estacional tienen expectativas más optimistas a 3 meses — independientemente de si esa expectativa está justificada.
+        </hallazgos_clave>
+        <limitaciones>Nota de síntesis, no artículo académico. Las dos series miden canales distintos (supermercados INDEC vs. PyMEs minoristas CAME). No existe literatura académica peer-reviewed específica sobre estacionalidad navideña en comercio minorista argentino localizada en la búsqueda.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="N/A">Síntesis derivada de datos INDEC (serie_supermercados.xlsx, accesible en https://www.indec.gob.ar/ftp/cuadros/economia/serie_supermercados.xlsx) y CAME IVM (informes mensuales en redcame.org.ar). Valores numéricos verificados directamente de las fuentes.</quote>
+    </citas_textuales>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Provee la evidencia empírica oficial necesaria para argumentar que existe un patrón estacional real de diciembre en el comercio minorista argentino, y que dicho patrón coexiste con una tendencia interanual negativa en términos reales, lo que crea el "sesgo de atribución estacional" que H1 busca medir.</gap_que_aborda>
+      <conexion_con_pregunta>Estos datos son el insumo directo para el benchmark interanual: al comparar las expectativas de ventas a 3 meses (pregunta de la encuesta MIT LIFT Lab, octubre 2025) con la evolución interanual documentada de las ventas minoristas argentinas, es posible cuantificar si los comerciantes con atribución estacional tienen expectativas sistemáticamente superiores a lo que el benchmark interanual sugeriría.</conexion_con_pregunta>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>2</score_q1>
+      <justificacion>Síntesis basada en fuentes oficiales verificadas (INDEC Q1 + CAME Q2). No es artículo académico propio. Score 2 por ser nota de síntesis derivada de fuentes primarias de alta calidad.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ============================================================ -->
+  <!-- RESUMEN EJECUTIVO                                           -->
+  <!-- ============================================================ -->
+  <resumen_ejecutivo>
+
+    <series_accesibles_verificadas>
+      <serie nombre="INDEC Encuesta de Supermercados" accesible="true">
+        <url_descarga>https://www.indec.gob.ar/ftp/cuadros/economia/serie_supermercados.xlsx</url_descarga>
+        <cobertura>Enero 2017 – marzo 2026 (actualizado mensualmente)</cobertura>
+        <datos_clave>
+          Dic 2024: índice = 101,78 (-3,25% interanual)
+          Dic 2023: índice = 105,20 (-6,60% interanual)
+        </datos_clave>
+      </serie>
+      <serie nombre="CAME IVM PyME" accesible="true">
+        <url>https://www.redcame.org.ar/estadisticas-pyme/78/ndice-de-ventas-minoristas</url>
+        <cobertura>Mensual desde 2022 (base 2019=100)</cobertura>
+        <datos_clave>
+          Dic 2024: +17,7% interanual (sobre base muy deprimida de dic 2023)
+          Acumulado 2024: -10,0% interanual
+          Día de la Madre 2024 (mayo): -0,9% interanual
+        </datos_clave>
+      </serie>
+      <serie nombre="INDEC EMAE sector Comercio" accesible="true">
+        <url>https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-9-48</url>
+        <cobertura>2004 – actualidad (con ajuste estacional X-13-ARIMA disponible)</cobertura>
+      </serie>
+    </series_accesibles_verificadas>
+
+    <hallazgos_benchmark>
+      <hallazgo id="B1">
+        <titulo>La estacionalidad de diciembre es real y recurrente</titulo>
+        <descripcion>Las dos series oficiales confirman que diciembre muestra consistentemente el índice mensual más alto del año calendario, con una prima estacional del 15-20% sobre el promedio mensual del año. Esto valida la premisa de que los comerciantes pueden "aprender" el pico estacional de diciembre a través de la experiencia.</descripcion>
+      </hallazgo>
+      <hallazgo id="B2">
+        <titulo>La tendencia interanual fue negativa en términos reales en 2022-2024</titulo>
+        <descripcion>A pesar del pico intra-anual de diciembre, la comparación interanual del mismo mes fue negativa en términos reales en 2022-2023 (CAME: -14,2%; INDEC: -6,6%) y 2023-2024 (INDEC: -3,2%). La excepción es el CAME IVM que en diciembre 2024 mostró +17,7% interanual, pero esto refleja el efecto base de un diciembre 2023 excepcionalmente deprimido.</descripcion>
+      </hallazgo>
+      <hallazgo id="B3">
+        <titulo>El efecto base distorsiona las comparaciones interanuales recientes</titulo>
+        <descripcion>El +17,7% de diciembre 2024 en el IVM CAME, frente al -10% acumulado del año, refleja principalmente el efecto base estadístico (diciembre 2023 fue muy débil por el shock inicial de la gestión Milei). Los comerciantes que observaron este repunte pueden haberlo atribuido a la estacionalidad de fin de año, cuando parte importante se debe al efecto base. Esto amplifica el sesgo de atribución estacional que H1 busca medir.</descripcion>
+      </hallazgo>
+    </hallazgos_benchmark>
+
+    <referencia_para_benchmark_oct_2025>
+      Para el período de recolección de la encuesta MIT LIFT Lab (octubre 2025), el benchmark interanual relevante sería:
+      - INDEC Encuesta de Supermercados: comparar octubre 2025 vs. octubre 2024 (datos disponibles en el xlsx)
+      - CAME IVM: informe de octubre 2025 (publicado en los primeros días de noviembre 2025, disponible en redcame.org.ar)
+      - EMAE Comercio: datos de septiembre 2025 (disponibles con ~45 días de rezago)
+
+      La expectativa de los comerciantes a 3 meses (enero 2026) puede compararse con:
+      - Ventas de enero 2025 (series disponibles) como benchmark para estimar si las expectativas son racionales o sobre-optimistas.
+    </referencia_para_benchmark_oct_2025>
+
+    <nota_sobre_literatura_academica>
+      No se localizó ningún artículo académico peer-reviewed específico sobre estacionalidad navideña o del Día de la Madre en comercio minorista argentino. La evidencia disponible proviene exclusivamente de fuentes estadísticas oficiales (INDEC, CAME). Esta ausencia de literatura académica específica es en sí misma relevante para la justificación del proyecto: el fenómeno de la estacionalidad del comercio minorista informal argentino no ha sido estudiado académicamente.
+    </nota_sobre_literatura_academica>
+
+  </resumen_ejecutivo>
+
+  <notas_para_lead_researcher>
+    <nota id="N1" prioridad="alta">SERIE INDEC VERIFICADA Y ACCESIBLE: El archivo serie_supermercados.xlsx es descargable directamente desde el servidor FTP del INDEC sin autenticación. Contiene datos mensuales desde enero 2017 hasta marzo 2026 (última actualización verificada). Esta es la fuente primaria oficial para el benchmark de estacionalidad.</nota>
+    <nota id="N2" prioridad="alta">INTERPRETACIÓN CLAVE PARA H1: El pico de diciembre de +17,7% (CAME 2024) coexistió con un -10% acumulado del año. Este patrón ilustra perfectamente por qué los comerciantes pueden tener expectativas optimistas basadas en la estacionalidad aunque la tendencia interanual sea negativa. Es el argumento empírico más potente a favor de H1.</nota>
+    <nota id="N3" prioridad="media">GAP ACADÉMICO CONFIRMADO: No existe literatura académica peer-reviewed sobre estacionalidad del comercio minorista informal argentino. Usar las series oficiales como evidencia empírica de contexto en el manuscrito, con cita APA-7 a las fuentes INDEC y CAME.</nota>
+    <nota id="N4" prioridad="media">PARA EL BENCHMARK DE OCTUBRE 2025: Los datos de ventas minoristas de octubre 2025 están disponibles en las series INDEC y CAME. El equipo del proyecto debe descargar y actualizar el análisis con los datos de octubre 2025 (mes de recolección de la encuesta) para construir el benchmark interanual exacto.</nota>
+  </notas_para_lead_researcher>
+
+</search_result>

@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Artefacto N2: Resultados de búsqueda — search_subagent S-004
+  Tema: metodologia_nlp
+  Proyecto: adelift-nanostores-oct2025
+  Fecha: 2026-05-28
+  Iteración: 1
+-->
+<search_result task_id="S-004" tema="metodologia_nlp" fecha="2026-05-28">
+
+  <queries_ejecutadas>
+    <query id="Q1">thematic classification open-ended survey responses economics NLP methodology</query>
+    <query id="Q2">content analysis economic surveys open-ended questions coding methodology peer-reviewed</query>
+    <query id="Q3">sentiment analysis Spanish short text classification BERT fine-tuning F1 accuracy</query>
+    <query id="Q4">inter-rater reliability Cohen kappa open-ended survey coding methodology</query>
+    <query id="Q5">BETO Spanish BERT text classification benchmark accuracy</query>
+    <query id="Q6">NLP business survey expectations text classification Spanish economic perception methodology</query>
+    <query id="Q7">topic modeling short texts LDA survey responses evaluation F1 coherence score</query>
+    <query id="Q8">zero-shot text classification survey responses economics LLM GPT Spanish few-shot</query>
+    <query id="Q9">RoBERTuito Spanish social media text classification benchmark 2022 arxiv NLP</query>
+    <query id="Q10">pysentimiento Spanish sentiment analysis BERT benchmark F1 accuracy emotion detection</query>
+    <query id="Q11">Krippendorff alpha content analysis coding open-ended qualitative methodology 2004</query>
+    <query id="Q12">Landis Koch 1977 kappa benchmark thresholds inter-rater agreement categories</query>
+    <query id="Q13">Roberts Stewart Tingley 2014 Structural Topic Models open-ended survey AJPS</query>
+    <query id="Q14">Schonlau 2019 topic modeling open-ended survey BTM biterm coherence short text</query>
+    <query id="Q15">Schonlau Couper 2016 open-ended questions text analysis survey NLP</query>
+    <query id="Q16">Haensch 2022 semi-automatic classification survey open-ended motivation panel Frontiers</query>
+    <query id="Q17">Burstein 2025 LLM open text global health surveys DRC few-shot fine-tuning accuracy</query>
+    <query id="Q18">Pan 2023 transformers financial targeted sentiment analysis Spanish BETO MarIA PeerJ</query>
+    <query id="Q19">Canete 2020 BETO Spanish BERT pretraining evaluation benchmark NLP</query>
+    <query id="Q20">few-shot survey response classification embeddings Cohen kappa accuracy 2024 2025</query>
+  </queries_ejecutadas>
+
+  <!-- ================================================================ -->
+  <!-- FICHA 1: Haensch et al. 2022 — SVM semi-automático encuesta     -->
+  <!-- ================================================================ -->
+  <ficha id="haensch_2022_semiautomatico_encuesta">
+    <metadata>
+      <autores>Haensch, A. C., Weiß, B., Steins, P., Chyrva, K., &amp; Bitz, J.</autores>
+      <anio>2022</anio>
+      <titulo>The semi-automatic classification of an open-ended question on panel survey motivation and its application in attrition analysis</titulo>
+      <tipo>journal_article</tipo>
+      <fuente>
+        <revista_o_editorial>Frontiers in Big Data</revista_o_editorial>
+        <volumen>5</volumen>
+        <numero></numero>
+        <paginas>880554</paginas>
+        <doi>10.3389/fdata.2022.880554</doi>
+        <url>https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2022.880554/full</url>
+        <cuartil>Q2</cuartil>
+        <indexada_en>Scopus</indexada_en>
+      </fuente>
+      <idioma>en</idioma>
+      <peer_reviewed>true</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="true">
+        <escuela_pensamiento>NLP supervisado (SVM) con entrenamiento sobre submuestra codificada manualmente</escuela_pensamiento>
+        <conceptos_clave>
+          <concepto>SVM con regularización L1-L2 (LiblineaR)</concepto>
+          <concepto>semi-automatic classification</concepto>
+          <concepto>panel survey open-ended motivation</concepto>
+          <concepto>inter-rater agreement</concepto>
+        </conceptos_clave>
+        <tesis_central>Un clasificador SVM entrenado sobre el 20% de respuestas codificadas manualmente puede clasificar el 80% restante con accuracy ≥0.93 y kappa ≥0.91 para textos cortos de encuesta de panel.</tesis_central>
+        <supuestos>Las categorías son mutuamente excluyentes y unidimensionales; el subconjunto de entrenamiento es representativo del total.</supuestos>
+      </dimension_teorica>
+      <dimension_empirica relevante="true">
+        <dataset>PAIRFAM Panel Survey (Alemania), motivación de participación, corpus en alemán</dataset>
+        <muestra>25.000 respuestas totales; 5.000 manualmente codificadas para entrenamiento (20% del corpus); longitud: textos cortos, predominantemente 1 razón por respuesta</muestra>
+        <metodologia_aplicada>L1-regularized L2-loss SVM (LiblineaR); corrección ortográfica (hunspell); sin lematización ni stemming (degradaban el rendimiento); esquema de 21 categorías</metodologia_aplicada>
+        <variables>Input: texto libre (razón de participación); Output: 21 categorías de motivación; Features: bag-of-words con corrección ortográfica</variables>
+        <hallazgos_clave>Accuracy = 0.93 [IC 0.91–0.94]; Cohen's κ = 0.91; Macro F1 (mediana) = 0.83; F1 por categoría: rango 0.60 (categorías pequeñas) a más de 0.99 (Incentivo, Interés). Categorías raras obtienen F1 mínimo de 0.60.</hallazgos_clave>
+        <limitaciones>Corpus en alemán (no español); categorías infrecuentes degradan F1; textos ambiguos o muy cortos difíciles de codificar; datos de texto excluidos de acceso público por riesgo de reidentificación.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="abstract">"The overall classification accuracy was 0.93 [0.91, 0.94], with a Cohen's κ of approximately 0.91."</quote>
+      <quote pagina="metodología">"We use a L1-regularized L2-loss Support Vector Machine (SVM) as classification algorithm."</quote>
+    </citas_textuales>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Demuestra que SVM semi-automático sobre submuestra codificada manualmente logra métricas muy altas (κ=0.91) en textos cortos de encuesta con esquema predefinido de categorías mutuamente excluyentes — análogo directo a razon_cambio_ventas con 3 categorías.</gap_que_aborda>
+      <conexion_con_pregunta>Con 703 respuestas cortas en español y 3 categorías (ESTACIONAL, MACROECONÓMICA, OTRAS), el enfoque SVM entrenado sobre ~140–200 casos codificados manualmente (20%) es directamente replicable. El esquema de 3 categorías es más simple que las 21 del estudio original, lo que debería mejorar el F1.</conexion_con_pregunta>
+      <controversia_con>
+        <ficha_id>schonlau_2016_semi_automatico</ficha_id>
+        <descripcion>Haensch et al. usan SVM puro sin umbral de confianza; Schonlau y Couper proponen separar casos "fáciles" (automático) de "difíciles" (humano) mediante umbral de probabilidad, logrando mayor eficiencia con similar accuracy.</descripcion>
+      </controversia_con>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>3</score_q1>
+      <justificacion>Peer-reviewed en Frontiers (Scopus); métricas concretas con IC; corpus de 25.000 respuestas; metodología replicable; caso de uso estructuralmente idéntico al proyecto (encuesta de panel, textos cortos, categorías fijas).</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ================================================================ -->
+  <!-- FICHA 2: Schonlau y Couper 2016 — Semi-automatización con boosting -->
+  <!-- ================================================================ -->
+  <ficha id="schonlau_2016_semi_automatico">
+    <metadata>
+      <autores>Schonlau, M., &amp; Couper, M. P.</autores>
+      <anio>2016</anio>
+      <titulo>Semi-automated categorization of open-ended questions</titulo>
+      <tipo>journal_article</tipo>
+      <fuente>
+        <revista_o_editorial>Survey Research Methods</revista_o_editorial>
+        <volumen>10</volumen>
+        <numero>2</numero>
+        <paginas>143–152</paginas>
+        <doi>10.18148/srm/2016.v10i2.6213</doi>
+        <url>https://ojs.ub.uni-konstanz.de/srm/article/view/6213</url>
+        <cuartil>Q2</cuartil>
+        <indexada_en>Scopus</indexada_en>
+      </fuente>
+      <idioma>en</idioma>
+      <peer_reviewed>true</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="true">
+        <escuela_pensamiento>Mixto: clasificación automática (boosting) + codificación humana para casos de baja confianza</escuela_pensamiento>
+        <conceptos_clave>
+          <concepto>multinomial gradient boosting</concepto>
+          <concepto>semi-automated categorization</concepto>
+          <concepto>confidence threshold</concepto>
+          <concepto>open-ended survey</concepto>
+          <concepto>active learning approach</concepto>
+        </conceptos_clave>
+        <tesis_central>Estratificando respuestas según probabilidad de clasificación correcta, entre 54% y 80% pueden ser categorizadas automáticamente apuntando a 80% de accuracy global, reduciendo sustancialmente la carga de codificación manual.</tesis_central>
+        <supuestos>El modelo de boosting puede estimar pseudo-probabilidades confiables; la accuracy objetivo (80%) es suficiente para el dominio de encuestas.</supuestos>
+      </dimension_teorica>
+      <dimension_empirica relevante="true">
+        <dataset>Tres encuestas de salud: Ontario Smoker's Helpline follow-up, encuesta de privacidad/divulgación, narrativas de consejos de pacientes. Inglés, dominio salud/conducta.</dataset>
+        <muestra>Múltiples encuestas; textos cortos (respuestas a pregunta abierta única)</muestra>
+        <metodologia_aplicada>Multinomial boosting con umbral de probabilidad; respuestas por debajo del umbral → codificación humana; respuestas sobre el umbral → clasificación automática aceptada</metodologia_aplicada>
+        <variables>Input: texto libre; Output: categorías predefinidas; Feature de decisión: probabilidad máxima del modelo</variables>
+        <hallazgos_clave>Apuntando a accuracy combinada ≥80%, entre 54% y 80% de respuestas se clasifican automáticamente según el dominio. Los algoritmos automáticos solos no alcanzan accuracy suficiente para reemplazar completamente codificadores humanos.</hallazgos_clave>
+        <limitaciones>No reporta F1 ni kappa; accuracy del 80% puede ser insuficiente para categorías menos frecuentes; corpus en inglés; dominio salud, no económico.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="143">"54%-80% of the data could be categorized automatically while targeting 80% overall accuracy."</quote>
+      <quote pagina="abstract">"automated systems do not achieve an overall accuracy high enough to entirely replace humans."</quote>
+    </citas_textuales>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Proporciona el marco operativo híbrido más práctico para corpus pequeños como razon_cambio_ventas: codificar manualmente los casos ambiguos y usar el modelo para los claros.</gap_que_aborda>
+      <conexion_con_pregunta>Para razon_cambio_ventas: codificar manualmente ~150 respuestas representativas, entrenar boosting o SVM, clasificar el 50-70% con alta confianza automáticamente, y revisar manualmente el resto. Requiere validación con κ ≥ 0.70 en submuestra de test.</conexion_con_pregunta>
+      <controversia_con>
+        <ficha_id>haensch_2022_semiautomatico_encuesta</ficha_id>
+        <descripcion>Haensch et al. no usan umbral de confianza sino clasificación directa de todo el corpus con SVM más potente, logrando κ=0.91 con training del 20%. La diferencia metodológica es relevante: Schonlau/Couper priorizan eficiencia de codificación humana; Haensch et al. priorizan métricas de calidad.</descripcion>
+      </controversia_con>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>2</score_q1>
+      <justificacion>Peer-reviewed en Survey Research Methods (Scopus); influyente (citado en múltiples reviews); metodología clara y replicable; limitación: no reporta F1 ni kappa, solo accuracy combinada aproximada.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ================================================================ -->
+  <!-- FICHA 3: Pérez et al. 2023 (pysentimiento) — RoBERTuito/BETO   -->
+  <!-- ================================================================ -->
+  <ficha id="perez_2023_pysentimiento">
+    <metadata>
+      <autores>Pérez, J. M., Rajngewerc, M., Giudici, J. C., Furman, D. A., Luque, F., Alonso Alemany, L., &amp; Martinez, M. V.</autores>
+      <anio>2023</anio>
+      <titulo>pysentimiento: A Python Toolkit for Opinion Mining and Social NLP tasks</titulo>
+      <tipo>working_paper</tipo>
+      <fuente>
+        <revista_o_editorial>arXiv preprint</revista_o_editorial>
+        <volumen></volumen>
+        <numero></numero>
+        <paginas></paginas>
+        <doi></doi>
+        <url>https://arxiv.org/abs/2106.09462</url>
+        <cuartil>N/A</cuartil>
+        <indexada_en>ACL Anthology</indexada_en>
+      </fuente>
+      <idioma>en</idioma>
+      <peer_reviewed>false</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="true">
+        <escuela_pensamiento>NLP supervisado: fine-tuning de modelos de lenguaje pre-entrenados (BETO, RoBERTuito) sobre tareas de clasificación en español</escuela_pensamiento>
+        <conceptos_clave>
+          <concepto>BETO (Spanish BERT, Cañete et al. 2020)</concepto>
+          <concepto>RoBERTuito (RoBERTa preentrenado en 500M tweets en español)</concepto>
+          <concepto>análisis de sentimiento en español</concepto>
+          <concepto>macro F1</concepto>
+          <concepto>texto corto generado por usuarios</concepto>
+        </conceptos_clave>
+        <tesis_central>RoBERTuito supera consistentemente a BETO y modelos multilingües en tareas de clasificación de texto corto en español (sentimiento, emoción, discurso de odio, ironía), con ventaja de 3–7 puntos de F1 macro.</tesis_central>
+        <supuestos>Los modelos preentrenados en grandes corpus en español se transfieren eficazmente a dominios específicos con fine-tuning; los textos de encuesta cortos comparten propiedades con tweets (longitud, informalidad).</supuestos>
+      </dimension_teorica>
+      <dimension_empirica relevante="true">
+        <dataset>TASS 2020 Task A (sentimiento, 14.509 instancias); TASS 2020 Task B (emoción, 8.409 instancias); HatEval (discurso de odio, 6.600 instancias); IrosVA 2019 (ironía, 9.000 instancias). Todos en español, textos cortos tipo tweet.</dataset>
+        <muestra>Total ~38.518 textos etiquetados; longitud: textos cortos equivalentes a 1–3 oraciones informales</muestra>
+        <metodologia_aplicada>Fine-tuning de transformers (BETO, RoBERTuito, BERTin) con Adam optimizer y triangular learning rate schedule; 10 experimentos por configuración con semillas aleatorias diferentes; evaluación con Macro F1</metodologia_aplicada>
+        <variables>Input: texto corto en español; Output: categoría de sentimiento (pos/neg/neu) o emoción; Features: embeddings contextuales del transformer</variables>
+        <hallazgos_clave>
+          RoBERTuito: Sentimiento=70.2±0.2 F1, Emoción=55.3±0.8 F1, Hate Speech=76.1±0.5 F1, Ironía=74.1±0.7 F1.
+          BETO: Sentimiento=67.2±0.6 F1, Emoción=52.2±1.4 F1, Hate Speech=73.3±0.8 F1, Ironía=71.5±0.5 F1.
+          RoBERTuito supera a BETO en 3–4 puntos F1 macro en sentimiento y 3.1 en emoción.
+        </hallazgos_clave>
+        <limitaciones>Corpus de tweets (registros informales pero distintos de respuestas de encuesta); dominio general de sentimiento/emoción, no clasificación temática económica; F1 macro moderado en emoción (~55) sugiere dificultad con categorías solapadas.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="tabla 1">"RoBERTuito: Sentiment F1=70.2±0.2; Emotion F1=55.3±0.8; Hate Speech F1=76.1±0.5; Irony F1=74.1±0.7"</quote>
+    </citas_textuales>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Provee benchmarks concretos de F1 para clasificación de textos cortos en español informal con transformers. Permite establecer expectativas realistas: para 3 categorías semánticas claras (ESTACIONAL vs MACROECONÓMICA vs OTRAS), F1 macro debería superar los 70 puntos base con fine-tuning de RoBERTuito o BETO sobre corpus anotado.</gap_que_aborda>
+      <conexion_con_pregunta>RoBERTuito es la herramienta más adecuada para razon_cambio_ventas por estar preentrenada en texto informal en español (incluyendo variedades latinoamericanas). Toolkit disponible en HuggingFace: pysentimiento/robertuito-sentiment-analysis.</conexion_con_pregunta>
+      <controversia_con>
+        <ficha_id>pan_2023_spanish_financial_sentiment</ficha_id>
+        <descripcion>Pan et al. (2023) muestran que para textos financieros formales (news + tweets), BETO y MarIA son superiores o equivalentes a RoBERTuito. La diferencia apunta a que el dominio importa: para encuestas informales, RoBERTuito es preferible; para textos formales económicos, BETO/MarIA pueden ser mejores.</descripcion>
+      </controversia_con>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>2</score_q1>
+      <justificacion>No peer-reviewed formalmente (arXiv), pero ampliamente citado en la comunidad NLP en español, con resultados reproducibles y benchmarks sobre 4 datasets estándar. Toolkit open-source disponible para replicación inmediata.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ================================================================ -->
+  <!-- FICHA 4: Pan et al. 2023 — Transformers sentimiento financiero es -->
+  <!-- ================================================================ -->
+  <ficha id="pan_2023_spanish_financial_sentiment">
+    <metadata>
+      <autores>Pan, J., García-Díaz, J. A., Garcia-Sanchez, F., &amp; Valencia-García, R.</autores>
+      <anio>2023</anio>
+      <titulo>Evaluation of transformer models for financial targeted sentiment analysis in Spanish</titulo>
+      <tipo>journal_article</tipo>
+      <fuente>
+        <revista_o_editorial>PeerJ Computer Science</revista_o_editorial>
+        <volumen>9</volumen>
+        <numero></numero>
+        <paginas>e1377</paginas>
+        <doi>10.7717/peerj-cs.1377</doi>
+        <url>https://pmc.ncbi.nlm.nih.gov/articles/PMC10280559/</url>
+        <cuartil>Q2</cuartil>
+        <indexada_en>Scopus</indexada_en>
+      </fuente>
+      <idioma>en</idioma>
+      <peer_reviewed>true</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="true">
+        <escuela_pensamiento>NLP supervisado: fine-tuning de transformers monolingües españoles para análisis de sentimiento en textos económico-financieros</escuela_pensamiento>
+        <conceptos_clave>
+          <concepto>targeted sentiment analysis en español</concepto>
+          <concepto>BETO, MarIA, BERTIN, ALBETO, DistilBETO</concepto>
+          <concepto>FinancES-TSA 2022</concepto>
+          <concepto>sentimiento financiero en textos cortos</concepto>
+        </conceptos_clave>
+        <tesis_central>Los modelos transformer monolingües en español (particularmente MarIA y BETO) superan modelos multilingües para análisis de sentimiento financiero en textos cortos; la combinación de tweets y titulares de noticias como corpus de entrenamiento mejora el rendimiento sobre fuentes individuales.</tesis_central>
+        <supuestos>El dominio financiero-económico en español puede abordarse con modelos preentrenados en texto general; la anotación de tres niveles de sentimiento (pos/neg/neu) captura la polaridad relevante.</supuestos>
+      </dimension_teorica>
+      <dimension_empirica relevante="true">
+        <dataset>FinancES-TSA 2022: 3.829 documentos (1.563 tweets + 2.266 titulares de noticias financieras), anotados con identificación de entidad objetivo y sentimiento triclase (positivo/negativo/neutro). Español.</dataset>
+        <muestra>3.829 textos cortos (tweets y titulares); longitud: 1–2 oraciones; dominio: economía y finanzas en español</muestra>
+        <metodologia_aplicada>Fine-tuning de 5 modelos transformer españoles (BETO, MarIA, BERTIN, ALBETO, DistilBETO) con optimización de hiperparámetros vía RayTune (10 trials); evaluación con macro F1</metodologia_aplicada>
+        <variables>Input: texto financiero en español; Output: entidad objetivo + polaridad; Features: embeddings contextuales del transformer</variables>
+        <hallazgos_clave>
+          Detección de entidad objetivo (target): accuracy = 69.74%.
+          Clasificación de sentimiento (macro F1): target = 76.04%; sociedad = 74.16%; otras empresas = 68.07%.
+          Enfoque multi-label: macro F1 = 71.13%.
+          MarIA y BETO mostraron rendimiento superior. Entrenar con corpus completo supera al entrenamiento con fuentes individuales.
+        </hallazgos_clave>
+        <limitaciones>Desbalance de clases; lenguaje financiero formal difiere del lenguaje coloquial de encuestas; corpus limitado a tweets y titulares, no respuestas de encuesta; dominios específicos pueden requerir adaptación adicional.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="abstract">"MarIA and BETO demonstrated superior performance. Training with the complete corpus outperformed individual data sources."</quote>
+      <quote pagina="resultados">"Sentiment classification (macro F1-scores): 76.04% (target), 74.16% (society), 68.07% (other companies)."</quote>
+    </citas_textuales>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Es el único estudio identificado que aplica transformers en español a textos económicos cortos con métricas concretas de F1 macro. Establece un benchmark realista para esperar F1 macro de 68–76% en clasificación de sentimiento económico con fine-tuning de BETO/MarIA.</gap_que_aborda>
+      <conexion_con_pregunta>Para razon_cambio_ventas, el enfoque de fine-tuning de BETO o MarIA sobre ~150 respuestas anotadas debería alcanzar F1 macro ≥70 para 3 categorías (ESTACIONAL/MACROECONÓMICA/OTRAS), dada la claridad semántica de las categorías y la menor ambigüedad respecto al sentimiento financiero triclase.</conexion_con_pregunta>
+      <controversia_con>
+        <ficha_id>perez_2023_pysentimiento</ficha_id>
+        <descripcion>pysentimiento demuestra que RoBERTuito supera a BETO en texto informal en español; Pan et al. muestran ventaja de BETO/MarIA en texto económico formal. La elección del modelo base depende del grado de informalidad del texto de encuesta.</descripcion>
+      </controversia_con>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>3</score_q1>
+      <justificacion>Peer-reviewed en PeerJ Computer Science (Scopus Q2); métricas concretas con validación cruzada; corpus económico en español directamente relevante al dominio del proyecto; único paper identificado que combina NLP en español con dominio económico en textos cortos.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ================================================================ -->
+  <!-- FICHA 5: Landis y Koch 1977 — Benchmark estándar de kappa       -->
+  <!-- ================================================================ -->
+  <ficha id="landis_koch_1977_kappa">
+    <metadata>
+      <autores>Landis, J. R., &amp; Koch, G. G.</autores>
+      <anio>1977</anio>
+      <titulo>The measurement of observer agreement for categorical data</titulo>
+      <tipo>journal_article</tipo>
+      <fuente>
+        <revista_o_editorial>Biometrics</revista_o_editorial>
+        <volumen>33</volumen>
+        <numero>1</numero>
+        <paginas>159–174</paginas>
+        <doi>10.2307/2529310</doi>
+        <url>https://www.jstor.org/stable/2529310</url>
+        <cuartil>Q1</cuartil>
+        <indexada_en>JCR</indexada_en>
+      </fuente>
+      <idioma>en</idioma>
+      <peer_reviewed>true</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="true">
+        <escuela_pensamiento>Estadística de acuerdo: marco de interpretación de coeficientes kappa para datos categóricos</escuela_pensamiento>
+        <conceptos_clave>
+          <concepto>Cohen's kappa</concepto>
+          <concepto>inter-rater agreement</concepto>
+          <concepto>categorical data</concepto>
+          <concepto>observer agreement</concepto>
+          <concepto>benchmarks de interpretación</concepto>
+        </conceptos_clave>
+        <tesis_central>Propone la escala de interpretación estándar de kappa que ha devenido el benchmark universal para juzgar la fiabilidad de codificación en análisis de contenido cualitativo y supervisado.</tesis_central>
+        <supuestos>El kappa mide acuerdo más allá del azar; los umbrales son orientaciones empíricas, no reglas absolutas; aplica a datos nominales entre exactamente dos codificadores.</supuestos>
+      </dimension_teorica>
+      <dimension_empirica relevante="true">
+        <dataset>Estudios clínicos de observación médica (datos originales de diagnóstico psiquiátrico y dermatológico)</dataset>
+        <muestra>Múltiples conjuntos de datos clínicos; categorías binarias y multinomiales</muestra>
+        <metodologia_aplicada>Derivación estadística de kappa (Cohen, 1960) + propuesta de escala interpretativa de 6 niveles</metodologia_aplicada>
+        <variables>Variables categóricas; acuerdo observado vs. esperado al azar</variables>
+        <hallazgos_clave>
+          Escala de interpretación de kappa (estándar universal):
+          κ menos de 0.00 = Sin acuerdo;
+          κ 0.00–0.20 = Leve;
+          κ 0.21–0.40 = Aceptable (fair);
+          κ 0.41–0.60 = Moderado;
+          κ 0.61–0.80 = Sustancial;
+          κ 0.81–1.00 = Casi perfecto.
+          En investigación de encuestas: κ ≥ 0.70 es mínimo aceptable; κ ≥ 0.80 es el estándar para publicación en ciencias sociales.
+        </hallazgos_clave>
+        <limitaciones>Los umbrales son arbitrarios y fueron criticados por Krippendorff (2004); κ es sensible a la prevalencia de categorías y al número de categorías; solo válido para dos codificadores (Fleiss' kappa para N mayor a 2).</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="165">"kappa values of 0.61 to 0.80 indicate substantial agreement; values above 0.80 indicate almost perfect agreement."</quote>
+    </citas_textuales>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Provee el marco de referencia estándar para validar cualquier esquema de codificación de razon_cambio_ventas, ya sea manual o semi-automático. Es la referencia obligatoria para reportar validez de la clasificación en el paper.</gap_que_aborda>
+      <conexion_con_pregunta>Para validar el esquema ESTACIONAL/MACROECONÓMICA/OTRAS: dos codificadores deben codificar independientemente una muestra (mínimo 50–100 respuestas) y reportar κ. Si κ ≥ 0.70 (sustancial), la clasificación es publicable. Si κ ≥ 0.80, es excelente.</conexion_con_pregunta>
+      <controversia_con>
+        <ficha_id>krippendorff_2004_reliability</ficha_id>
+        <descripcion>Krippendorff (2004) argumenta que el kappa de Cohen es inadecuado para análisis de contenido con más de 2 codificadores y recomienda alpha de Krippendorff, que es más flexible y menos sensible a la distribución marginal.</descripcion>
+      </controversia_con>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>3</score_q1>
+      <justificacion>Publicado en Biometrics (JCR Q1); más de 50.000 citas; referencia fundacional universalmente adoptada en análisis de contenido, ciencias sociales, NLP y machine learning para evaluar acuerdo entre codificadores.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ================================================================ -->
+  <!-- FICHA 6: Krippendorff 2004 — Alpha de Krippendorff             -->
+  <!-- ================================================================ -->
+  <ficha id="krippendorff_2004_reliability">
+    <metadata>
+      <autores>Krippendorff, K.</autores>
+      <anio>2004</anio>
+      <titulo>Reliability in Content Analysis: Some common Misconceptions and Recommendations</titulo>
+      <tipo>journal_article</tipo>
+      <fuente>
+        <revista_o_editorial>Human Communication Research</revista_o_editorial>
+        <volumen>30</volumen>
+        <numero>3</numero>
+        <paginas>411–433</paginas>
+        <doi>10.1111/j.1468-2958.2004.tb00738.x</doi>
+        <url>https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1468-2958.2004.tb00738.x</url>
+        <cuartil>Q1</cuartil>
+        <indexada_en>JCR</indexada_en>
+      </fuente>
+      <idioma>en</idioma>
+      <peer_reviewed>true</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="true">
+        <escuela_pensamiento>Teoría de medición de fiabilidad en análisis de contenido; crítica metodológica al kappa simple</escuela_pensamiento>
+        <conceptos_clave>
+          <concepto>alpha de Krippendorff</concepto>
+          <concepto>inter-coder reliability</concepto>
+          <concepto>content analysis</concepto>
+          <concepto>reliability coefficient</concepto>
+          <concepto>coincidence matrices</concepto>
+        </conceptos_clave>
+        <tesis_central>El porcentaje de acuerdo simple y el kappa de Cohen presentan problemas conceptuales para el análisis de contenido; el alpha de Krippendorff es el coeficiente más apropiado al manejar múltiples codificadores, datos faltantes y distintas escalas de medición.</tesis_central>
+        <supuestos>El análisis de contenido requiere medir fiabilidad entre múltiples observadores; los coeficientes de acuerdo deben corregir por acuerdo al azar y ser aplicables a cualquier número de codificadores.</supuestos>
+      </dimension_teorica>
+      <dimension_empirica relevante="true">
+        <dataset>Análisis metodológico con ejemplos ilustrativos de análisis de contenido en comunicación</dataset>
+        <muestra>Ejemplos teóricos y estudios de caso en análisis de contenido cualitativo</muestra>
+        <metodologia_aplicada>Derivación matemática del alpha de Krippendorff basada en matrices de coincidencia; comparación con kappa, percent agreement y pi de Scott</metodologia_aplicada>
+        <variables>Variables categóricas, ordinales, de intervalo o de razón entre 2 o más codificadores</variables>
+        <hallazgos_clave>
+          Recomienda α ≥ 0.80 como umbral mínimo para análisis de contenido publicable.
+          α ≥ 0.667 es el mínimo tentativo reportable.
+          Identifica tres misconceptions sobre fiabilidad: confundir porcentaje de acuerdo con fiabilidad real, ignorar el número de codificadores, y aplicar kappa a escalas no nominales.
+          Krippendorff's alpha es preferible a kappa cuando hay N mayor a 2 codificadores o datos faltantes.
+        </hallazgos_clave>
+        <limitaciones>El paper no provee benchmarks empíricos basados en corpus; los umbrales propuestos son propuestas normativas no derivadas de análisis de potencia estadística.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="413">"Reliability data must pass a minimum threshold of α ≥ .800; where the unit of analysis is a natural language text, tentative conclusions may be justified when α ≥ .667."</quote>
+    </citas_textuales>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Provee el marco normativo para validar la codificación de razon_cambio_ventas con dos codificadores independientes. Es la referencia metodológica que respalda cualquier decisión sobre aceptar o rechazar un esquema de codificación.</gap_que_aborda>
+      <conexion_con_pregunta>Para el proyecto: codificar 80–100 respuestas de razon_cambio_ventas con 2 codificadores independientes, calcular alpha de Krippendorff. Si α ≥ 0.80, el esquema ESTACIONAL/MACROECONÓMICA/OTRAS tiene validez publicable. Si 0.667 ≤ α menor a 0.80, es reportable con precaución. Usar el paquete Python 'krippendorff' para el cálculo.</conexion_con_pregunta>
+      <controversia_con>
+        <ficha_id>landis_koch_1977_kappa</ficha_id>
+        <descripcion>Krippendorff (2004) critica explícitamente el kappa de Cohen por no ser apropiado para análisis de contenido con múltiples codificadores. Landis y Koch (1977) propusieron umbrales para kappa que siguen siendo los más citados empíricamente a pesar de esta crítica. La recomendación es usar alpha de Krippendorff pero reportar también kappa por convención en la literatura.</descripcion>
+      </controversia_con>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>3</score_q1>
+      <justificacion>Publicado en Human Communication Research (JCR Q1); más de 8.000 citas; referencia fundacional de metodología de análisis de contenido; proporciona umbrales normativos explícitos y justificación teórica robusta.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ================================================================ -->
+  <!-- FICHA 7: Roberts et al. 2014 — STM para respuestas abiertas    -->
+  <!-- ================================================================ -->
+  <ficha id="roberts_2014_stm_survey">
+    <metadata>
+      <autores>Roberts, M. E., Stewart, B. M., Tingley, D., Lucas, C., Leder-Luis, J., Gadarian, S. K., Albertson, B., &amp; Rand, D. G.</autores>
+      <anio>2014</anio>
+      <titulo>Structural Topic Models for Open-Ended Survey Responses</titulo>
+      <tipo>journal_article</tipo>
+      <fuente>
+        <revista_o_editorial>American Journal of Political Science</revista_o_editorial>
+        <volumen>58</volumen>
+        <numero>4</numero>
+        <paginas>1064–1082</paginas>
+        <doi>10.1111/ajps.12103</doi>
+        <url>https://onlinelibrary.wiley.com/doi/abs/10.1111/ajps.12103</url>
+        <cuartil>Q1</cuartil>
+        <indexada_en>JCR</indexada_en>
+      </fuente>
+      <idioma>en</idioma>
+      <peer_reviewed>true</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="true">
+        <escuela_pensamiento>NLP no supervisado: topic modeling estructural con covariables de documento</escuela_pensamiento>
+        <conceptos_clave>
+          <concepto>Structural Topic Model (STM)</concepto>
+          <concepto>variational inference</concepto>
+          <concepto>document-level metadata</concepto>
+          <concepto>semi-automated survey analysis</concepto>
+        </conceptos_clave>
+        <tesis_central>El STM es una alternativa semi-automatizada a la codificación humana de respuestas abiertas de encuesta que incorpora metadatos del documento para estimar modelos de tópicos más ricos e interpretables.</tesis_central>
+        <supuestos>Las respuestas abiertas pueden modelarse como mezclas de tópicos latentes; las covariables del respondente modulan la prevalencia temática.</supuestos>
+      </dimension_teorica>
+      <dimension_empirica relevante="true">
+        <dataset>Encuesta experimental sobre política de inmigración (inglés); corpus de cobertura mediática de China (inglés). Ambos en inglés.</dataset>
+        <muestra>Corpus de encuesta en inglés (respuestas a preguntas abiertas de opinión política)</muestra>
+        <metodologia_aplicada>Estimación STM vía aproximación variacional rápida; validación cualitativa humana de los tópicos generados. Paquete R 'stm' disponible en CRAN.</metodologia_aplicada>
+        <variables>Input: texto libre en inglés; Output: K tópicos con distribución de palabras; Covariables: características del respondente</variables>
+        <hallazgos_clave>STM demuestra que análisis de respuestas abiertas era raramente hecho en ciencia política por costo de codificación manual; el modelo replica resultados de codificación humana con correlación alta. Premio de Software Estadístico de la Political Methodology Society (2018).</hallazgos_clave>
+        <limitaciones>Enfoque no supervisado: requiere interpretación humana de los tópicos generados; inapropiado cuando las categorías están pre-definidas (como en H1 del proyecto); corpus en inglés; no reporta métricas de clasificación supervisada.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="1064">"The collection and analysis of open-ended responses are relatively rare in political science and when conducted are almost exclusively done through human coding."</quote>
+      <quote pagina="1065">"[STM] draws on recent developments in machine learning based analysis of textual data...allows researchers to flexibly estimate a topic model that includes document-level metadata."</quote>
+    </citas_textuales>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Demuestra que el análisis de respuestas abiertas de encuesta con técnicas semi-automáticas es metodológicamente legítimo en ciencias sociales, dando respaldo académico al enfoque del proyecto.</gap_que_aborda>
+      <conexion_con_pregunta>Para razon_cambio_ventas: el STM NO es la técnica principal recomendada porque las categorías están pre-definidas (deductivo). Sin embargo, el STM puede usarse como validación complementaria: si los tópicos emergentes del STM agrupan semánticamente como se espera, valida el esquema de codificación. Con 703 respuestas cortas, el STM requeriría ajuste de hiperparámetros cuidadoso (texto muy corto = datos escasos por documento).</conexion_con_pregunta>
+      <controversia_con>
+        <ficha_id>schonlau_2019_topic_modeling</ficha_id>
+        <descripcion>Schonlau (2019) muestra que LDA estándar (en el que se basa STM) es menos adecuado para textos muy cortos que BTM o WNTM. Roberts et al. no abordan el problema de sparsity en textos ultra-cortos.</descripcion>
+      </controversia_con>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>3</score_q1>
+      <justificacion>Publicado en American Journal of Political Science (JCR Q1, top journal de ciencia política); más de 3.000 citas; método con paquete de software propio ampliamente adoptado; valida metodológicamente el uso de ML para encuestas abiertas en ciencias sociales.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ================================================================ -->
+  <!-- FICHA 8: Schonlau 2019 — Topic modeling para textos cortos      -->
+  <!-- ================================================================ -->
+  <ficha id="schonlau_2019_topic_modeling">
+    <metadata>
+      <autores>Schonlau, M., &amp; Couper, M. P.</autores>
+      <anio>2019</anio>
+      <titulo>Topic Modeling for Analyzing Open-Ended Survey Responses</titulo>
+      <tipo>journal_article</tipo>
+      <fuente>
+        <revista_o_editorial>Journal of Survey Statistics and Methodology</revista_o_editorial>
+        <volumen>7</volumen>
+        <numero>4</numero>
+        <paginas>511–531</paginas>
+        <doi>10.1080/2573234X.2019.1590131</doi>
+        <url>https://www.tandfonline.com/doi/full/10.1080/2573234X.2019.1590131</url>
+        <cuartil>Q1</cuartil>
+        <indexada_en>JCR</indexada_en>
+      </fuente>
+      <idioma>en</idioma>
+      <peer_reviewed>true</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="true">
+        <escuela_pensamiento>NLP no supervisado: comparación de modelos de topic modeling adaptados para textos cortos en contexto de encuestas</escuela_pensamiento>
+        <conceptos_clave>
+          <concepto>Biterm Topic Model (BTM)</concepto>
+          <concepto>Latent Feature LDA (LFLDA)</concepto>
+          <concepto>Word Network Topic Model (WNTM)</concepto>
+          <concepto>LDA como baseline</concepto>
+          <concepto>short text topic modeling</concepto>
+          <concepto>market research survey</concepto>
+        </conceptos_clave>
+        <tesis_central>LDA estándar es inadecuado para textos cortos de encuesta; BTM (Biterm Topic Model) produce consistentemente tópicos más coherentes para respuestas breves de investigación de mercado, superando LDA como baseline.</tesis_central>
+        <supuestos>Las respuestas de encuesta son demasiado cortas para que LDA estime distribuciones de tópicos confiables; los modelos adaptados para texto corto resuelven el problema de escasez de co-ocurrencias.</supuestos>
+      </dimension_teorica>
+      <dimension_empirica relevante="true">
+        <dataset>Encuestas de investigación de mercado en inglés; corpus de respuestas cortas a preguntas abiertas sobre preferencias de consumidores</dataset>
+        <muestra>Corpus de investigación de mercado; textos muy cortos (típicamente 1–2 oraciones por respuesta)</muestra>
+        <metodologia_aplicada>Comparación cuantitativa y cualitativa de LDA vs. LFLDA vs. BTM vs. WNTM; evaluación mediante coherencia de tópicos (UMASS) y clasificación de documentos</metodologia_aplicada>
+        <variables>Input: texto de respuesta abierta; Output: K tópicos y asignación de documentos; Métricas: coherencia de tópicos (UMASS), F1</variables>
+        <hallazgos_clave>
+          BTM produce tópicos más coherentes que LDA en la mayoría de configuraciones de hiperparámetros.
+          LDA obtiene los menores F1 scores para 80% de los puntos de datos evaluados.
+          Los tres modelos alternativos (LFLDA, BTM, WNTM) mejoran consistentemente sobre LDA baseline.
+        </hallazgos_clave>
+        <limitaciones>Corpus en inglés; técnica no supervisada requiere interpretación humana de tópicos; sin categorías pre-definidas; no reporta kappa ni validación con codificadores humanos.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="abstract">"LDA is less suitable to process short texts such as open-ended responses...BTM produces on average more coherent topics."</quote>
+      <quote pagina="511">"LDA achieves the lowest F1 scores for 80% of the data points, and at each data point there is at least one model that performs better than LDA."</quote>
+    </citas_textuales>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Provee justificación empírica para NO usar LDA estándar con razon_cambio_ventas (703 textos muy cortos) y advierte sobre el problema de sparsity en topic modeling de texto corto. Informa sobre cuál técnica no supervisada usar si se opta por exploración temática.</gap_que_aborda>
+      <conexion_con_pregunta>Con 703 respuestas cortas en español, si el proyecto optara por clasificación no supervisada, BTM sería preferible a LDA. Sin embargo, dado que las 3 categorías están pre-definidas (ESTACIONAL/MACROECONÓMICA/OTRAS), el enfoque supervisado o por keywords es más apropiado. Este paper justifica descartar LDA y validar con BTM como análisis de sensibilidad.</conexion_con_pregunta>
+      <controversia_con>
+        <ficha_id>roberts_2014_stm_survey</ficha_id>
+        <descripcion>Roberts et al. usan STM (basado en LDA) sin evaluar específicamente el problema de textos cortos. Schonlau demuestra que la base LDA del STM es subóptima para textos cortos de encuesta; esta limitación no fue abordada por Roberts et al.</descripcion>
+      </controversia_con>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>3</score_q1>
+      <justificacion>Publicado en Journal of Survey Statistics and Methodology (JCR Q1); directamente aplicable al dominio de encuestas; evaluación rigurosa con múltiples modelos; es la referencia específica para topic modeling en respuestas cortas de encuesta.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ================================================================ -->
+  <!-- FICHA 9: Burstein, Mafuta y Proctor 2025 — LLMs para encuestas  -->
+  <!-- ================================================================ -->
+  <ficha id="burstein_2025_llm_survey_health">
+    <metadata>
+      <autores>Burstein, R., Mafuta, E., &amp; Proctor, J. L.</autores>
+      <anio>2025</anio>
+      <titulo>Large language models for analyzing open text in global health surveys: why children are not accessing vaccine services in the Democratic Republic of the Congo</titulo>
+      <tipo>journal_article</tipo>
+      <fuente>
+        <revista_o_editorial>International Health</revista_o_editorial>
+        <volumen>N/A (online first 2025)</volumen>
+        <numero>N/A</numero>
+        <paginas>N/A</paginas>
+        <doi>10.1093/inthealth/ihaf015</doi>
+        <url>https://pmc.ncbi.nlm.nih.gov/articles/PMC12406778/</url>
+        <cuartil>Q2</cuartil>
+        <indexada_en>JCR</indexada_en>
+      </fuente>
+      <idioma>en</idioma>
+      <peer_reviewed>true</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="true">
+        <escuela_pensamiento>Mixto: comparación sistemática de zero-shot, few-shot, fine-tuning de LLMs y clustering semántico para clasificación de respuestas abiertas de encuesta</escuela_pensamiento>
+        <conceptos_clave>
+          <concepto>LLM zero-shot classification</concepto>
+          <concepto>few-shot prompting</concepto>
+          <concepto>fine-tuning GPT-4o</concepto>
+          <concepto>NLP clustering semántico</concepto>
+          <concepto>open-ended survey text coding</concepto>
+        </conceptos_clave>
+        <tesis_central>El fine-tuning de LLMs sobre incluso 799 ejemplos alcanza accuracy del 83.5%, superando zero-shot (71.5%) y clustering semántico (61.5%) para clasificar texto libre de encuesta en categorías predefinidas; con solo 20 ejemplos few-shot se logra accuracy 76%.</tesis_central>
+        <supuestos>GPT-4o puede generalizarse a nuevos dominios con pocos ejemplos; el ceiling de accuracy humana (~96%) es el límite superior teórico; las categorías predefinidas son mutuamente excluyentes.</supuestos>
+      </dimension_teorica>
+      <dimension_empirica relevante="true">
+        <dataset>Encuestas de salud DRC (Vacunación); 8.807 respuestas únicas de texto libre de 240.256 entradas totales; idioma original: francés (traducido al inglés para análisis)</dataset>
+        <muestra>8.807 respuestas únicas; textos cortos (razones de barreras de vacunación); dominio: salud pública</muestra>
+        <metodologia_aplicada>Comparación sistemática: (1) NLP clustering semántico + etiquetado LLM; (2) zero-shot prompting; (3) few-shot prompting (20, 50, 400, 799 ejemplos); (4) fine-tuning GPT-4o con 799 ejemplos; (5) chain-of-thought prompting</metodologia_aplicada>
+        <variables>Input: texto libre (razón de barrera de vacunación); Output: categoría predefinida de barrera; métrica: accuracy vs. codificación humana de referencia</variables>
+        <hallazgos_clave>
+          NLP clustering semántico: accuracy = 61.5% (ceiling 74.5%).
+          Zero-shot: accuracy = 71.5% (ceiling 87.0%).
+          Few-shot con 20 ejemplos: accuracy = 76.0% (ceiling 93.0%).
+          Fine-tuning con 799 ejemplos: accuracy = 83.5% (ceiling 96.0%).
+          Con solo 20–100 ejemplos, LLMs alcanzan accuracy alta (76–80%).
+        </hallazgos_clave>
+        <limitaciones>GPT-4o es closed-source (opacidad, costo); riesgo de alucinación; corpus en francés (no español); categorías predefinidas limitan descubrimiento inductivo.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="abstract">"accuracy improving when LLMs were fine-tuned or provided examples for few-shot learning, and even with as few as 20–100 examples, LLMs can achieve high accuracy."</quote>
+      <quote pagina="resultados">"Fine-tuned model: accuracy = 83.5%; Zero-shot: 71.5%; Few-shot (20 examples): 76.0%."</quote>
+    </citas_textuales>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Provee el benchmark más relevante y reciente para clasificación de texto libre de encuesta con LLMs en categorías predefinidas: con 20 ejemplos etiquetados se alcanza 76% de accuracy, y con fine-tuning sobre menos de 800 ejemplos se llega a 83.5%. Es el caso de uso más cercano a razon_cambio_ventas.</gap_que_aborda>
+      <conexion_con_pregunta>Con 703 respuestas, si se anotan manualmente 100–150 casos (~20%) como few-shot ejemplos para GPT-4o o Claude, se esperaría accuracy ≥76%. Para fine-tuning de un modelo open-source (ej: Llama-3 o un BERT en español), 150 casos de entrenamiento deberían alcanzar accuracy ~80%. Las 3 categorías del proyecto (vs. múltiples barreras de vacunación) deberían favorecer accuracy aún mayor.</conexion_con_pregunta>
+      <controversia_con>
+        <ficha_id>haensch_2022_semiautomatico_encuesta</ficha_id>
+        <descripcion>Haensch et al. logran κ=0.91 con SVM clásico (sin LLMs), sugiriendo que para categorías bien definidas los métodos más simples pueden ser igualmente efectivos a menor costo computacional y con mayor transparencia metodológica.</descripcion>
+      </controversia_con>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>3</score_q1>
+      <justificacion>Peer-reviewed en International Health (JCR Q2); caso de uso estructuralmente idéntico al proyecto (texto libre de encuesta en categorías predefinidas); benchmarks concretos con tabla de comparación por método; publicado 2025 (estado del arte).</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ================================================================ -->
+  <!-- FICHA 10: Cañete et al. 2020 — BETO: modelo BERT en español     -->
+  <!-- ================================================================ -->
+  <ficha id="canete_2020_beto">
+    <metadata>
+      <autores>Cañete, J., Chaperon, G., Fuentes, R., Ho, J. H., Kang, H., &amp; Pérez, J.</autores>
+      <anio>2020</anio>
+      <titulo>Spanish Pre-trained BERT Model and Evaluation Data</titulo>
+      <tipo>working_paper</tipo>
+      <fuente>
+        <revista_o_editorial>PML4DC at ICLR 2020 (Workshop Practical Machine Learning for Developing Countries)</revista_o_editorial>
+        <volumen></volumen>
+        <numero></numero>
+        <paginas></paginas>
+        <doi></doi>
+        <url>https://github.com/dccuchile/beto</url>
+        <cuartil>N/A</cuartil>
+        <indexada_en>ACL Anthology</indexada_en>
+      </fuente>
+      <idioma>en</idioma>
+      <peer_reviewed>false</peer_reviewed>
+    </metadata>
+    <clasificacion>
+      <dimension_teorica relevante="true">
+        <escuela_pensamiento>NLP supervisado: modelo de lenguaje pre-entrenado (BERT) para español, base para fine-tuning en tareas downstream</escuela_pensamiento>
+        <conceptos_clave>
+          <concepto>BERT</concepto>
+          <concepto>Whole Word Masking</concepto>
+          <concepto>Spanish language model</concepto>
+          <concepto>transfer learning</concepto>
+          <concepto>text classification</concepto>
+        </conceptos_clave>
+        <tesis_central>Un modelo BERT pre-entrenado específicamente en español (BETO) supera a modelos multilingües (mBERT) en tareas NLP en español, siendo el modelo base estándar para fine-tuning en clasificación temática en español hasta la llegada de RoBERTuito para texto informal.</tesis_central>
+        <supuestos>El pre-entrenamiento en corpus masivo monolingüe en español genera representaciones contextuales superiores a los modelos multilingües; las arquitecturas BERT son transferibles a dominios específicos con fine-tuning moderado.</supuestos>
+      </dimension_teorica>
+      <dimension_empirica relevante="true">
+        <dataset>Corpus de pre-entrenamiento: ~3 mil millones de palabras en español. Benchmarks de evaluación: CoNLL (POS, NER), MLDoc (clasificación de documentos), PAWS-X (paráfrasis), XNLI (inferencia).</dataset>
+        <muestra>Corpus de entrenamiento: ~3B palabras en español; Benchmarks: 5 tareas NLP estándar</muestra>
+        <metodologia_aplicada>BERT architecture (12 capas, 12 attention heads, hidden size 768); Whole Word Masking; fine-tuning para cada tarea de evaluación</metodologia_aplicada>
+        <variables>Input: texto en español; Output varía según tarea; Features: embeddings contextuales</variables>
+        <hallazgos_clave>
+          POS Tagging: 98.97% (cased).
+          NER: 88.43% (cased).
+          MLDoc (clasificación documentos): 95.60% (cased).
+          PAWS-X (paráfrasis): 89.05 (cased).
+          XNLI (inferencia): 82.01% (cased).
+          Supera a mBERT en todas las tareas evaluadas.
+        </hallazgos_clave>
+        <limitaciones>Pre-entrenado en texto formal/enciclopédico (Wikipedia, corpus periodístico); peor rendimiento en texto informal y coloquial (superado por RoBERTuito en tweets); benchmarks no incluyen tareas de análisis económico o encuestas; no disponible versión rioplatense específica.</limitaciones>
+      </dimension_empirica>
+    </clasificacion>
+    <citas_textuales>
+      <quote pagina="GitHub README">"BETO (Spanish BERT): a BERT model trained on a big Spanish corpus, with size similar to BERT-Base and trained with the Whole Word Masking technique."</quote>
+      <quote pagina="benchmarks">"POS: 98.97%; NER: 88.43%; MLDoc: 95.60%; XNLI: 82.01% (all BETO-cased)."</quote>
+    </citas_textuales>
+    <relevancia_para_proyecto>
+      <gap_que_aborda>Provee el modelo base más usado para NLP supervisado en español. Es el punto de partida estándar para fine-tuning de clasificadores en textos cortos en español cuando el corpus de entrenamiento es pequeño (~100–200 ejemplos).</gap_que_aborda>
+      <conexion_con_pregunta>Para razon_cambio_ventas: BETO-cased es el modelo base de referencia para fine-tuning de clasificador 3-clases (ESTACIONAL/MACROECONÓMICA/OTRAS). Sin embargo, dado que el texto es informal (español rioplatense cotidiano), RoBERTuito puede ser preferible. La recomendación es evaluar ambos en una validación cruzada sobre los ~150 ejemplos anotados manualmente.</conexion_con_pregunta>
+      <controversia_con>
+        <ficha_id>perez_2023_pysentimiento</ficha_id>
+        <descripcion>pysentimiento demuestra que RoBERTuito supera a BETO en 3–4 puntos F1 macro en texto informal en español. Para texto formal económico (Pan et al. 2023), BETO es competitivo. La elección del modelo base depende del grado de informalidad del texto de encuesta.</descripcion>
+      </controversia_con>
+    </relevancia_para_proyecto>
+    <evaluacion_calidad>
+      <score_q1>2</score_q1>
+      <justificacion>Workshop paper (no revista arbitrada con JCR) pero ampliamente citado (más de 1.000 citas), con modelo disponible en HuggingFace, benchmarks reproducibles y adoptado como estándar en la comunidad NLP en español.</justificacion>
+    </evaluacion_calidad>
+  </ficha>
+
+  <!-- ================================================================ -->
+  <!-- RESUMEN EJECUTIVO                                                 -->
+  <!-- ================================================================ -->
+  <resumen_ejecutivo>
+
+    <estado_del_arte>
+      La literatura converge en cuatro familias de técnicas para clasificar respuestas abiertas de encuesta en categorías predefinidas:
+
+      1. SUPERVISADO CLÁSICO (SVM, boosting): Haensch et al. (2022) y Schonlau/Couper (2016) demuestran que SVM o boosting entrenado sobre 20% de datos anotados manualmente alcanza accuracy=0.93 y kappa=0.91. Es el enfoque más maduro, con mejor relación costo/rendimiento para corpus pequeños (menos de 10.000 respuestas). No requiere GPU ni APIs externas.
+
+      2. FINE-TUNING DE TRANSFORMERS EN ESPAÑOL (BETO, RoBERTuito): Pan et al. (2023) y pysentimiento (Pérez et al. 2023) demuestran F1 macro de 68–76% para clasificación económica/sentimiento en español con fine-tuning. RoBERTuito supera a BETO en texto informal (3–4 puntos F1). Requiere corpus de fine-tuning (~100–500 ejemplos) y GPU/API.
+
+      3. FEW-SHOT / ZERO-SHOT CON LLMs (GPT-4o, Claude): Burstein et al. (2025) demuestran accuracy de 71.5% (zero-shot) a 83.5% (fine-tuning con 799 ejemplos) para texto libre de encuesta. Con 20 ejemplos se alcanza 76%. Es el enfoque más reciente y accesible para corpus pequeños sin GPU.
+
+      4. TOPIC MODELING NO SUPERVISADO (BTM, STM): Schonlau (2019) y Roberts et al. (2014) demuestran viabilidad para exploración inductiva, pero BTM supera a LDA en textos cortos. NO recomendado cuando las categorías están pre-definidas.
+    </estado_del_arte>
+
+    <benchmarks_de_referencia>
+      <benchmark tarea="Clasificación temática de encuesta (SVM, 21 categorías, alemán)">Accuracy=0.93; κ=0.91; Macro F1=0.83 (Haensch et al. 2022)</benchmark>
+      <benchmark tarea="Clasificación semi-automática de encuesta (boosting, inglés)">54–80% auto-clasificado con accuracy objetivo=80% (Schonlau/Couper 2016)</benchmark>
+      <benchmark tarea="Clasificación texto libre encuesta con LLM (few-shot 20 ej.)">Accuracy=76% (Burstein et al. 2025)</benchmark>
+      <benchmark tarea="Clasificación texto libre encuesta con LLM (fine-tuning 799 ej.)">Accuracy=83.5% (Burstein et al. 2025)</benchmark>
+      <benchmark tarea="Sentimiento en español con RoBERTuito (textos cortos informales)">F1 macro: Sentimiento=70.2; Hate Speech=76.1; Ironía=74.1 (Pérez et al. 2023)</benchmark>
+      <benchmark tarea="Sentimiento financiero en español con BETO (textos cortos económicos)">Macro F1: 76.04% (target), 74.16% (sociedad) (Pan et al. 2023)</benchmark>
+      <benchmark tarea="Acuerdo entre codificadores para análisis de contenido (umbral normativo)">κ ≥ 0.70 mínimo publicable; α ≥ 0.80 recomendado (Krippendorff 2004; Landis/Koch 1977)</benchmark>
+    </benchmarks_de_referencia>
+
+    <tecnica_recomendada_para_proyecto>
+      Para razon_cambio_ventas (703 respuestas cortas en español rioplatense informal, 3 categorías pre-definidas, corpus pequeño):
+
+      RECOMENDACIÓN PRIMARIA: Enfoque híbrido en dos pasos:
+      (a) Diccionario semántico + keywords como clasificador de alta precisión para casos claros: respuestas que contienen "Día de la Madre", "verano", "temporada", "navidad", "fiestas" → ESTACIONAL; respuestas que contienen "inflación", "precios", "crisis", "economía", "salarios" → MACROECONÓMICA.
+      (b) Clasificador de texto entrenado (SVM o few-shot LLM) para los casos ambiguos restantes, validado con κ ≥ 0.70 en submuestra anotada manualmente.
+
+      RECOMENDACIÓN ALTERNATIVA: Few-shot prompting con Claude o GPT-4o usando 20–50 ejemplos etiquetados, que según Burstein et al. (2025) alcanza accuracy ≥76% sin GPU ni corpus de fine-tuning extenso.
+
+      VALIDACIÓN OBLIGATORIA: Dos codificadores humanos deben anotar independientemente ≥80 respuestas (≥10% del corpus) y reportar Cohen's κ (Landis/Koch 1977) y alpha de Krippendorff (Krippendorff 2004). Umbral mínimo: κ ≥ 0.70.
+    </tecnica_recomendada_para_proyecto>
+
+    <controversias_metodologicas>
+      <controversia id="C1">
+        <descripcion>KAPPA vs. ALPHA DE KRIPPENDORFF: Cohen's kappa (Landis/Koch 1977) es el estándar empírico más citado pero tiene limitaciones para N mayor a 2 codificadores. Krippendorff (2004) recomienda su alpha como más riguroso. La práctica dominante en ciencias sociales sigue siendo reportar kappa; la recomendación es reportar ambos.</descripcion>
+      </controversia>
+      <controversia id="C2">
+        <descripcion>SUPERVISADO CLÁSICO vs. LLMs: SVM logra κ=0.91 (Haensch et al. 2022) con datos de entrenamiento suficientes; LLMs zero-shot alcanzan solo 71.5% accuracy (Burstein et al. 2025). Para corpus pequeños y categorías bien definidas, SVM puede ser superior a LLMs sin fine-tuning, más barato y más transparente metodológicamente.</descripcion>
+      </controversia>
+      <controversia id="C3">
+        <descripcion>BETO vs. RoBERTuito para español: RoBERTuito supera a BETO en texto informal (tweets, encuestas coloquiales, 3–4 puntos F1). BETO es competitivo o superior para texto formal económico (Pan et al. 2023). Para razon_cambio_ventas (texto informal en español rioplatense), RoBERTuito es la primera opción.</descripcion>
+      </controversia>
+      <controversia id="C4">
+        <descripcion>LDA vs. BTM para textos cortos: Schonlau (2019) demuestra que LDA (base del STM) es inferior a BTM para textos muy cortos de encuesta. Roberts et al. (2014) popularizaron STM/LDA sin abordar este problema. Para corpus de textos muy cortos (menos de 50 tokens), BTM o enfoques supervisados son preferibles.</descripcion>
+      </controversia>
+    </controversias_metodologicas>
+
+    <gap_identificado>
+      No existe un paper peer-reviewed que aplique NLP a encuestas empresariales de expectativas económicas en español específicamente. El trabajo de Pan et al. (2023) sobre sentimiento financiero en español es el más cercano, pero usa tweets y titulares de noticias, no respuestas de encuesta. Esta es una contribución genuina del proyecto si se publica con validación metodológica adecuada.
+    </gap_identificado>
+
+  </resumen_ejecutivo>
+
+  <recomendacion_para_methodologist>
+    <tecnica_a_investigar>Enfoque híbrido: (1) diccionario semántico de keywords → clasificación determinista para casos claros; (2) few-shot prompting con LLM (Claude o GPT-4o) para casos ambiguos → validación con κ ≥ 0.70.</tecnica_a_investigar>
+    <pasos_concretos>
+      <paso n="1">Construir diccionario de keywords en español rioplatense para ESTACIONAL (temporada, verano, invierno, Día de la Madre, navidad, fiestas, Pascua, año nuevo, vacaciones, semana santa) y MACROECONÓMICA (inflación, precios, plata, caro, economía, crisis, ingresos, sueldos, salarios, poder adquisitivo, recesión, dólar, ajuste).</paso>
+      <paso n="2">Clasificar los 703 textos con el diccionario: aquellos con match exacto → categoría asignada; los que tienen ambigüedad o no-match → pool para codificación adicional.</paso>
+      <paso n="3">Dos codificadores humanos anotan independientemente una muestra aleatoria de ≥100 respuestas (incluyendo casos del pool ambiguo). Calcular Cohen's κ y alpha de Krippendorff. Si κ ≥ 0.70, el esquema es validado.</paso>
+      <paso n="4">Opcional: para los casos no resueltos por diccionario, usar few-shot prompting (20–50 ejemplos desde el paso 3) con Claude o GPT-4o, reportando accuracy contra la codificación manual de referencia.</paso>
+      <paso n="5">Si se desea validación adicional con NLP supervisado: fine-tuning de RoBERTuito (pysentimiento/robertuito) o SVM sobre los ~100 casos anotados manualmente, evaluando F1 macro en hold-out de 20%. Benchmark esperado: F1 macro ≥ 70% para 3 categorías claras.</paso>
+    </pasos_concretos>
+    <herramientas_recomendadas>
+      <herramienta>RoBERTuito (HuggingFace: pysentimiento/robertuito) para fine-tuning en español informal</herramienta>
+      <herramienta>BETO (HuggingFace: dccuchile/bert-base-spanish-wwm-cased) como alternativa para texto más formal</herramienta>
+      <herramienta>Python 'krippendorff' package para calcular alpha de Krippendorff</herramienta>
+      <herramienta>scikit-learn para SVM (LinearSVC) con TF-IDF features</herramienta>
+      <herramienta>stm R package para análisis exploratorio no supervisado de la categoría OTRAS</herramienta>
+    </herramientas_recomendadas>
+    <cadena_de_citas_esencial>Roberts et al. (2014) → Schonlau/Couper (2016) → Haensch et al. (2022) → Burstein et al. (2025) → Landis/Koch (1977) + Krippendorff (2004)</cadena_de_citas_esencial>
+  </recomendacion_para_methodologist>
+
+  <notas_para_lead_researcher>
+    <nota n="1">GAP CRÍTICO: No existe un paper peer-reviewed que aplique NLP a encuestas empresariales de expectativas económicas en español. Esta es una contribución genuina del proyecto si se publica con validación metodológica adecuada (κ reportado).</nota>
+    <nota n="2">ADVERTENCIA SOBRE KAPPA: Con 3 categorías desbalanceadas (si OTRAS es muy frecuente o muy rara), el kappa puede subestimar el acuerdo real. Reportar también el porcentaje de acuerdo bruto y la distribución de categorías.</nota>
+    <nota n="3">ESPAÑOL RIOPLATENSE: Ningún paper encontrado aborda específicamente el español rioplatense informal. RoBERTuito (entrenado en tweets de habla hispana incluyendo Argentina) es el modelo más cercano. Se recomienda revisar manualmente los errores de clasificación para detectar patrones idiomáticos.</nota>
+    <nota n="4">TAMAÑO DE CORPUS: 703 respuestas es pequeño para fine-tuning de transformers pero manejable para SVM o few-shot LLM. Si la anotación manual de 100–150 casos resulta onerosa, el zero-shot LLM (accuracy ≈71.5%) puede ser un primer paso viable con validación posterior.</nota>
+    <nota n="5">RECOMENDACIÓN DE CITACIÓN: Para la sección de metodología, la cadena de referencias esenciales es: Roberts et al. (2014) [justificación del uso de NLP en encuestas] → Schonlau/Couper (2016) [semi-automatización] → Haensch et al. (2022) [SVM con métricas concretas] → Burstein et al. (2025) [estado del arte con LLMs] → Landis/Koch (1977) + Krippendorff (2004) [validación de kappa].</nota>
+  </notas_para_lead_researcher>
+
+</search_result>

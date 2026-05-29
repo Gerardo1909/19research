@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Artefacto N1: Plan de investigación — lead_researcher F0-F2
+  Proyecto: adelift-nanostores-oct2025
+  Fecha: 2026-05-28
+  Iteración: 1
+-->
+<orchestration_cycle date="2026-05-28" iteration="1" state="planning">
+
+  <memory_persisted>true</memory_persisted>
+
+  <!-- ============================================================
+       GAP E HIPÓTESIS
+  ============================================================ -->
+  <research_plan>
+
+    <gap_hipotesis>
+      La literatura sobre expectativas empresariales en alta inflación documenta optimismo persistente,
+      pero rara vez vincula la ATRIBUCIÓN NARRATIVA CUALITATIVA (por qué el comerciante cree que cambian
+      sus ventas) con la dirección de las expectativas cuantitativas, ni controla el sesgo estacional
+      contrastando contra series interanuales oficiales. En el segmento de nanostores informales
+      latinoamericanas el vínculo atribución→expectativa permanece sin medir.
+    </gap_hipotesis>
+
+    <hipotesis_central id="H1">
+      Los comerciantes de nanostores argentinas que atribuyen los cambios recientes en sus ventas a
+      factores estacionales / de calendario (Día de la Madre, fiestas, fin de año, verano) tienen
+      probabilidad significativamente mayor de declarar expectativas de ventas optimistas a 3 meses
+      ("mayores") que quienes los atribuyen a factores macroeconómicos (precios, inflación, ingresos,
+      situación económica), aun controlando por tipo de negocio y antigüedad.
+    </hipotesis_central>
+
+    <pregunta_de_investigacion>
+      ¿En qué medida la atribución narrativa del cambio de ventas (estacional vs macroeconómica),
+      capturada mediante clasificación temática de respuestas abiertas (razon_cambio_ventas, N=703),
+      explica el optimismo de las expectativas de ventas a 3 meses en nanostores argentinas (oct-2025),
+      una vez contrastado contra el comportamiento interanual de las ventas minoristas según series oficiales?
+    </pregunta_de_investigacion>
+
+    <!-- Pipeline steps -->
+
+    <pipeline_step name="problema">
+      <status>pending</status>
+      <objetivo>
+        Delimitar el fenómeno: comerciantes de nanostores que proyectan optimismo estacional en un
+        contexto de alta inflación e incertidumbre (oct-2025, Argentina). Identificar el gap:
+        ausencia de evidencia que vincule atribución narrativa → expectativa cuantitativa en este segmento.
+      </objetivo>
+      <output_esperado>Sección §Problema del manuscrito con gap triangulado y contribución original declarada.</output_esperado>
+      <assigned_subagent>S-001 (teórico) + S-002 (empírico) para respaldar el gap</assigned_subagent>
+      <criterio_de_exito>Gap identificado con ≥3 fuentes; controversia explícita entre estudios.</criterio_de_exito>
+    </pipeline_step>
+
+    <pipeline_step name="estado_cuestion_teorico">
+      <status>pending</status>
+      <objetivo>
+        Mapear: (a) teorías de formación de expectativas (adaptativas, racionales, heurísticas de anclaje);
+        (b) literatura de behavioral economics sobre optimismo del pequeño empresario;
+        (c) modelos que vinculan atribución causal → conducta futura.
+      </objetivo>
+      <output_esperado>Fichas teóricas bifurcadas (dimensión_teorica relevante=true), ≥6 fuentes Q1/Q2.</output_esperado>
+      <assigned_subagent>S-001</assigned_subagent>
+      <criterio_de_exito>Escuelas identificadas, controversia entre expectativas adaptativas vs racionales documentada.</criterio_de_exito>
+    </pipeline_step>
+
+    <pipeline_step name="estado_cuestion_empirico">
+      <status>pending</status>
+      <objetivo>
+        Mapear: (a) estudios empíricos sobre expectativas de ventas en nanostores / comercio informal LatAm;
+        (b) evidencia de optimismo estacional en pymes; (c) series interanuales de ventas minoristas
+        Argentina (INDEC, CAME) para establecer benchmark de estacionalidad diciembre.
+      </objetivo>
+      <output_esperado>
+        Fichas empíricas bifurcadas (dimensión_empirica relevante=true), ≥4 fuentes; al menos 1 serie
+        interanual oficial accesible con URL/DOI verificable.
+      </output_esperado>
+      <assigned_subagent>S-002 (sector) + S-003 (benchmark)</assigned_subagent>
+      <criterio_de_exito>
+        Dataset de referencia interanual confirmado como accesible; evidencia empírica en contexto LatAm
+        con magnitudes concretas.
+      </criterio_de_exito>
+    </pipeline_step>
+
+    <pipeline_step name="pregunta_metodologia_nlp">
+      <status>pending</status>
+      <objetivo>
+        Identificar antecedentes metodológicos de: (a) clasificación temática de texto libre en encuestas
+        económicas; (b) análisis de sentimiento en español; (c) validación de esquemas de codificación
+        (kappa de Cohen); (d) NLP sobre expectativas empresariales.
+      </objetivo>
+      <output_esperado>Fichas metodológicas ≥4 fuentes; metodología recomendada con justificación.</output_esperado>
+      <assigned_subagent>S-004</assigned_subagent>
+      <criterio_de_exito>Al menos 1 paper que aplique clasificación temática a respuestas abiertas de encuestas
+      económicas en contexto LatAm o alta inflación.</criterio_de_exito>
+    </pipeline_step>
+
+  </research_plan>
+
+  <!-- ============================================================
+       BRIEFINGS PARA SEARCH SUBAGENTS (N2)
+  ============================================================ -->
+  <subagent_briefings>
+
+    <briefing target="search_subagent" task_id="S-001" tema="expectativas_teorico">
+      <objetivo>
+        Buscar literatura teórica sobre (a) formación de expectativas empresariales bajo alta inflación
+        e incertidumbre macroeconómica; (b) behavioral economics aplicado al pequeño comerciante:
+        anclaje, heurísticas, optimismo excesivo; (c) teorías de atribución causal y su efecto
+        sobre expectativas futuras (attribution theory → expectation formation).
+      </objetivo>
+      <output_esperado>
+        Mínimo 6 fichas según fichero_bibliografico_schema.xml. Bifurcación estricta teoría/empiria.
+        Extraer citas textuales literales con página. Documentar controversias entre escuelas.
+      </output_esperado>
+      <fuentes_recomendadas>
+        Journal of Economic Behavior and Organization, Journal of Economic Psychology,
+        American Economic Review, Quarterly Journal of Economics, Management Science,
+        Small Business Economics. Autores clave: Kahneman, Tversky, Shiller (expectativas),
+        De Meza (entrepreneurial optimism), Malmendier and Tate (CEO overconfidence como proxy).
+        Working papers: NBER, CEPAL, IDB.
+      </fuentes_recomendadas>
+      <keywords_iniciales>
+        "business expectations inflation uncertainty", "entrepreneurial optimism bias small business",
+        "anchoring heuristic sales expectations", "adaptive expectations microenterprises",
+        "causal attribution future expectations behavioral economics"
+      </keywords_iniciales>
+      <criterio_de_exito>
+        ≥6 fichas con DOI/URL verificable; al menos 1 revisión sistemática o meta-análisis;
+        controversia entre expectativas adaptativas vs racionales documentada explícitamente.
+      </criterio_de_exito>
+      <limites>
+        NO buscar literatura empírica sobre nanostores (la cubre S-002).
+        NO buscar métodos NLP (los cubre S-004).
+        NO incluir fuentes de prensa o blogs.
+      </limites>
+    </briefing>
+
+    <briefing target="search_subagent" task_id="S-002" tema="nanostores_empirico">
+      <objetivo>
+        Buscar evidencia empírica sobre (a) nanostores / tiendas de barrio / comercio minorista informal
+        en América Latina: características, expectativas, toma de decisiones; (b) encuestas de expectativas
+        de pymes y microempresas en contextos volátiles; (c) optimismo de pequeños comerciantes en
+        Argentina / LatAm (con magnitudes concretas).
+      </objetivo>
+      <output_esperado>
+        Mínimo 4 fichas empíricas según schema. Para cada estudio: dataset, muestra, metodología,
+        variables clave, hallazgos con magnitudes. Documentar limitaciones declaradas por autores.
+      </output_esperado>
+      <fuentes_recomendadas>
+        World Development, Journal of Development Economics, Small Business Economics,
+        Latin American Research Review. Institucionales: MIT LIFT Lab publications,
+        IFC/World Bank enterprise surveys, CEPAL estudios de microempresas,
+        BID (Inter-American Development Bank) informes pyme. Autores: de Mel, McKenzie, Woodruff
+        (microenterprise surveys), Mel et al. (Sri Lanka baseline — útil como comparación metodológica).
+        Proceedings MIT LIFT Lab Research Fest (ya identificado en borrador).
+      </fuentes_recomendadas>
+      <keywords_iniciales>
+        "nanostores Latin America", "tiendas de barrio expectativas ventas",
+        "microenterprise surveys sales expectations", "informal retail Argentina",
+        "small business optimism inflation Latin America", "MIT LIFT Lab nanostores"
+      </keywords_iniciales>
+      <criterio_de_exito>
+        ≥4 fichas empíricas con magnitudes concretas; al menos 1 estudio en contexto argentino o
+        de alta inflación LatAm; al menos 1 con metodología de encuesta comparable a MIT LIFT Lab.
+      </criterio_de_exito>
+      <limites>
+        NO buscar teoría de expectativas (la cubre S-001).
+        NO buscar series de datos agregados INDEC/CAME (las cubre S-003).
+        NO incluir notas periodísticas.
+      </limites>
+    </briefing>
+
+    <briefing target="search_subagent" task_id="S-003" tema="benchmark_interanual">
+      <objetivo>
+        Localizar y verificar accesibilidad real de series interanuales oficiales de ventas minoristas
+        en Argentina para construir el benchmark de estacionalidad. Específicamente:
+        (a) INDEC: encuesta de supermercados, índice de ventas al por menor, EMAE sector comercio;
+        (b) CAME: índice de ventas minoristas pyme (mensual);
+        (c) cualquier serie que permita comparar octubre-diciembre 2024 vs 2025.
+        TAMBIÉN buscar evidencia académica sobre estacionalidad de diciembre y Día de la Madre
+        en comercio minorista argentino / latinoamericano.
+      </objetivo>
+      <output_esperado>
+        ≥2 fichas de fuentes de datos con URL directa y accesible verificada (no solo homepage del organismo).
+        Para cada serie: organismo, nombre exacto de la publicación, frecuencia, variables disponibles,
+        cobertura temporal, URL de descarga o consulta.
+        ≥1 ficha académica sobre patrones de estacionalidad en comercio minorista Argentina.
+      </output_esperado>
+      <fuentes_recomendadas>
+        INDEC (www.indec.gob.ar): buscar "encuesta de supermercados", "ventas en comercios minoristas",
+        EMAE. CAME (www.came.org.ar): "índice de ventas minoristas".
+        BCRA: "encuesta de expectativas de mercado". OCDE estadísticas de retail para comparación.
+        Literatura académica: revisar si hay papers sobre estacionalidad navideña / Día de la Madre
+        en Argentina en journals de economía o marketing.
+      </fuentes_recomendadas>
+      <keywords_iniciales>
+        "INDEC ventas minoristas Argentina", "CAME índice ventas pyme mensual",
+        "estacionalidad comercio diciembre Argentina", "Día de la Madre ventas retail Argentina",
+        "seasonal retail sales Argentina inflation"
+      </keywords_iniciales>
+      <criterio_de_exito>
+        Al menos 1 serie interanual accesible con datos oct-dic (años recientes) confirmada con URL real
+        que cargue correctamente. Si INDEC o CAME no tienen lo específico, documentar qué existe y qué no.
+      </criterio_de_exito>
+      <limites>
+        NO es un briefing teórico; el foco es encontrar y verificar datos accesibles.
+        NO inventar URLs; si un link no carga, documentarlo como no verificable.
+        NO incluir datos de agencias de noticias como fuente primaria.
+      </limites>
+    </briefing>
+
+    <briefing target="search_subagent" task_id="S-004" tema="metodologia_nlp">
+      <objetivo>
+        Buscar literatura metodológica sobre (a) clasificación temática / codificación de respuestas
+        abiertas en encuestas económicas; (b) análisis de sentimiento en español para textos cortos;
+        (c) validación de esquemas de codificación manual y automática (kappa de Cohen, acuerdo entre
+        codificadores); (d) antecedentes de NLP aplicado a expectativas o percepciones empresariales.
+        El objetivo es identificar el estado del arte metodológico para que el methodologist_agent
+        diseñe y justifique la técnica apropiada para clasificar razon_cambio_ventas.
+      </objetivo>
+      <output_esperado>
+        ≥4 fichas metodológicas según schema. Para cada estudio: técnica usada, corpus / dominio,
+        idioma, tamaño de muestra de texto, métricas de validación reportadas.
+        Si hay benchmarks de precisión en español → extraer con magnitudes.
+      </output_esperado>
+      <fuentes_recomendadas>
+        Computational Linguistics, Natural Language Processing journals, EMNLP/ACL proceedings,
+        Journal of Economic Methodology. Para sentimiento en español: buscar SentiLex, VADER adaptado,
+        BETO (BERT español). Para codificación en encuestas: buscar "open-ended survey coding",
+        "content analysis economic surveys", "thematic classification survey responses".
+        Autores: Manning, Jurafsky (NLP fundamentos), Pang and Lee (sentiment), trabajos de
+        codificación manual: Krippendorff (alpha), Cohen (kappa).
+      </fuentes_recomendadas>
+      <keywords_iniciales>
+        "thematic classification open-ended survey responses", "sentiment analysis Spanish short text",
+        "content analysis economic surveys methodology", "NLP business expectations text",
+        "inter-rater reliability coding survey", "BERT Spanish text classification"
+      </keywords_iniciales>
+      <criterio_de_exito>
+        ≥1 paper que aplique clasificación temática a respuestas abiertas de encuestas económicas;
+        ≥1 recurso de análisis de sentimiento en español con validación reportada;
+        ≥1 referencia metodológica sobre validación de codificación (kappa o equivalente).
+      </criterio_de_exito>
+      <limites>
+        NO buscar aplicaciones de NLP a redes sociales / Twitter sin relevancia a encuestas económicas.
+        NO buscar deep learning sin validación metodológica publicada.
+        NO repetir literatura de expectativas teóricas (la cubre S-001).
+      </limites>
+    </briefing>
+
+  </subagent_briefings>
+
+  <!-- Síntesis y evaluación pendientes hasta completar N2 -->
+  <synthesis_draft>
+    <manuscript_section nombre="problema">PENDIENTE — post N2</manuscript_section>
+    <manuscript_section nombre="estado_cuestion_teorico">PENDIENTE — post S-001</manuscript_section>
+    <manuscript_section nombre="estado_cuestion_empirico">PENDIENTE — post S-002 + S-003</manuscript_section>
+    <manuscript_section nombre="pregunta">PENDIENTE — post N3</manuscript_section>
+    <manuscript_section nombre="hipotesis">
+      H1: Los comerciantes que atribuyen cambios de ventas a factores estacionales tienen mayor
+      probabilidad de expectativas optimistas a 3m, controlando por tipo y antigüedad.
+      Contraste contra benchmark interanual oficial para descontar efecto calendario recurrente.
+    </manuscript_section>
+  </synthesis_draft>
+
+  <loop_evaluation>
+    <cobertura_por_eje>
+      <eje nombre="problema">insuficiente — esperando N2</eje>
+      <eje nombre="estado_cuestion_teorico">insuficiente — esperando S-001</eje>
+      <eje nombre="estado_cuestion_empirico">insuficiente — esperando S-002 + S-003</eje>
+      <eje nombre="metodologia">insuficiente — esperando S-004 + N4 methodologist</eje>
+    </cobertura_por_eje>
+    <decision>continue_loop</decision>
+    <rationale>Primer ciclo; iniciar N2 con los 4 briefings en paralelo.</rationale>
+    <siguiente_paso>Lanzar S-001, S-002, S-003, S-004 en paralelo. Consolidar en N3.</siguiente_paso>
+  </loop_evaluation>
+
+</orchestration_cycle>

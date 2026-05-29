@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<methodology_proposal
+  date="2026-05-29"
+  task_id="N4"
+  agent="methodologist_agent"
+  project="adelift-nanostores-oct2025">
+
+  <!-- ================================================================
+       PROPUESTA METODOLÓGICA COMPLETA
+       Proyecto: adelift-nanostores-oct2025
+       Dataset: Encuesta MIT LIFT Lab, Argentina, sep-oct 2025
+       N = 923 comercios (N válidos razon_cambio_ventas = 703)
+       ================================================================ -->
+
+  <esquema_categorias>
+
+    <descripcion_general>
+      El esquema de clasificación es mutuamente excluyente y exhaustivo (MECE).
+      Cada respuesta en `razon_cambio_ventas` recibe exactamente una etiqueta.
+      La unidad de clasificación es la CAUSA PRIMARIA mencionada por el comerciante,
+      no la evaluación del cambio en ventas. Si el texto contiene múltiples causas,
+      se asigna la categoría de la causa que aparece primero o con mayor extensión léxica.
+      La distinción operativa central entre cat. 1 y cat. 2 es temporal: causas
+      que el hablante enmarca como pasajeras o ligadas a eventos del calendario
+      (estacional) versus causas que el hablante enmarca como condiciones del entorno
+      económico general persistentes.
+    </descripcion_general>
+
+    <categoria id="1" codigo="ESTAC">
+      <nombre>estacional_calendario</nombre>
+      <definicion_operativa>
+        <incluye>
+          Referencias explícitas o implícitas a eventos del calendario comercial
+          argentino (Día de la Madre, Día del Padre, Navidad, Reyes, Carnaval,
+          vacaciones escolares, inicio/fin del año lectivo, verano/invierno como
+          temporada de demanda), a la estacionalidad del producto o del rubro
+          (mayor venta de ropa de abrigo en invierno, helados en verano), o a
+          fechas de cobro del sector informal (quincena, fin de mes) cuando se
+          asocian a un período específico del calendario. También incluye menciones
+          al "fin de año" sin especificar agente macroeconómico.
+        </incluye>
+        <excluye>
+          Menciones a la temporada que vayan acompañadas de explicación macro
+          (ej. "en verano vendemos menos porque la gente no tiene plata" → cat. 2).
+          Menciones genéricas a "más gente" sin anclaje temporal.
+        </excluye>
+      </definicion_operativa>
+      <ejemplos_verosimiles>
+        <ejemplo id="E1_1">"Con el Día de la Madre se nos vino todo junto, vendimos el doble que el mes pasado."</ejemplo>
+        <ejemplo id="E1_2">"Arrancó el frío y se está vendiendo mucho más la ropa gruesa, típico de esta época."</ejemplo>
+        <ejemplo id="E1_3">"Fin de año siempre mueve, la gente compra para las fiestas y los chicos de vuelta a clases."</ejemplo>
+        <ejemplo id="E1_4">"El verano bajó las ventas, la gente se va de vacaciones y el barrio queda vacío."</ejemplo>
+      </ejemplos_verosimiles>
+      <caso_limite>
+        <texto>"Las ventas bajaron porque en octubre la gente ya gastó todo en el Día de la Madre y encima con esta inflación no les alcanza."</texto>
+        <resolucion>
+          Presencia de dos causas: estacional (Día de la Madre) y macro (inflación).
+          La causa mencionada primero y con verbo de acción directo es la estacional.
+          Sin embargo, la oración subordinada ("encima con esta inflación") agrega
+          una causa macro como potenciador. Regla de desempate: si la causa macro
+          aparece como modificador de intensidad ("encima", "además", "para colmo")
+          y la causa principal es estacional, clasificar como ESTAC. Si la causa
+          macro es la proposición principal, clasificar como MACRO.
+          → Clasificación final: ESTAC.
+        </resolucion>
+      </caso_limite>
+    </categoria>
+
+    <categoria id="2" codigo="MACRO">
+      <nombre>macro_inflacion_ingresos</nombre>
+      <definicion_operativa>
+        <incluye>
+          Referencias a inflación, aumento de precios, pérdida del poder adquisitivo,
+          caída de ingresos o sueldos, situación económica general del país,
+          recesión, ajuste, crisis, devaluación, "la gente no tiene plata" sin
+          anclaje temporal estacional, restricción del crédito, aumentos de costos
+          trasladados a precios. También incluye referencias al gobierno o a
+          políticas económicas como causa de la variación en ventas.
+        </incluye>
+        <excluye>
+          Menciones a precios de insumos cuando el comerciante las enmarca como
+          problema de gestión propio (→ cat. 4). Comparaciones con épocas pasadas
+          sin atribuir la diferencia a condiciones macro actuales.
+        </excluye>
+      </definicion_operativa>
+      <ejemplos_verosimiles>
+        <ejemplo id="E2_1">"La gente no llega a fin de mes, los sueldos no alcanzan para nada, bajamos bastante."</ejemplo>
+        <ejemplo id="E2_2">"Con la inflación que hay los precios subieron tanto que la gente elige no comprar."</ejemplo>
+        <ejemplo id="E2_3">"Todo el ajuste que hizo el gobierno afectó el bolsillo de los clientes, compraron mucho menos."</ejemplo>
+        <ejemplo id="E2_4">"La situación del país está muy difícil, nadie gasta en cosas que no sean indispensables."</ejemplo>
+      </ejemplos_verosimiles>
+      <caso_limite>
+        <texto>"Con el dólar como está los proveedores me subieron todo y tuve que remarcar, ahí se me cayeron las ventas."</texto>
+        <resolucion>
+          El comerciante describe una cadena causal: tipo de cambio → aumento de
+          costos de proveedor → remarque → caída de demanda. La causa raíz es
+          macroeconómica (tipo de cambio). El remarque es la transmisión, no la
+          causa. → Clasificación: MACRO.
+        </resolucion>
+      </caso_limite>
+    </categoria>
+
+    <categoria id="3" codigo="COMP">
+      <nombre>competencia_oferta</nombre>
+      <definicion_operativa>
+        <incluye>
+          Referencias a la apertura o cierre de negocios competidores (supermercados,
+          hipermercados, ferias, otros comercios de proximidad), a la competencia
+          desleal (productos truchos, precios subsidiados de grandes cadenas),
+          a pérdida o ganancia de clientes por oferta alternativa cercana, a
+          cambios en el surtido propio que generaron mayor o menor atracción
+          respecto de la competencia.
+        </incluye>
+        <excluye>
+          Menciones a precios sin referencia a competidores (→ cat. 2 o cat. 4).
+          Mención a ferias cuando el comerciante las describe como evento estacional
+          (→ cat. 1).
+        </excluye>
+      </definicion_operativa>
+      <ejemplos_verosimiles>
+        <ejemplo id="E3_1">"Abrieron un Día en la esquina y me llevan todos los clientes, bajé un montón."</ejemplo>
+        <ejemplo id="E3_2">"Se cerró la feria del barrio y mucha gente empezó a venir acá, subí bastante."</ejemplo>
+        <ejemplo id="E3_3">"Hay mucha competencia ahora, todos venden lo mismo y la gente compara precio."</ejemplo>
+      </ejemplos_verosimiles>
+      <caso_limite>
+        <texto>"La gente va más al supermercado porque con los precios de hoy conviene comprar en cantidad."</texto>
+        <resolucion>
+          La causa puede ser leída como competencia (supermercado gana clientes)
+          o como macro (la inflación hace racional comprar en cantidad). La
+          presencia del sujeto "supermercado" como agente activo del cambio es
+          el indicador determinante. → Clasificación: COMP.
+        </resolucion>
+      </caso_limite>
+    </categoria>
+
+    <categoria id="4" codigo="INTERNO">
+      <nombre>interno_gestion</nombre>
+      <definicion_operativa>
+        <incluye>
+          Referencias a decisiones o condiciones internas al propio negocio:
+          cambio de proveedor, ampliación o reducción del local, reforma del
+          local, cambio de horario, enfermedad o ausencia del titular o empleados,
+          incorporación de nuevos productos, cambio en la calidad del servicio,
+          problemas de stock propios, cambio de socio, deuda del negocio,
+          mudanza del local.
+        </incluye>
+        <excluye>
+          Cambios en costos de insumos cuando la causa raíz es externa (→ cat. 2).
+          Problemas de stock causados por quiebre de cadena de suministro macro
+          (→ cat. 2).
+        </excluye>
+      </definicion_operativa>
+      <ejemplos_verosimiles>
+        <ejemplo id="E4_1">"Estuve tres semanas enfermo y no pude atender, perdí clientes que no volvieron."</ejemplo>
+        <ejemplo id="E4_2">"Metimos nuevos productos que se venden muy bien, mejoró todo."</ejemplo>
+        <ejemplo id="E4_3">"Ampliamos el local y ahora tenemos más espacio para exhibir, la gente compra más."</ejemplo>
+      </ejemplos_verosimiles>
+      <caso_limite>
+        <texto>"Me quedé sin mercadería porque el proveedor no consigue los materiales."</texto>
+        <resolucion>
+          El quiebre de stock es interno al negocio en lo inmediato, pero la
+          causa raíz está en la cadena de suministro externa. Si el comerciante
+          atribuye la responsabilidad al proveedor/cadena, clasificar INTERNO
+          (el problema se manifiesta en la gestión). Si añade referencia a
+          escasez general o importaciones → MACRO.
+          → En este texto sin contexto adicional: INTERNO.
+        </resolucion>
+      </caso_limite>
+    </categoria>
+
+    <categoria id="5" codigo="OTRO">
+      <nombre>otro_no_clasificable</nombre>
+      <definicion_operativa>
+        <incluye>
+          Respuestas que no pueden asignarse a cat. 1–4 con confianza mínima
+          aceptable (umbral de confianza NLP menor a 0.55 en el modelo híbrido).
+          Respuestas vacías de contenido causal ("no sé", "así es", "normal").
+          Respuestas en idioma distinto del español o con errores tipográficos
+          que impiden la interpretación semántica. Causas que caen en dominios
+          no previstos por el esquema (ej. factores climáticos no estacionales
+          como inundación, factores de seguridad como robos).
+        </incluye>
+        <excluye>
+          Respuestas que mencionan más de una causa pero donde la causa primaria
+          es identificable → asignar a la categoría de la causa primaria.
+        </excluye>
+      </definicion_operativa>
+      <ejemplos_verosimiles>
+        <ejemplo id="E5_1">"No sé, las cosas van y vienen."</ejemplo>
+        <ejemplo id="E5_2">"Todo igual que siempre."</ejemplo>
+        <ejemplo id="E5_3">"Nos robaron dos veces y perdimos clientes que ya no vienen de noche." <!-- caso seguridad: no cubierto por categorías 1-4 --></ejemplo>
+      </ejemplos_verosimiles>
+      <caso_limite>
+        <texto>"Las ventas bajaron."</texto>
+        <resolucion>
+          Texto que describe el resultado (caída de ventas) pero no aporta causa.
+          No hay contenido clasificable por ninguna categoría causal.
+          → Clasificación: OTRO. Se registra como "ausencia de causa articulada".
+        </resolucion>
+      </caso_limite>
+    </categoria>
+
+  </esquema_categorias>
+
+  <!-- ================================================================ -->
+
+  <tecnica_nlp>
+
+    <seleccion>Híbrido: diccionario de palabras clave para casos de alta certeza + LLM few-shot para casos ambiguos</seleccion>
+
+    <descripcion_del_pipeline>
+      El pipeline opera en dos etapas secuenciales sobre los N=703 textos válidos
+      de `razon_cambio_ventas`:
+
+      ETAPA 1 — Clasificador por diccionario semilla (reglas léxicas):
+      Se construye un diccionario de términos âncora por categoría (ver subsección
+      `diccionario_semilla`). Todo texto que contiene al menos un término de una
+      sola categoría y ningún término de otra categoría recibe esa etiqueta con
+      confianza_alta=TRUE. El umbral de cobertura esperado para esta etapa es
+      50–65% del corpus, según los parámetros reportados en encuestas de
+      expectativas empresariales con vocabulario acotado.
+
+      ETAPA 2 — Clasificador LLM few-shot para textos ambiguos:
+      Los textos no clasificados con certeza en la Etapa 1 (confianza_alta=FALSE,
+      o con términos de más de una categoría) pasan a un LLM (GPT-4o o equivalente)
+      en modalidad few-shot con 5 ejemplos por categoría (25 ejemplos en total,
+      seleccionados del conjunto de entrenamiento anotado por humanos).
+      El prompt incluye: definición operativa de cada categoría, reglas de
+      desempate, y los 25 ejemplos etiquetados.
+      Parámetro de temperatura: 0.0 (determinístico).
+      El LLM devuelve: etiqueta + explicación de una oración + score de confianza
+      autoreportado (0–1). Textos con confianza_LLM menor a 0.55 se asignan a OTRO.
+    </descripcion_del_pipeline>
+
+    <diccionario_semilla>
+      <categoria codigo="ESTAC">
+        <terminos>día de la madre, día del padre, navidad, reyes, fiestas, fin de año,
+        verano, invierno, temporada, vacaciones, vuelta a clases, inicio de clases,
+        carnaval, semana santa, quincena de diciembre, frío, calor estacional</terminos>
+      </categoria>
+      <categoria codigo="MACRO">
+        <terminos>inflación, precio, sueldo, salario, plata, poder adquisitivo,
+        situación económica, crisis, ajuste, dólar, devaluación, costo de vida,
+        no alcanza, no llega, recesión, gobierno, medidas económicas</terminos>
+      </categoria>
+      <categoria codigo="COMP">
+        <terminos>competencia, supermercado, hipermercado, feria, chino, mayorista,
+        vecino comercio, local nuevo, abrieron, cerraron, se fueron los clientes a</terminos>
+      </categoria>
+      <categoria codigo="INTERNO">
+        <terminos>enfermo, enfermedad, ampliamos, reformamos, cambiamos proveedor,
+        nuevos productos, cambié el horario, empleado, socio, mudamos, local nuevo propio,
+        stock propio, deuda del negocio</terminos>
+      </categoria>
+    </diccionario_semilla>
+
+    <justificacion>
+
+      <argumento id="J1" ficha="M01">
+        Haensch et al. (2022) demuestran que SVM con TF-IDF alcanza accuracy=0.93
+        y κ=0.91 en corpus de 25,000 respuestas abiertas de encuestas en inglés.
+        Sin embargo, ese resultado requiere corpus de entrenamiento de escala
+        comparable. Con N=703 textos totales y una fracción disponible para
+        entrenamiento supervisado, el SVM puro enfrenta riesgo de sobreajuste
+        en el espacio TF-IDF, particularmente dado el español coloquial argentino
+        con alta varianza ortográfica (omisión de tildes, abreviaturas,
+        mayúsculas inconsistentes).
+        <ficha id="M01"/>
+      </argumento>
+
+      <argumento id="J2" ficha="M04">
+        Burstein et al. (2025) reportan que few-shot LLM con 20 ejemplos alcanza
+        76% de accuracy sin entrenamiento, y fine-tuning con 799 ejemplos alcanza
+        83.5%. Para N=703 textos, un split train/test convencional (80/20) deja
+        solo 562 textos para entrenamiento, insuficiente para fine-tuning según
+        los parámetros de Burstein et al. El régimen few-shot es por tanto el
+        apropiado para este tamaño de corpus.
+        <ficha id="M04"/>
+      </argumento>
+
+      <argumento id="J3" ficha="M02">
+        Schonlau y Couper (2016) proponen el mecanismo de umbral de confianza
+        como vía para combinar clasificación automática de alta certeza con
+        revisión humana de casos ambiguos. El pipeline híbrido propuesto replica
+        este principio: la Etapa 1 (diccionario) opera como clasificador de
+        alta confianza; la Etapa 2 (LLM) actúa sobre los casos que el diccionario
+        no resuelve con certeza. Este diseño maximiza reproducibilidad (el
+        diccionario es completamente transparente) mientras delega los casos
+        genuinamente ambiguos al modelo con mayor capacidad de razonamiento
+        contextual.
+        <ficha id="M02"/>
+      </argumento>
+
+      <argumento id="J4" ficha="M03">
+        Pérez et al. (2023) documentan que RoBERTuito supera a BETO en 3–4
+        puntos F1 en español informal de redes sociales, que es el registro más
+        cercano al español coloquial de los textos de `razon_cambio_ventas`.
+        RoBERTuito (o su equivalente via Hugging Face) podría sustituir al LLM
+        comercial en la Etapa 2 si se prioriza la reproducibilidad sin costo
+        de API, con la desventaja de requerir fine-tuning mínimo. Se lo señala
+        como alternativa viable pero el LLM few-shot se prefiere por no requerir
+        datos de entrenamiento etiquetados adicionales.
+        <ficha id="M03"/>
+      </argumento>
+
+      <argumento id="J5" ficha="M07">
+        Los métodos de topic modeling (STM, Latent Dirichlet Allocation) quedan
+        descartados como técnica principal porque el objetivo es clasificar en
+        categorías predefinidas (esquema MECE de 5 categorías), no descubrir
+        tópicos inductivamente. Roberts et al. (2014) señalan explícitamente
+        que STM no es apropiado para clasificación con esquema predefinido.
+        <ficha id="M07"/>
+      </argumento>
+
+      <argumento id="J6" ficha="M08">
+        Biterm Topic Model (BTM) se descarta por las mismas razones que STM:
+        es una alternativa exploratoria adecuada para textos cortos en modo
+        inductivo, pero no para categorías predefinidas con función confirmatoria.
+        Schonlau (2019) lo propone como herramienta de descubrimiento, no de
+        clasificación supervisada.
+        <ficha id="M08"/>
+      </argumento>
+
+      <argumento id="J7">
+        La elección del pipeline híbrido optimiza tres criterios simultáneamente:
+        (a) REPRODUCIBILIDAD — el diccionario semilla es completamente auditable
+        y libre de caja negra; (b) CALIDAD — el LLM few-shot maneja la complejidad
+        pragmática de los textos ambiguos que el diccionario no puede resolver
+        por léxico; (c) COSTO COMPUTACIONAL — la Etapa 1 reduce el volumen de
+        llamadas al LLM al subconjunto estrictamente necesario, reduciendo latencia
+        y costo de API.
+        <citation_missing/>
+      </argumento>
+
+    </justificacion>
+
+    <reproducibilidad>
+      El código del pipeline completo (etapas 1 y 2) se implementa en Python 3.11
+      con las librerías: `pandas`, `re` (regex para Etapa 1), `openai` SDK v1.x
+      (Etapa 2). El diccionario semilla se almacena en JSON versionado en el
+      repositorio del proyecto. La semilla aleatoria del muestreo de validación
+      se fija en seed=42. Las llamadas al LLM se loguean con hash del prompt
+      para permitir reproducción exacta. El código y los logs se depositan en
+      el repositorio del proyecto antes de la publicación.
+    </reproducibilidad>
+
+  </tecnica_nlp>
+
+  <!-- ================================================================ -->
+
+  <protocolo_validacion>
+
+    <anotadores>
+      <numero>2 anotadores humanos independientes</numero>
+      <perfil>
+        Anotador 1: integrante del equipo de investigación con conocimiento del
+        marco teórico (sesión de calibración previa al etiquetado).
+        Anotador 2: asistente externo al equipo, con instrucción limitada al
+        manual de codificación (sin exposición a la hipótesis central) para
+        controlar el sesgo de confirmación.
+      </perfil>
+      <independencia>
+        Los anotadores trabajan en forma independiente sin comunicación entre sí
+        durante la sesión de etiquetado. La reconciliación ocurre solo DESPUÉS
+        de completar el etiquetado individual.
+      </independencia>
+    </anotadores>
+
+    <muestra_de_validacion>
+      <tamano>120 textos (17.1% del corpus válido, N=703)</tamano>
+      <justificacion>
+        Tamaño superior al mínimo convencional de 10% para análisis de contenido
+        categórico con 5 categorías. El poder estadístico para detectar κ≥0.70
+        versus κ=0.60 con α=0.05 (dos colas) requiere aproximadamente 100 unidades
+        según la distribución asintótica del coeficiente kappa. Se añaden 20
+        unidades de margen para las categorías de baja frecuencia (COMP, INTERNO,
+        OTRO).
+        <citation_missing/>
+      </justificacion>
+      <metodo_muestreo>
+        Muestreo estratificado proporcional por la etiqueta asignada por el
+        pipeline NLP (Etapas 1 y 2 combinadas), asegurando representación mínima
+        de 15 textos por categoría (incluida OTRO). Dentro de cada estrato,
+        selección aleatoria simple sin reemplazo con seed=42.
+        La muestra de validación se extrae ANTES de que los anotadores vean
+        cualquier salida del pipeline (para evitar anclaje en la etiqueta NLP).
+      </metodo_muestreo>
+    </muestra_de_validacion>
+
+    <metricas>
+      <metrica_primaria>
+        <nombre>κ de Cohen (kappa de Cohen)</nombre>
+        <formula>κ = (P_o - P_e) / (1 - P_e)</formula>
+        <implementacion>librería `sklearn.metrics.cohen_kappa_score` con pesos=None (nominal)</implementacion>
+        <umbral_aceptacion>κ ≥ 0.70 (sustancial, según escala de Landis y Koch 1977)</umbral_aceptacion>
+        <ficha id="M05"/>
+      </metrica_primaria>
+      <metrica_secundaria>
+        <nombre>α de Krippendorff (alfa de Krippendorff)</nombre>
+        <implementacion>librería `krippendorff` de Python, métrica nominal</implementacion>
+        <umbral_referencia>α ≥ 0.80 deseable para publicación; α ≥ 0.67 aceptable con reporte explícito de limitaciones</umbral_referencia>
+        <ficha id="M06"/>
+        <nota>
+          α de Krippendorff se reporta como métrica secundaria porque: (a) está
+          diseñado para múltiples anotadores y maneja datos faltantes, propiedades
+          útiles si se amplía a 3 anotadores; (b) provee una perspectiva complementaria
+          sobre el acuerdo más allá del acuerdo por pares. Con 2 anotadores y
+          datos completos, κ y α convergen numéricamente pero no son idénticos.
+        </nota>
+      </metrica_secundaria>
+    </metricas>
+
+    <umbrales_y_acciones>
+      <escenario id="A" condicion="κ ≥ 0.80 y α ≥ 0.80">
+        Acuerdo excelente. El pipeline se acepta como válido. Se procede al
+        análisis estadístico completo con las etiquetas NLP del corpus completo.
+        Se reporta la distribución de frecuencias por categoría y el porcentaje
+        de textos clasificados por cada etapa del pipeline.
+      </escenario>
+      <escenario id="B" condicion="0.70 ≤ κ &lt; 0.80">
+        Acuerdo sustancial. El pipeline se acepta con condiciones. Se realiza
+        análisis de sensibilidad adicional (ver sección plan_estadistico). Se
+        reporta κ con IC 95% y se documenta en la sección de limitaciones.
+      </escenario>
+      <escenario id="C" condicion="κ &lt; 0.70">
+        Acuerdo insuficiente. Procedimiento de remediación:
+        (1) Diagnóstico: identificar las categorías con mayor desacuerdo mediante
+        la matriz de confusión inter-anotador.
+        (2) Revisión del manual: clarificar las definiciones operativas y las
+        reglas de desempate para las categorías problemáticas.
+        (3) Segunda sesión de calibración (2 horas) con los anotadores, usando
+        los 20 casos más discordantes como casos de discusión.
+        (4) Segunda ronda de etiquetado sobre una nueva muestra de 60 textos
+        (no superpuesta con la primera).
+        (5) Si κ sigue siendo inferior a 0.70 después de la remediación, el
+        esquema de categorías se colapsa a 3 categorías (ESTAC / MACRO / RESTO)
+        y se repite la validación.
+      </escenario>
+    </umbrales_y_acciones>
+
+    <procedimiento_desacuerdo>
+      <paso n="1">
+        Para cada texto en la muestra de validación con etiquetas discordantes,
+        se registra el par de etiquetas asignadas (ej. ESTAC vs. MACRO).
+      </paso>
+      <paso n="2">
+        Los textos discordantes se presentan a un tercer árbitro (investigador
+        principal del proyecto) que asigna la etiqueta definitiva sin conocer
+        las asignaciones de los anotadores 1 y 2.
+      </paso>
+      <paso n="3">
+        La etiqueta del árbitro se usa exclusivamente para calcular la prevalencia
+        real de cada categoría en la muestra de validación (gold standard).
+        La etiqueta final del corpus completo mantiene la del pipeline NLP,
+        corregida donde el pipeline discrepa del gold standard en más del 15%
+        de los casos de una categoría.
+      </paso>
+      <paso n="4">
+        Se reporta el porcentaje de acuerdo observado entre árbitro y pipeline
+        NLP como medida de validez de criterio concurrente.
+      </paso>
+    </procedimiento_desacuerdo>
+
+    <reporte_transparencia>
+      Se publica el manual de codificación completo como Apéndice del artículo.
+      Se publica la matriz de confusión inter-anotador en los materiales
+      suplementarios. El diccionario semilla de la Etapa 1 se publica como
+      Apéndice de datos.
+    </reporte_transparencia>
+
+  </protocolo_validacion>
+
+  <!-- ================================================================ -->
+
+  <plan_estadistico>
+
+    <operacionalizacion_variables>
+
+      <variable_dependiente>
+        <nombre>expectativa_ventas_3m</nombre>
+        <escala_original>ordinal de 3 niveles: "mayores" / "iguales" / "menores"</escala_original>
+        <operacionalizacion_primaria>
+          Variable binaria: "optimista" (="mayores") versus "no optimista"
+          (="iguales" o "menores"). Justificación: H1 predice específicamente
+          mayor probabilidad de declarar "mayores" (optimismo), no diferencias
+          a lo largo de toda la escala ordinal. La comparación binaria optimista
+          vs. no-optimista es la prueba directa de H1. La regresión logística
+          binaria con esta codificación produce el odds ratio de interés sustantivo
+          directo.
+        </operacionalizacion_primaria>
+        <operacionalizacion_secundaria>
+          Variable ordinal de 3 niveles conservada. Se estima un modelo logístico
+          ordinal (proportional odds model) como análisis de sensibilidad para
+          verificar que el efecto de la atribución causal opera de forma consistente
+          a lo largo de toda la escala y no solo en el corte binario.
+        </operacionalizacion_secundaria>
+      </variable_dependiente>
+
+      <variable_independiente>
+        <nombre>atribucion_nlp</nombre>
+        <escala>categórica nominal, 5 niveles (ESTAC, MACRO, COMP, INTERNO, OTRO)</escala>
+        <codificacion_modelo_principal>
+          Dummies con categoría de referencia = MACRO. Esta elección de referencia
+          es la que produce directamente el coeficiente de interés para H1:
+          el odds ratio de ESTAC versus MACRO en la predicción del optimismo.
+          Las categorías COMP, INTERNO y OTRO se incluyen como controles de
+          especificación pero no son objeto de hipótesis.
+        </codificacion_modelo_principal>
+        <tratamiento_OTRO>
+          Los textos clasificados como OTRO (categoría 5) se EXCLUYEN del modelo
+          principal para evitar que la ambigüedad de clasificación contamine el
+          estimador. Se reporta el N excluido. Se realiza análisis de sensibilidad
+          incluyendo OTRO como categoría adicional para verificar que los
+          resultados no cambian sustancialmente.
+        </tratamiento_OTRO>
+      </variable_independiente>
+
+      <controles>
+        <variable nombre="tipo_negocio">
+          <escala>categórica nominal</escala>
+          <codificacion>dummies con categoría de referencia = alimentación/almacén
+          (categoría más frecuente esperada en la muestra). Si el número de
+          categorías de tipo_negocio supera 8, se agrupan categorías con menos
+          de 20 observaciones en una categoría residual "otro_rubro" para evitar
+          celdas vacías.</codificacion>
+        </variable>
+        <variable nombre="antiguedad">
+          <escala>continua (años de operación)</escala>
+          <codificacion>entrada directa como variable continua en el modelo.
+          Se verifica la linealidad del logit mediante la prueba de Box-Tidwell
+          o mediante inspección de residuos parciales. Si hay evidencia de no
+          linealidad, se introduce una transformación logarítmica (ln(antigüedad+1))
+          o se discretiza en terciles.</codificacion>
+        </variable>
+      </controles>
+
+    </operacionalizacion_variables>
+
+    <modelo_principal>
+      <tipo>Regresión logística binaria</tipo>
+      <especificacion>
+        logit(P(optimista=1)) = β0 + β1·ESTAC + β2·COMP + β3·INTERNO +
+        Σβk·tipo_negocio_k + β_ant·antiguedad + ε
+
+        donde MACRO es la categoría de referencia de atribucion_nlp.
+      </especificacion>
+      <justificacion>
+        La regresión logística binaria es preferida a la logística ordinal como
+        modelo principal porque H1 formula una predicción unidireccional sobre
+        el extremo superior de la escala (expectativas "mayores"), no una
+        predicción sobre el efecto promedio en toda la distribución ordinal.
+        El modelo binario con corte "mayores vs. resto" produce el estadístico
+        de prueba más directo para H1. El modelo ordinal se reserva para
+        análisis de sensibilidad.
+        <citation_missing/>
+      </justificacion>
+      <estimacion>
+        Estimación por máxima verosimilitud (ML). Errores estándar robustos
+        (HC1 heteroskedasticity-consistent) dada la posible clustering de
+        observaciones por zona geográfica si la variable está disponible.
+        Software: Python statsmodels `LogisticRegression` o R `glm(family=binomial)`.
+      </estimacion>
+    </modelo_principal>
+
+    <prueba_directa_H1>
+      <descripcion>
+        La prueba directa de H1 es el test de Wald sobre el coeficiente β1
+        (coeficiente de la dummy ESTAC en el modelo principal). H1 predice β1 > 0
+        (prueba unilateral), equivalente a OR(ESTAC vs. MACRO) > 1.
+
+        H0: β1 = 0 (no hay diferencia en probabilidad de optimismo entre
+            atribución estacional y atribución macro, controlando por tipo_negocio
+            y antigüedad).
+        H1: β1 > 0 (atribución estacional predice mayor probabilidad de optimismo
+            que atribución macro).
+
+        Nivel de significación: α = 0.05 (unilateral). Se reporta el p-valor
+        de dos colas con indicación explícita de que la hipótesis es unilateral.
+        Se reporta el odds ratio y su intervalo de confianza del 95%.
+      </descripcion>
+      <poder_estadistico>
+        Estimación preliminar de poder: con N≈600 textos clasificables (excluyendo
+        OTRO, ~85% del corpus), proporción baseline de optimistas ≈ 30% (estimación
+        conservadora), OR mínimo de interés = 1.8, y α=0.05 unilateral, el poder
+        estimado supera 0.80 para la comparación ESTAC vs. MACRO si la frecuencia
+        de ESTAC y MACRO combinadas representa al menos el 60% del corpus.
+        <citation_missing/>
+      </poder_estadistico>
+    </prueba_directa_H1>
+
+    <analisis_sensibilidad>
+      <analisis id="S1">
+        <nombre>Modelo logístico ordinal</nombre>
+        <descripcion>
+          Proportional odds model con expectativa_ventas_3m en su escala
+          original de 3 niveles. Se verifica el supuesto de odds proporcionales
+          (prueba de Brant). Si el supuesto se viola, se estima un modelo
+          logístico multinomial como alternativa.
+        </descripcion>
+      </analisis>
+      <analisis id="S2">
+        <nombre>Inclusión de categoría OTRO</nombre>
+        <descripcion>
+          Modelo principal más dummy para OTRO (referencia: MACRO). Verifica
+          que la exclusión de OTRO no sesga el estimador de β1.
+        </descripcion>
+      </analisis>
+      <analisis id="S3">
+        <nombre>Colapso de categorías no hipotéticas</nombre>
+        <descripcion>
+          Modelo con solo dos categorías en la variable independiente: ESTAC
+          versus MACRO (excluyendo también COMP e INTERNO). Prueba más pura
+          del contraste H1 sobre el subconjunto con atribución clara.
+        </descripcion>
+      </analisis>
+      <analisis id="S4">
+        <nombre>Verificación con etiquetas de gold standard</nombre>
+        <descripcion>
+          Reestimación del modelo principal usando solo los 120 textos de la
+          muestra de validación con etiqueta del árbitro (gold standard).
+          Verifica que el error de clasificación NLP no sesga sistemáticamente
+          el estimador de β1.
+        </descripcion>
+      </analisis>
+      <analisis id="S5">
+        <nombre>Análisis de interacción tipo_negocio × atribucion_nlp</nombre>
+        <descripcion>
+          Modelo con término de interacción entre la dummy ESTAC y la variable
+          tipo_negocio. Verifica si el efecto de la atribución estacional difiere
+          por rubro (ej. si la estacionalidad es más relevante en indumentaria
+          que en alimentación).
+        </descripcion>
+      </analisis>
+    </analisis_sensibilidad>
+
+    <benchmark_interanual>
+      <descripcion>
+        Las series de expectativas empresariales de INDEC (Encuesta de Expectativas
+        Económicas) y de CAME (Encuesta a PyMEs comerciales) correspondientes a
+        octubre 2025 y a los 12 meses previos se incorporan al análisis como
+        CONTEXTO EXTERNO, no como covariable en el modelo individual.
+      </descripcion>
+      <uso_como_contexto>
+        Las series INDEC/CAME permiten anclar la distribución empírica de
+        expectativa_ventas_3m observada en la muestra MIT LIFT Lab dentro del
+        estado general del ciclo de expectativas en el sector comercial argentino
+        en octubre 2025. Si la muestra LIFT muestra un porcentaje de optimistas
+        marcadamente distinto al registrado por CAME en el mismo período, se
+        investiga si la diferencia se explica por la composición de la muestra
+        (nanostores informales vs. PyMEs formales de CAME) o por sesgos de
+        selección.
+      </uso_como_contexto>
+      <uso_como_covariable>
+        Se evalúa la factibilidad de incorporar la serie de expectativas CAME
+        como indicador de expectativas de "mercado" para estimar si los
+        comerciantes individuales se desvían del benchmark sectorial en función
+        de su atribución causal. Esta variante se implementa solo si la variable
+        de zona geográfica permite vincular observaciones individuales con datos
+        regionales de CAME.
+      </uso_como_covariable>
+    </benchmark_interanual>
+
+  </plan_estadistico>
+
+  <!-- ================================================================ -->
+
+  <limitaciones>
+
+    <validez_interna>
+
+      <amenaza id="VI1">
+        <nombre>Confusión por variables omitidas</nombre>
+        <descripcion>
+          El diseño observacional no permite descartar que la atribución causal
+          (estacional vs. macro) y las expectativas optimistas sean ambas
+          causadas por una tercera variable no observada, como el nivel de
+          liquidez del negocio o el tipo de clientela. Comerciantes con clientes
+          de mayor ingreso podrían tanto atribuir variaciones a la estacionalidad
+          (porque no sufren restricciones de ingreso) como ser más optimistas
+          sobre el futuro.
+        </descripcion>
+        <mitigacion>
+          Los controles tipo_negocio y antigüedad reducen parcialmente este
+          riesgo. El análisis de interacción (S5) permite evaluar si el efecto
+          varía por rubro de forma consistente con la explicación de confusión.
+          La restricción de corte transversal impide controles adicionales
+          por efectos fijos individuales.
+        </mitigacion>
+      </amenaza>
+
+      <amenaza id="VI2">
+        <nombre>Sesgo de deseabilidad social / narrativa post-hoc</nombre>
+        <descripcion>
+          Los comerciantes que ya tienen expectativas optimistas pueden tender
+          a articular atribuciones estacionales (reversibles, por tanto optimistas)
+          de forma ex-post para dar coherencia a su perspectiva, invirtiendo
+          la dirección causal propuesta por H1. Este fenómeno es consistente
+          con la investigación sobre coherencia cognitiva y narración causal.
+        </descripcion>
+        <mitigacion>
+          El diseño de la encuesta (razon_cambio_ventas pregunta sobre el pasado
+          reciente; expectativa_ventas_3m sobre el futuro) introduce una
+          separación temporal que reduce pero no elimina la posibilidad de
+          racionalización post-hoc. Este sesgo es irreductible en diseños
+          de corte transversal con encuesta única.
+        </mitigacion>
+      </amenaza>
+
+      <amenaza id="VI3">
+        <nombre>Error de clasificación NLP no aleatorio</nombre>
+        <descripcion>
+          Si el pipeline híbrido clasifica erróneamente los textos de forma
+          sistemática (ej. textos breves con vocabulario ambiguo son más
+          frecuentes en ciertos tipos de negocio), el error de clasificación
+          introduce sesgo no aleatorio en la variable independiente, produciendo
+          sesgo de atenuación o amplificación del estimador de β1.
+        </descripcion>
+        <mitigacion>
+          El análisis de sensibilidad S4 (gold standard sobre 120 textos)
+          permite cuantificar la dirección y magnitud del sesgo de clasificación.
+          El protocolo de validación con κ≥0.70 como umbral mínimo garantiza
+          que el error de clasificación es sustancialmente menor que el ruido
+          aleatorio de una categorización sin entrenamiento.
+          <ficha id="M05"/>
+        </mitigacion>
+      </amenaza>
+
+    </validez_interna>
+
+    <validez_externa>
+
+      <amenaza id="VE1">
+        <nombre>Muestra restringida a Argentina en contexto inflacionario 2025</nombre>
+        <descripcion>
+          Los resultados son específicos al contexto macroeconómico de Argentina
+          en el período septiembre–octubre 2025, caracterizado por inflación
+          elevada, proceso de estabilización y expectativas volátiles. La
+          atribución "macro" en este contexto es particularmente saliente
+          (inflación como narrativa económica dominante, según Shiller 2017),
+          lo que puede exagerar el contraste con la atribución estacional
+          respecto de contextos de menor volatilidad macroeconómica.
+        </descripcion>
+      </amenaza>
+
+      <amenaza id="VE2">
+        <nombre>Cobertura geográfica y sectorial</nombre>
+        <descripcion>
+          Si la muestra MIT LIFT Lab sobre-representa zonas urbanas del AMBA
+          o sectores específicos de nanostores, los resultados pueden no ser
+          generalizables a comercios de proximidad del interior del país o de
+          rubros no cubiertos en la muestra.
+        </descripcion>
+      </amenaza>
+
+      <amenaza id="VE3">
+        <nombre>Formalidad del negocio</nombre>
+        <descripcion>
+          Los nanostores informales pueden exhibir patrones de atribución causal
+          y expectativas sistemáticamente distintos de los comercios formales
+          registrados (ya que la informalidad implica mayor exposición a riesgo
+          idiosincrático y menor acceso a información macroeconómica formal).
+          Los resultados no deben generalizarse a PyMEs formales ni a
+          comercios de mayor tamaño.
+        </descripcion>
+      </amenaza>
+
+    </validez_externa>
+
+    <restriccion_disenio>
+      <nombre>Corte transversal único — ausencia de ola previa</nombre>
+      <descripcion>
+        El dataset corresponde a una sola ola de observación (29-sep–28-oct 2025).
+        Esta restricción es la más importante del diseño y tiene las siguientes
+        consecuencias metodológicas:
+        (a) No es posible establecer causalidad temporal entre atribución y
+        expectativas mediante diseño longitudinal.
+        (b) No es posible controlar por efectos individuales fijos (disposición
+        al optimismo del comerciante, historial del negocio).
+        (c) No es posible verificar si las expectativas declaradas predicen
+        el comportamiento real de ventas en los 3 meses siguientes.
+        (d) El análisis de atribución causal del comerciante sobre su propia
+        situación (variable razon_cambio_ventas) está sujeto al momento
+        del ciclo en que se recopiló la encuesta (octubre, mes post-Día de la
+        Madre en Argentina), lo que puede sobre-representar menciones
+        estacionales de forma artefactual.
+      </descripcion>
+      <implicacion_inferencial>
+        Las conclusiones del estudio tienen carácter CORRELACIONAL. Las afirmaciones
+        sobre mecanismos causales (atribución → expectativa) deben formularse
+        en términos de "consistencia con la predicción de la teoría de atribución"
+        (Weiner 1985), no de causalidad establecida.
+      </implicacion_inferencial>
+    </restriccion_disenio>
+
+  </limitaciones>
+
+</methodology_proposal>

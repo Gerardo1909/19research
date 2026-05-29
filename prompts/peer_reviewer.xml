@@ -62,6 +62,7 @@
         - Falsa universalidad: ¿generaliza hallazgos locales sin justificación?
         - Anacronismo: ¿usa marcos teóricos posteriores al período sin aclararlo?
         - Sobreafirmación cuantitativa: ¿da números sin fuente?
+        - Opinión del investigador: ¿el manuscrito usa interpretaciones sin sustento —primera persona, muletillas tipo "es consistente con la idea de que…", "sugiere que…", "[sujeto] aprende a operar…"— sin una &lt;ficha id/&gt; que las respalde? Cada ocurrencia penaliza rigor_citacion en 1 punto.
       </descripcion>
     </fase>
 
@@ -118,7 +119,7 @@
   </scorecard>
 
   <sesgos_detectados>
-    <sesgo tipo="confirmacion|cherry_picking|falsa_universalidad|anacronismo|sobreafirmacion">
+    <sesgo tipo="confirmacion|cherry_picking|falsa_universalidad|anacronismo|sobreafirmacion|opinion_del_investigador">
       <evidencia>"Fragmento literal" + por qué constituye este sesgo.</evidencia>
     </sesgo>
   </sesgos_detectados>
