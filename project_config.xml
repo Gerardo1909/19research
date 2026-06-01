@@ -1,56 +1,65 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
   Configuración del proyecto de investigación actual.
-  Completar todos los campos ANTES de iniciar la primera sesión con el lead_researcher.
+  Estado: COMPLETADO. Manuscrito aprobado (peer review ACCEPT 15/15) el 2026-05-30.
+  Entregable: BA_siniestros_viales/docs/documento_final.md
+  Estado detallado y trazabilidad: memory/research-state.json
 -->
 <project_config>
 
   <metadata>
-    <proyecto_slug>nombre-corto-sin-espacios</proyecto_slug>
-    <titulo>Título completo del proyecto de investigación</titulo>
-    <autor_humano>Nombre del investigador a cargo</autor_humano>
-    <fecha_inicio>YYYY-MM-DD</fecha_inicio>
+    <proyecto_slug>ba-siniestros-offset</proyecto_slug>
+    <titulo>La especificación de la exposición en modelos espaciales de frecuencia de siniestros viales: el sesgo del offset vehicular y una corrección ponderada por vulnerabilidad para contextos de tráfico heterogéneo</titulo>
+    <autor_humano>Gerardo Toboso</autor_humano>
+    <fecha_inicio>2026-05-30</fecha_inicio>
+    <contexto_entrega>Trabajo final individual — materia Ciencia de Datos, 1er Cuatrimestre 2026 (docentes: Agustín Moro, Rodrigo Díaz, Florencia Piñeyrúa). Extensión 6-8 páginas, Times New Roman 12, interlineado 1,5. Entregable en .md (el autor lo pasa a Word).</contexto_entrega>
   </metadata>
 
   <tema>
-    <campo_disciplinar>Ej: economía / sociología / ciencias de la computación / educación</campo_disciplinar>
-    <tema_amplio>Ej: especialización productiva y crecimiento económico</tema_amplio>
-    <recorte>Ej: empresas industriales argentinas, 2003-2019</recorte>
+    <campo_disciplinar>Ciencia de datos aplicada a seguridad vial (estadística espacial / modelos de conteo)</campo_disciplinar>
+    <tema_amplio>Modelos espaciales de frecuencia de siniestros viales (familia CAR / GWPR) y la especificación de la variable de exposición (offset)</tema_amplio>
+    <recorte>Análisis crítico de la familia de modelos tomando a Clemente et al. (2024) como eje; problema del offset vehicular vs. numerador multimodal en ciudades de tráfico heterogéneo (no atado a una ciudad concreta)</recorte>
   </tema>
 
   <hipotesis_preliminar>
     <descripcion>
-      Hipótesis tentativa que orienta la búsqueda inicial. Puede refinarse durante el proceso.
-      NO debe sesgar al search_subagent: él debe buscar evidencia A FAVOR y EN CONTRA.
+      Hipótesis que organiza el trabajo (refinada durante el proceso y mantenida en clave de predicción contrastable).
     </descripcion>
-    <enunciado>Texto de la hipótesis preliminar.</enunciado>
+    <enunciado>El offset de exposición de estos modelos mide solo tránsito vehicular (VMT/AADT de autos) mientras el numerador cuenta siniestros de todos los modos; esa inconsistencia vuelve no identificable el efecto de la infraestructura, y la magnitud del sesgo dependería de la heterogeneidad modal del tránsito (segundo orden en ciudades dominadas por autos como Milán; estructural en ciudades de tráfico heterogéneo). Corrección propuesta: Índice de Exposición Ponderado por Vulnerabilidad (IEPV) como offset + composición modal como covariable espacial.</enunciado>
   </hipotesis_preliminar>
 
   <alcance>
-    <espacial>País / región / nivel de análisis</espacial>
-    <temporal>Período YYYY-YYYY</temporal>
-    <unidad_de_analisis>Firmas / individuos / países / textos / etc.</unidad_de_analisis>
+    <espacial>General — "ciudades de tráfico heterogéneo" (CABA/Latinoamérica solo como ejemplo ilustrativo, no caso de estudio)</espacial>
+    <temporal>No aplica (trabajo conceptual de revisión crítica y propuesta)</temporal>
+    <unidad_de_analisis>Segmento de calle / red vial (unidad de los modelos analizados)</unidad_de_analisis>
   </alcance>
 
   <preferencias>
-    <idioma_fuentes>es | en | mixto</idioma_fuentes>
+    <idioma_fuentes>mixto</idioma_fuentes>
     <formato_citas>APA-7</formato_citas>
-    <profundidad_objetivo>piloto | revision_literatura | investigacion_completa</profundidad_objetivo>
-    <persistir_en_notion>true | false</persistir_en_notion>
-    <notion_database_id>...</notion_database_id>
+    <profundidad_objetivo>revision_literatura</profundidad_objetivo>
+    <persistir_en_notion>false</persistir_en_notion>
+    <notion_database_id></notion_database_id>
+    <estilo_documento>Narrativo, SIN fórmulas matemáticas. Pregunta de investigación generalizada (mantener esa línea). Propuesta conceptual, presentada como implementable ("vendible para conseguir recursos").</estilo_documento>
   </preferencias>
 
   <restricciones>
-    <restriccion>Ej: no usar fuentes anteriores a 1990 para evidencia empírica.</restriccion>
-    <restriccion>Ej: priorizar revistas latinoamericanas indexadas.</restriccion>
+    <restriccion>BIBLIOGRAFÍA CERRADA a lo presentado en clase: 3 papers núcleo (Clemente et al. 2024; Aguero-Valverde &amp; Jovanis 2008; Iranitalab &amp; Khattak 2017) + soporte ya citado (Hauer 1997; Abdel-Aty &amp; Radwan 2000; Elvik et al. 2009; OMS 2023). NO agregar fuentes nuevas.</restriccion>
+    <restriccion>NO centrar el trabajo en CABA (corrección del docente): framing general. No usar los porcentajes de CABA tomados de la web como dato firme.</restriccion>
+    <restriccion>No confundir composición de víctimas (cifra OMS) con riesgo por unidad de exposición/km (Elvik). El "por km" se atribuye solo a Elvik, sin número fabricado.</restriccion>
   </restricciones>
 
   <conocimiento_previo_del_autor>
     <autores_clave_ya_identificados>
-      <autor>Ej: Yoguel, G.</autor>
+      <autor>Clemente, G. P.; Della Corte, F.; Zappa, D. (2024) — eje del trabajo</autor>
+      <autor>Aguero-Valverde, J.; Jovanis, P. P. (2008)</autor>
+      <autor>Iranitalab, A.; Khattak, A. (2017)</autor>
     </autores_clave_ya_identificados>
     <fuentes_ya_leidas>
-      <fuente>Ej: Yoguel (2018), "Capacidades productivas..."</fuente>
+      <fuente>Clemente et al. (2024), "Hierarchical spatial network models for road accident risk assessment", Annals of Operations Research</fuente>
+      <fuente>Aguero-Valverde &amp; Jovanis (2008), "Analysis of road crash frequency with spatial models", TRR 2061</fuente>
+      <fuente>Iranitalab &amp; Khattak (2017), "Comparison of four statistical and machine learning methods for crash severity prediction", AAP 108</fuente>
+      <fuente>Textos completos en BA_siniestros_viales/docs/papers/ ; plan de crítica y propuesta en BA_siniestros_viales/docs/plan/</fuente>
     </fuentes_ya_leidas>
   </conocimiento_previo_del_autor>
 

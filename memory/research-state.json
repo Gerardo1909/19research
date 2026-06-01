@@ -1,20 +1,78 @@
 {
   "schema_version": "1.0",
-  "project": "",
-  "current_phase": "init",
-  "iteration_count": 0,
+  "project": "ba-siniestros-offset",
+  "current_phase": "completed_accept",
+  "iteration_count": 1,
   "plan": {
-    "gap_hipotesis": "",
-    "pipeline_steps": [],
-    "subagent_assignments": []
+    "gap_hipotesis": "Los modelos espaciales de frecuencia de siniestros (familia CAR/GWPR) especifican el offset de exposicion como volumen vehicular (VMT/AADT de autos), pero la variable respuesta cuenta siniestros de todos los modos (autos, motos, bicis, peatones). Este desajuste numerador/denominador vuelve no identificable el efecto de la infraestructura y degrada la transferibilidad del modelo a ciudades de trafico heterogeneo. El gap: la literatura nunca trata consistentemente la exposicion multimodal, o la evita (restringiendo alcance) o la arrastra (Clemente). La magnitud del sesgo es funcion de la heterogeneidad modal del transito.",
+    "pipeline_steps": [
+      { "name": "problema", "status": "completed", "detalle": "Inconsistencia offset vehicular vs numerador multimodal en modelos espaciales de frecuencia de siniestros. Pregunta de investigacion generalizada (no atada a CABA)." },
+      { "name": "estado_cuestion_teorico", "status": "completed", "detalle": "Modelos de conteo, dependencia espacial (CAR), GWPR; principio de Hauer (1997): la exposicion debe corresponder a la poblacion que genera los eventos." },
+      { "name": "estado_cuestion_empirico", "status": "completed", "detalle": "Aguero-Valverde & Jovanis 2008 (CAR full-Bayes, AADT, rural homogeneo); Iranitalab & Khattak 2017 (severidad ML, excluyen vulnerables); Clemente et al. 2024 (CAR-SLX+GWPR, VMT-autos, Milan, claim de universalidad)." },
+      { "name": "pregunta", "status": "completed", "detalle": "En que medida la especificacion del offset como exposicion vehicular introduce sesgo sistematico en la estimacion del riesgo de infraestructura, como depende ese sesgo de la heterogeneidad modal, y como corregirlo con una medida de exposicion consistente con la composicion de victimas." },
+      { "name": "metodologia_propuesta", "status": "completed", "detalle": "Indice de Exposicion Ponderado por Vulnerabilidad (IEPV) como offset + composicion modal como covariable espacial (y lag SLX) en CAR-SLX. Propuesta conceptual y general; pesos via Elvik/OMS, tratables como prior bayesiano; hipotesis contrastables H1/H2/H3." }
+    ],
+    "subagent_assignments": [
+      { "task_id": "S-001", "rol": "search_subagent", "objetivo": "Anclar cifra verificable del diferencial de riesgo/composicion por modo", "estado": "completed", "resultado": "OMS 2023: 53% muertes viales = usuarios vulnerables (peaton 23%, moto/2-3 ruedas 21%, ciclista 6%) vs 30% ocupantes auto. Verificada textualmente contra sitio oficial OMS. 'Por km' de Elvik no verificable (paywall) -> se mantuvo cualitativo." },
+      { "task_id": "C-001", "rol": "citation_agent", "objetivo": "Validar fidelidad y formato APA-7 de citas", "estado": "completed", "resultado": "Sin citas huerfanas; Referencias APA-7 correctas; suavizada atribucion a Abdel-Aty & Radwan; Gilardi como cita secundaria sin entrada propia; DOIs de Clemente/Iranitalab/Abdel-Aty marcados para verificacion manual." },
+      { "task_id": "R-001", "rol": "peer_reviewer", "objetivo": "Auditoria ronda 1", "estado": "completed", "resultado": "minor_revision 13/15. 4 issues corregidos." },
+      { "task_id": "R-002", "rol": "peer_reviewer", "objetivo": "Auditoria de confirmacion ronda 2", "estado": "completed", "resultado": "ACCEPT 15/15. Listo para entrega." }
+    ]
   },
   "findings": {
-    "theoretical": [],
-    "empirical": []
+    "theoretical": [
+      "Hauer (1997): la funcion de frecuencia de accidentes exige que numerador y denominador refieran a la misma poblacion expuesta.",
+      "Aguero-Valverde & Jovanis (2008): al incorporar correlacion espacial, el coeficiente de exposicion (AADT) cambia de magnitud; interpretado como correccion de mala especificacion. La especificacion de la exposicion incide sobre las estimaciones.",
+      "Clemente et al. (2024): falacia ecologica/MAUP motivan modelos a nivel de segmento; CAR-SLX (tendencia global) + GWPR de dos etapas (heterogeneidad local)."
+    ],
+    "empirical": [
+      "Clemente et al. (2024): offset = VMT = longitud x numero de autos (p.4); accidentes ISTAT = todos los modos (p.8); afirma 'can be applied to any region in the world' (abstract); halla sendas peatonales asociadas a mayor riesgo, atribuido a interaccion+visibilidad+concentracion de vulnerables (pp.26-27).",
+      "Iranitalab & Khattak (2017): excluyen explicitamente peatones, ciclistas y single-vehicle para tener dataset 'mas homogeneo'; ML predice mejor severidad a costa de interpretabilidad; metrica por costo monetario.",
+      "OMS (2023): 53% muertes viales globales = usuarios vulnerables (peaton 23%, moto/2-3 ruedas 21%, ciclista 6%) vs 30% ocupantes de auto; 1.19M muertes/ano. [composicion de victimas, no tasa por km]"
+    ]
   },
-  "manuscript_draft": null,
-  "methodology_proposal": null,
-  "review_history": [],
-  "controversias_detectadas": [],
-  "ultimo_update": null
+  "manuscript_draft": "BA_siniestros_viales/docs/documento_final.md",
+  "methodology_proposal": "Reemplazar el offset VMT-autos por un Indice de Exposicion Ponderado por Vulnerabilidad (IEPV = suma ponderada de exposicion por modo segun riesgo relativo) e incorporar la composicion modal como covariable espacial directa y con lag en CAR-SLX, restaurando la consistencia numerador/denominador y separando el efecto de infraestructura del de la composicion del transito. Propuesta conceptual y general (ciudades de trafico heterogeneo), presentada como implementable; pesos anclados en Elvik/OMS y tratables como prior bayesiano con error de medicion. Hipotesis: H1 coeficientes de infraestructura (sendas) se reducen; H2 mejor ajuste DIC/WAIC; H3 el sesgo escala con la heterogeneidad modal.",
+  "review_history": [
+    {
+      "ronda": 1,
+      "fecha": "2026-05-30",
+      "reviewer": "peer_reviewer_v2",
+      "veredicto": "minor_revision",
+      "score": "13/15",
+      "scorecard": { "brecha_literatura": 3, "balance_estado_cuestion": 2, "pregunta_hipotesis": 3, "viabilidad_metodologica": 2, "rigor_citacion": 3 },
+      "issues": [
+        "#1 sendas peatonales: sobre-atribucion al offset de un efecto multicausal -> reformulado en seccion Limitaciones.",
+        "#2 premisa empirica (riesgo por modo) sin anclaje cuantitativo -> anclada con cifra OMS 2023 verificada.",
+        "#3 tesis del sesgo creciente enunciada como hecho -> homogeneizada como prediccion contrastable.",
+        "#4 Gilardi citado sin entrada en Referencias -> reformulado como cita secundaria via Clemente."
+      ]
+    },
+    {
+      "ronda": 2,
+      "fecha": "2026-05-30",
+      "reviewer": "peer_reviewer_v2",
+      "veredicto": "accept",
+      "score": "15/15",
+      "scorecard": { "brecha_literatura": 3, "balance_estado_cuestion": 3, "pregunta_hipotesis": 3, "viabilidad_metodologica": 3, "rigor_citacion": 3 },
+      "issues": [
+        "#1 (baja, no bloqueante) co-cita OMS para afirmacion por-km en seccion Propuesta -> corregido: dejada solo Elvik."
+      ]
+    }
+  ],
+  "controversias_detectadas": [
+    "La afirmacion de transferibilidad universal de Clemente ('any region in the world') es, en rigor, condicional a baja heterogeneidad modal; nunca se explicita. Para Milan el modelo es aproximadamente valido (autos dominan), por eso el sesgo es de segundo orden.",
+    "El campo evita la heterogeneidad modal en vez de modelarla: Iranitalab & Khattak excluyen a los usuarios vulnerables; Aguero-Valverde trabaja contexto rural homogeneo; Clemente la arrastra. Ninguno alinea consistentemente exposicion multimodal con el numerador.",
+    "Matiz a no confundir: la cifra OMS mide composicion de victimas (stock de muertes), NO riesgo por unidad de exposicion/distancia. El 'por km' corresponde solo a Elvik."
+  ],
+  "pendientes_entrega": [
+    "Pasar documento_final.md a Word (Times New Roman 12, interlineado 1,5, 6-8 paginas).",
+    "Verificar manualmente DOIs completados por patron: Clemente (10.1007/s10479-024-06049-7), Iranitalab (10.1016/j.aap.2017.08.008), Abdel-Aty & Radwan (10.1016/S0001-4575(99)00094-9). El de Aguero-Valverde (10.3141/2061-07) ya esta verificado contra el PDF."
+  ],
+  "decisiones_de_encuadre": [
+    "Reencuadre general (por correccion del docente): NO centrar en CABA; framing 'ciudades de trafico heterogeneo'. CABA solo como ejemplo ilustrativo, sin usar sus porcentajes (de la web, dudosos) como dato firme.",
+    "Bibliografia CERRADA: 3 papers nucleo (Clemente 2024, Aguero-Valverde & Jovanis 2008, Iranitalab & Khattak 2017) + soporte ya citado (Hauer 1997, Abdel-Aty & Radwan 2000, Elvik et al. 2009, OMS 2023). No agregar fuentes nuevas.",
+    "Documento narrativo, SIN formulas, propuesta conceptual. Pregunta de investigacion generalizada (mantener esa linea)."
+  ],
+  "ultimo_update": "2026-05-30"
 }
